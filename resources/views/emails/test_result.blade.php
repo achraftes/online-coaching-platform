@@ -6,10 +6,10 @@
 <body>
     <h1>Bonjour {{ $data['fname'] }} {{ $data['lname'] }},</h1>
 
-    <p>Merci d'avoir participé au test.</p>
+    
 
     @if ($data['result'] === 'A')
-        <p><strong>Objet :</strong> <strong>Votre bilan personnalisé - Coaching Confiance en Soi</strong></p>
+        
         <p>Merci d’avoir complété le test d’orientation en coaching personnel. Votre profil indique que votre principal besoin est de renforcer votre <strong>confiance en vous et votre estime de soi.</strong></p>
         <h3>Ce que cela signifie</h3>
         <p>Vous avez du mal à vous affirmer, vous doutez parfois de vos capacités ou vous êtes freiné(e) par le regard des autres. Peut-être ressentez-vous une peur de l’échec ou une difficulté à vous imposer dans certaines situations.</p>
@@ -21,7 +21,7 @@
             <li>Renforcer votre estime personnelle et votre confiance au quotidien.</li>
         </ul>
     @else
-        <p><strong>Objet :</strong> <strong>Votre bilan personnalisé - Coaching Gestion du Stress</strong></p>
+        
         <p>Merci d’avoir répondu à notre test. Vos réponses montrent que votre principal besoin concerne la <strong>gestion du stress et des émotions.</strong></p>
         <h3>Ce que cela signifie</h3>
         <p>Vous ressentez parfois une charge mentale importante, de l’anxiété ou des difficultés à gérer vos émotions au quotidien. Peut-être avez-vous du mal à relâcher la pression ou à trouver des solutions efficaces pour retrouver du calme.</p>

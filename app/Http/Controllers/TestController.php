@@ -17,8 +17,8 @@ class TestController extends Controller
             // 'service' => 'required|string',
             'result' => 'required|string',
         ]);
-
-        $subject = $data['result'] === 'A' ? "Félicitations, vous avez choisi A !" : "Vous avez choisi B !";
+        
+        $subject = $data['result'] === 'A' ? " Votre bilan personnalisé - Coaching Confiance en Soi" : " Votre bilan personnalisé - Coaching Gestion du Stress et des Émotions";
 
         Mail::send('emails.test_result', ['data' => $data], function ($message) use ($data, $subject) {
             $message->to($data['email'])
