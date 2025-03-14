@@ -18,3 +18,6 @@ Route::get('/stress-management-blog', function () {
     return view('pages.stress-blog');
 })->name('stress');
 Route::post('/send-test-email', [TestController::class, 'sendTestEmail']);
+
+Route::get('/rdv', [AppointmentController::class, 'showForm'])->name('appointment.form');
+Route::post('/rdv', [AppointmentController::class, 'schedule'])->name('appointment.schedule');
