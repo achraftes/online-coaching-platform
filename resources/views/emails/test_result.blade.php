@@ -32,7 +32,21 @@
             <li>Améliorer votre organisation pour réduire la charge mentale.</li>
             <li>Retrouver plus de sérénité et de bien-être au quotidien.</li>
         </ul>
-    @endif
+    @endif   
+    <div style="margin: 20px 0; border-top: 1px solid #eee; padding-top: 20px;">
+    <h3>Prendre Rendez-vous</h3>
+    <p>Cliquez ici pour choisir votre créneau :</p>
+    <a href="{{ route('appointment.form', [
+        'email' => $data['email'],
+        'fname' => $data['fname'],
+        'lname' => $data['lname'],
+        'phone' => $data['phone'],
+        'result' => $data['result']
+    ]) }}" 
+    style="background: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        Choisir un créneau
+    </a>
+</div>
 
     <p>Nous vous contacterons bientôt pour discuter de vos résultats.</p>
     <p>Cordialement,</p>
