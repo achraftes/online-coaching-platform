@@ -156,7 +156,7 @@ function processPayment() {
 // à une série de questions pour déterminer le type de coaching qui leur convient.
 
 // Définition des questions et des options pour chaque question
-// Définition des questions du quiz
+
 const questions = [
     {
         question: "1. Comment vous sentez-vous actuellement dans votre vie personnelle ?",
@@ -328,7 +328,7 @@ function showResultsWithoutEmail(result) {
 
     // Pour les résultats C, D et E, afficher le message sans email
     document.getElementById('noEmailResultMessage').classList.remove('hidden');
-    document.getElementById('noEmailResultMessage').scrollIntoView({ behavior: 'smooth' });
+    // Suppression du défilement automatique
 }
 
 // Écouteur d'événement pour soumettre le formulaire email
@@ -404,9 +404,7 @@ function showResultsWithEmail() {
             if (data.success) {
                 document.getElementById('resultMessage').classList.remove('hidden');
                 document.getElementById('noEmailResultMessage').classList.add('hidden');
-                
-                // Faire défiler jusqu'à l'alerte
-                document.getElementById('resultMessage').scrollIntoView({ behavior: 'smooth' });
+                // Suppression du défilement automatique
             } else {
                 alert('Erreur : ' + data.message);
             }
@@ -419,9 +417,7 @@ function showResultsWithEmail() {
         // Pour les autres résultats, afficher un message différent
         document.getElementById('noEmailResultMessage').classList.remove('hidden');
         document.getElementById('resultMessage').classList.add('hidden');
-        
-        // Faire défiler jusqu'à l'alerte
-        document.getElementById('noEmailResultMessage').scrollIntoView({ behavior: 'smooth' });
+        // Suppression du défilement automatique
     }
 }
 
