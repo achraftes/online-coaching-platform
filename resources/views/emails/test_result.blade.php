@@ -43,7 +43,8 @@
         'phone' => $data['phone'],
         'result' => $data['result']
     ]) }}" 
-    style="background: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+    style="background: #2196F3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;"
+>
         Choisir un créneau
     </a>
 </div>
