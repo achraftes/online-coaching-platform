@@ -56,13 +56,30 @@
         </div>
         <br>
         <!-- Message de résultat pour A et B (caché par défaut) -->
-        <div id="resultMessage" class="hidden">
-            <h1>Merci d'avoir complété le test ! Votre bilan personnalisé vous a été envoyé par email. Pensez à vérifier vos spams si vous ne le recevez pas dans quelques minutes.</h1>
-        </div>
-        
-        <!-- Message de résultat pour C, D et E (caché par défaut) -->
-        <div id="noEmailResultMessage" class="hidden">
-            <h1>Merci d'avoir complété le test ! Votre bilan personnalisé s'affiche ci-dessus.</h1>
-        </div>
+        <!-- Message de résultat pour A et B (caché par défaut) -->
+<div id="resultMessage" class="hidden success-alert">
+    <div class="alert-icon">
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="alert-content">
+        Merci d'avoir complété le test ! Votre bilan personnalisé vous a été envoyé par email. Pensez à vérifier vos spams si vous ne le recevez pas dans quelques minutes.
+    </div>
+    <div class="alert-close">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<!-- Message de résultat pour C, D et E (caché par défaut) -->
+<div id="noEmailResultMessage" class="hidden success-alert">
+    <div class="alert-icon">
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="alert-content">
+        Merci d'avoir complété le test ! Votre bilan personnalisé s'affiche ci-dessus.
+    </div>
+    <div class="alert-close">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
     </div>
 </div>

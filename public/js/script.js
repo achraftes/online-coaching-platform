@@ -156,6 +156,7 @@ function processPayment() {
 // à une série de questions pour déterminer le type de coaching qui leur convient.
 
 // Définition des questions et des options pour chaque question
+// Définition des questions du quiz
 const questions = [
     {
         question: "1. Comment vous sentez-vous actuellement dans votre vie personnelle ?",
@@ -204,6 +205,20 @@ let currentQuestion = 0;
 let answers = [];
 let resultKeyGlobal = '';
 
+// Fonction pour initialiser les boutons de fermeture des alertes
+function initializeAlertCloseButtons() {
+    const closeButtons = document.querySelectorAll('.alert-close');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const alert = this.closest('.success-alert');
+            alert.classList.add('hidden');
+        });
+    });
+}
+
+// Initialiser les boutons de fermeture après le chargement du DOM
+document.addEventListener('DOMContentLoaded', initializeAlertCloseButtons);
+
 // Écouteur d'événement pour démarrer le test
 document.getElementById('startTestButton').addEventListener('click', () => {
     document.getElementById('initialContent').classList.add('hidden');
@@ -230,7 +245,7 @@ function displayQuestion() {
             <label for="option${index}">${option}</label>
         `;
         optionElement.addEventListener('click', () => {
-            const selectedOption = document.querySelector(`input[name="question"]:checked`);
+            const selectedOption = document.querySelector('input[name="question"]:checked');
             if (selectedOption) {
                 selectedOption.checked = false;
             }
@@ -310,6 +325,10 @@ function showResultsWithoutEmail(result) {
 
     resultsText.innerText = `Votre accompagnement idéal : ${result.title}`;
     resultsDetails.innerHTML = `<li>${result.description}</li>`;
+
+    // Pour les résultats C, D et E, afficher le message sans email
+    document.getElementById('noEmailResultMessage').classList.remove('hidden');
+    document.getElementById('noEmailResultMessage').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Écouteur d'événement pour soumettre le formulaire email
@@ -317,6 +336,15 @@ document.getElementById('submitForm').addEventListener('click', (event) => {
     event.preventDefault(); // Empêche la soumission du formulaire par défaut
 
     const email = document.getElementById('email').value;
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const phone = document.getElementById('phone').value;
+
+    // Validation des champs
+    if (!fname || !lname || !phone || !email) {
+        alert('Veuillez remplir tous les champs du formulaire.');
+        return;
+    }
 
     if (validateEmail(email)) {
         showResultsWithEmail();
@@ -376,6 +404,9 @@ function showResultsWithEmail() {
             if (data.success) {
                 document.getElementById('resultMessage').classList.remove('hidden');
                 document.getElementById('noEmailResultMessage').classList.add('hidden');
+                
+                // Faire défiler jusqu'à l'alerte
+                document.getElementById('resultMessage').scrollIntoView({ behavior: 'smooth' });
             } else {
                 alert('Erreur : ' + data.message);
             }
@@ -388,6 +419,9 @@ function showResultsWithEmail() {
         // Pour les autres résultats, afficher un message différent
         document.getElementById('noEmailResultMessage').classList.remove('hidden');
         document.getElementById('resultMessage').classList.add('hidden');
+        
+        // Faire défiler jusqu'à l'alerte
+        document.getElementById('noEmailResultMessage').scrollIntoView({ behavior: 'smooth' });
     }
 }
 
