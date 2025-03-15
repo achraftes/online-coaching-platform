@@ -20,7 +20,7 @@
         
         <!-- Section du formulaire (cachée par défaut) -->
         <div id="emailSection" class="hidden">
-            <p>Veuillez remplir ce formulaire pour recevoir votre bilan personnalisé</p> <br>
+            <p style=" font-weight: bold;">Veuillez remplir ce formulaire pour recevoir votre bilan personnalisé</p> <br>
             <form id="userForm">
                 <!-- Prénom -->
                 <div class="form-group">
