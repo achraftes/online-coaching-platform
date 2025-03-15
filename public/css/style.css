@@ -286,6 +286,8 @@ button[onclick="processPayment()"]:hover {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin: 20px auto 0;
+    display: block;
+    width: fit-content; 
 }
 
 .animated-button:hover {
