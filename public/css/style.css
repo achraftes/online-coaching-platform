@@ -438,6 +438,111 @@ button[onclick="processPayment()"]:hover {
     box-shadow: none;
     color: black;
 }
+/* Style amélioré pour la section des résultats */
+.result-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.result-header {
+    background-color: #4F46E5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.result-header h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.result-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.result-icon {
+    background-color: #4F46E5;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+}
+
+.result-title {
+    color: #333;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.result-description {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.result-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.result-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4F46E5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.result-footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eaeaea;
+}
+
+/* Animation pour l'affichage des résultats */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#resultsSection.show {
+    animation: fadeInUp 0.5s forwards;
+}
 
 /* Style du bouton suivant */
 #nextButton {

@@ -20,27 +20,27 @@
         
         <!-- Section du formulaire (cachée par défaut) -->
         <div id="emailSection" class="hidden">
-            <p>Veuillez remplir ce formulaire pour recevoir votre bilan personnalisé </p> <br>
+            <p>Veuillez remplir ce formulaire pour recevoir votre bilan personnalisé</p> <br>
             <form id="userForm">
                 <!-- Prénom -->
                 <div class="form-group">
-                    <label for="fname">Prénom </label>
-                    <input type="text" id="fname" name="fname" placeholder="Entrez Votre prénom" required>
+                    <label for="fname">Prénom</label>
+                    <input type="text" id="fname" name="fname" placeholder="Entrez votre prénom" required>
                 </div>
                 <!-- Nom -->
                 <div class="form-group">
-                    <label for="lname">Nom </label>
-                    <input type="text" id="lname" name="lname" placeholder="Entrez Votre nom" required>
+                    <label for="lname">Nom</label>
+                    <input type="text" id="lname" name="lname" placeholder="Entrez votre nom" required>
                 </div>
                 <!-- Téléphone -->
                 <div class="form-group">
-                    <label for="phone">Téléphone </label>
-                    <input type="tel" id="phone" name="phone" placeholder="Entrez Votre numéro de téléphone" required>
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone" required>
                 </div>
                 <!-- Email -->
                 <div class="form-group">
-                    <label for="email">Email </label>
-                    <input type="email" id="email" name="email" placeholder="Entrez Votre email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
                 </div>
                 <!-- Bouton de soumission -->
                 <button type="submit" id="submitForm" class="animated-button">Recevoir mon bilan</button>
@@ -48,38 +48,48 @@
         </div>
         
         <!-- Section des résultats (cachée par défaut) -->
-        <div id="resultsSection" class="hidden">
-            <h2>Résultats : Votre Accompagnement Idéal</h2>
-            <h1 id="resultsText"></h1>
-            <ul id="resultsDetails"></ul>
-            <button id="restartButton" class="animated-button">Recommencer le test</button>
+        <div id="resultsSection" class="hidden result-container">
+            <div class="result-header">
+                <h2>Résultats : Votre Accompagnement Idéal</h2>
+            </div>
+            <div class="result-body">
+                <div class="result-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h1 id="resultsText" class="result-title"></h1>
+                <div class="result-description">
+                    <ul id="resultsDetails" class="result-list"></ul>
+                </div>
+            </div>
+            <div class="result-footer">
+                <button id="restartButton" class="animated-button">Recommencer le test</button>
+            </div>
         </div>
         <br>
         <!-- Message de résultat pour A et B (caché par défaut) -->
-        <!-- Message de résultat pour A et B (caché par défaut) -->
-<div id="resultMessage" class="hidden success-alert">
-    <div class="alert-icon">
-        <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="alert-content">
-        Merci d'avoir complété le test ! Votre bilan personnalisé vous a été envoyé par email. Pensez à vérifier vos spams si vous ne le recevez pas dans quelques minutes.
-    </div>
-    <div class="alert-close">
-        <i class="fas fa-times"></i>
-    </div>
-</div>
+        <div id="resultMessage" class="hidden success-alert">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                Merci d'avoir complété le test ! Votre bilan personnalisé vous a été envoyé par email. Pensez à vérifier vos spams si vous ne le recevez pas dans quelques minutes.
+            </div>
+            <div class="alert-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
 
-<!-- Message de résultat pour C, D et E (caché par défaut) -->
-<div id="noEmailResultMessage" class="hidden success-alert">
-    <div class="alert-icon">
-        <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="alert-content">
-        Merci d'avoir complété le test ! Votre bilan personnalisé s'affiche ci-dessus.
-    </div>
-    <div class="alert-close">
-        <i class="fas fa-times"></i>
-    </div>
-</div>
+        <!-- Message de résultat pour C, D et E (caché par défaut) -->
+        <div id="noEmailResultMessage" class="hidden success-alert">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                Merci d'avoir complété le test ! Votre bilan personnalisé s'affiche ci-dessus.
+            </div>
+            <div class="alert-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
     </div>
 </div>
