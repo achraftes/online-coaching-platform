@@ -319,16 +319,16 @@ function showEmailSection() {
 function showResultsWithoutEmail(result) {
     document.getElementById('quizForm').classList.add('hidden');
     document.getElementById('resultsSection').classList.remove('hidden');
+    document.getElementById('resultsSection').classList.add('show');
 
     const resultsText = document.getElementById('resultsText');
     const resultsDetails = document.getElementById('resultsDetails');
 
-    resultsText.innerText = `Votre accompagnement idéal : ${result.title}`;
+    resultsText.innerText = `${result.title}`;
     resultsDetails.innerHTML = `<li>${result.description}</li>`;
 
     // Pour les résultats C, D et E, afficher le message sans email
     document.getElementById('noEmailResultMessage').classList.remove('hidden');
-    // Suppression du défilement automatique
 }
 
 // Écouteur d'événement pour soumettre le formulaire email
@@ -363,12 +363,13 @@ function validateEmail(email) {
 function showResultsWithEmail() {
     document.getElementById('emailSection').classList.add('hidden');
     document.getElementById('resultsSection').classList.remove('hidden');
+    document.getElementById('resultsSection').classList.add('show');
 
     const result = calculateResult();
     const resultsText = document.getElementById('resultsText');
     const resultsDetails = document.getElementById('resultsDetails');
 
-    resultsText.innerText = `Votre accompagnement idéal : ${result.title}`;
+    resultsText.innerText = `${result.title}`;
     resultsDetails.innerHTML = `<li>${result.description}</li>`;
 
     // Récupérer les données du formulaire
@@ -404,7 +405,6 @@ function showResultsWithEmail() {
             if (data.success) {
                 document.getElementById('resultMessage').classList.remove('hidden');
                 document.getElementById('noEmailResultMessage').classList.add('hidden');
-                // Suppression du défilement automatique
             } else {
                 alert('Erreur : ' + data.message);
             }
@@ -417,7 +417,6 @@ function showResultsWithEmail() {
         // Pour les autres résultats, afficher un message différent
         document.getElementById('noEmailResultMessage').classList.remove('hidden');
         document.getElementById('resultMessage').classList.add('hidden');
-        // Suppression du défilement automatique
     }
 }
 
@@ -464,6 +463,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
     answers = [];
     resultKeyGlobal = '';
     document.getElementById('resultsSection').classList.add('hidden');
+    document.getElementById('resultsSection').classList.remove('show');
     document.getElementById('resultMessage').classList.add('hidden');
     document.getElementById('noEmailResultMessage').classList.add('hidden');
     document.getElementById('quizForm').classList.add('hidden');
