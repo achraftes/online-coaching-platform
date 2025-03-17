@@ -126,7 +126,9 @@
                 <textarea 
                     id="comment" 
                     name="comment" 
-                    placeholder="Ex : Préférence pour un appel vidéo, disponibilités alternatives..."
+                    placeholder="Ajoutez des détails supplémentaires ou des préférences pour votre rendez-vous..."
+
+
                 ></textarea>
             </div>
 
