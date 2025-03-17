@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
-
+use App\Http\Controllers\AppointmentController;
 
 
 Route::get('/', function () {
@@ -21,3 +21,6 @@ Route::post('/send-test-email', [TestController::class, 'sendTestEmail']);
 
 Route::get('/rdv', [AppointmentController::class, 'showForm'])->name('appointment.form');
 Route::post('/rdv', [AppointmentController::class, 'schedule'])->name('appointment.schedule');
+
+
+
