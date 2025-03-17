@@ -1,5 +1,5 @@
  <!-- Header Section -->
-    <header class="relative z-50 w-full h-24 bg-white shadow-sm">
+ <header class="relative z-50 w-full h-24 bg-white shadow-sm">
         <div class="container flex items-center justify-between h-full max-w-6xl px-8 mx-auto xl:px-0">
             <a href="/" class="relative flex items-center h-full font-black leading-none">
                 <svg class="w-auto h-8 text-indigo-600 fill-current" viewBox="0 0 194 116"
