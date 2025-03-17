@@ -10,34 +10,51 @@ class AppointmentController extends Controller
 {
     protected $calendar;
 
+    // Injection du service Google Calendar
     public function __construct(GoogleCalendarService $calendar)
     {
         $this->calendar = $calendar;
     }
 
+    // Afficher le formulaire de RDV avec pré-remplissage des données utilisateur
     public function showForm(Request $request)
     {
+        // Validation des paramètres de l'URL
+        $validatedParams = $request->validate([
+            'fname' => 'required|string|max:50',
+            'lname' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'required|string|max:20',
+            'result' => 'required|in:A,B' 
+        ]);
+
         return view('appointment.form', [
-            'user' => $request->all()
+            'user' => $validatedParams // Données sécurisées
         ]);
     }
 
+    // Traiter la soumission du formulaire
     public function schedule(Request $request)
     {
+        // Validation des données
         $validated = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|string|max:50',
+            'lname' => 'required|string|max:50',
             'email' => 'required|email',
-            'phone' => 'required',
-            'result' => 'required',
-            'appointment_date' => 'required|date|after:now'
+            'phone' => 'required|string|max:20',
+            'result' => 'required|in:A,B',
+            'appointment_date' => 'required|date|after:now',
+            'comment' => 'nullable|string|max:500' 
         ]);
 
         try {
-            // Création de l'événement dans Google Calendar
+            // Création de l'événement Google Calendar
             $event = $this->calendar->createEvent([
                 'start' => $validated['appointment_date'],
-                'summary' => 'Coaching '.($validated['result'] === 'A' ? " Votre bilan personnalisé - Coaching Confiance en Soi" :  " Votre bilan personnalisé - Coaching Gestion du Stress et des Émotions"),
+                'summary' => 'Coaching '.($validated['result'] === 'A' 
+                    ? "Confiance en Soi" 
+                    : "Gestion du Stress"),
+                'description' => $validated['comment'] ?? 'Aucun commentaire',
                 'attendees' => [
                     ['email' => $validated['email']],
                     ['email' => config('MAIL_FROM_ADDRESS')]
@@ -53,10 +70,13 @@ class AppointmentController extends Controller
                         ->subject('Nouveau RDV - '.$validated['fname']);
             });
 
-            return redirect()->back()->with('success', 'RDV confirmé! Un email de confirmation a été envoyé.');
+            return redirect()->back()
+                ->with('success', 'RDV confirmé! Un email de confirmation a été envoyé.');
 
         } catch (\Exception $e) {
-            return back()->with('error', 'Erreur: '.$e->getMessage());
+            return back()
+                ->withInput()
+                ->with('error', 'Erreur: '.$e->getMessage());
         }
     }
 }
