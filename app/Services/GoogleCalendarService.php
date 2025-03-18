@@ -17,6 +17,7 @@ class GoogleCalendarService
         $this->client = new Client();
         $this->client->setAuthConfig(storage_path('app/google-credentials.json'));
         $this->client->addScope(Calendar::CALENDAR);
+        $this->client->setAccessType('offline'); 
         
         // Charger le token d'accès (à stocker après l'authentification initiale)
         $this->client->setAccessToken(json_decode(file_get_contents(storage_path('app/google-token.json')), true));
