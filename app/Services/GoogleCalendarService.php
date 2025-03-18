@@ -21,6 +21,7 @@ class GoogleCalendarService
         
         // Charger le token d'accès (à stocker après l'authentification initiale)
         $this->client->setAccessToken(json_decode(file_get_contents(storage_path('app/google-token.json')), true));
+        
     }
 
     public function createEvent($data)
