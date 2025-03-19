@@ -24,7 +24,7 @@ class TestController extends Controller
             $message->to($data['email'])
                     ->subject($subject);
         });
-
+        
         return response()->json(['success' => true]);
     }
 }
