@@ -11,6 +11,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Fonction pour charger PayPal de manière dynamique
+        function loadPayPalScript() {
+            console.log('Début du chargement du script PayPal');
+            return new Promise((resolve, reject) => {
+                // Vérifier si PayPal est déjà chargé
+                if (window.paypal) {
+                    console.log('PayPal est déjà chargé');
+                    resolve();
+                    return;
+                }
+
+                const script = document.createElement('script');
+                const params = new URLSearchParams({
+                    'client-id': 'AaJQBfi_ceDEEHLITezh5JAcR64vDVDLbRBAJFaMYLp2J2mwtVvajCX_pWvgcj-oj9LzcOSOvhG1vJb4',
+                    'currency': 'CAD',
+                    'intent': 'capture'
+                });
+
+                script.src = `https://www.paypal.com/sdk/js?${params.toString()}`;
+                script.async = true;
+
+                script.onload = () => {
+                    console.log('Script PayPal chargé avec succès');
+                    // Attendre un court instant pour s'assurer que PayPal est bien initialisé
+                    setTimeout(() => {
+                        if (window.paypal) {
+                            resolve();
+                        } else {
+                            console.error('PayPal SDK non disponible après chargement');
+                            reject(new Error('PayPal SDK non disponible'));
+                        }
+                    }, 500);
+                };
+
+                script.onerror = (error) => {
+                    console.error('Erreur lors du chargement du script PayPal:', error);
+                    reject(new Error('Impossible de charger PayPal - Veuillez réessayer plus tard'));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+    </script>
+    @vite(['resources/css/style-inscription.css', 'resources/js/script-inscription.js'])
+    <script>
+        function showModal() {
+            const modal = document.getElementById('inscriptionModal');
+            if (modal) {
+                modal.style.display = 'block';
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('inscriptionModal');
+            if (modal) {
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+    <style>
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #10B981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body class="overflow-x-hidden antialiased">
@@ -211,6 +293,54 @@
 </div>
 
     <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+    // Afficher le modal automatiquement si des erreurs sont présentes
+    @if($errors->any() || session('showModal'))
+        document.addEventListener('DOMContentLoaded', function() {
+            showModal();
+        });
+    @endif
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailInput = document.getElementById('email');
+        const emailExistsError = document.getElementById('email-exists-error');
+        let emailCheckTimeout;
+
+        emailInput.addEventListener('input', function() {
+            clearTimeout(emailCheckTimeout);
+
+            emailCheckTimeout = setTimeout(async function() {
+                const email = emailInput.value;
+
+                if (email && email.includes('@')) {
+                    try {
+                        const response = await fetch('/check-email', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ email: email })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.exists) {
+                            emailExistsError.classList.remove('hidden');
+                            emailInput.classList.add('border-red-500');
+                        } else {
+                            emailExistsError.classList.add('hidden');
+                            emailInput.classList.remove('border-red-500');
+                        }
+                    } catch (error) {
+                        console.error('Erreur lors de la vérification de l\'email:', error);
+                    }
+                }
+            }, 500); // Délai de 500ms avant de vérifier
+        });
+    });
+</script>
 
 </body>
 

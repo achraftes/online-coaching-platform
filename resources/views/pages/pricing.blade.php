@@ -147,3 +147,4 @@
         </div>
     </div>
 </div>
+@vite(['resources/css/style1.css', 'resources/js/script1.js'])

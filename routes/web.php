@@ -24,3 +24,9 @@ Route::post('/rdv', [AppointmentController::class, 'schedule'])->name('appointme
 
 
 
+
+Route::post('/clients', [ClientController::class, 'store']);
+Route::post('/check-email', [ClientController::class, 'checkEmail']);
+Route::post('/api/process-payment', [PaymentController::class, 'processPayment']);
+Route::post('/api/confirm-payment', [PaymentController::class, 'confirmPayment']);
+Route::post('/confirm-payment', [PaymentController::class, 'confirmPayment']);

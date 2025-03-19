@@ -1,0 +1,611 @@
+/* Cacher les SVG sur petits écrans */
+@media(max-width: 1520px) {
+    .left-svg {
+        display: none;
+    }
+}
+
+/* Style pour le bouton de fermeture du menu mobile */
+#nav-mobile-btn.close span:first-child {
+    transform: rotate(45deg);
+    top: 4px;
+    background: #a0aec0;
+}
+
+#nav-mobile-btn.close span:nth-child(2) {
+    transform: rotate(-45deg);
+    background: #a0aec0;
+}
+
+/* ----------- MODAL STYLES ----------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: block !important;
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 90%;
+    padding: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Bouton de fermeture */
+.close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.close-button:hover {
+    background: #F3F4F6;
+    color: #1F2937;
+}
+
+/* ----------- FORM INPUT STYLES ----------- */
+.form-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #F9FAFB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s;
+}
+
+/* ----------- SELECT STYLES ----------- */
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 3rem;
+}
+
+/* ----------- BUTTON STYLES ----------- */
+.submit-button,
+button[onclick="processPayment()"] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #4F46E5, #4338CA);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+.submit-button:hover,
+button[onclick="processPayment()"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -1px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(135deg, #4338CA, #3730A3);
+}
+
+/* ----------- PAYMENT OPTION STYLES ----------- */
+.payment-option {
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.payment-option:hover {
+    border-color: #4F46E5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.payment-option input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #4F46E5;
+    border-radius: 50%;
+    margin-right: 1rem;
+    transition: all 0.2s ease;
+}
+
+.payment-option input[type="radio"]:checked {
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+}
+
+/* ----------- SUMMARY STYLES ----------- */
+.summary-section {
+    background: #F8FAFC;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #E5E7EB;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    color: #4B5563;
+}
+
+.summary-total {
+    border-top: 2px solid #E5E7EB;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* ----------- ERROR & SUCCESS MESSAGES ----------- */
+.error-text {
+    color: #DC2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: #FEF2F2;
+}
+
+.success-message {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #059669, #047857);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ----------- PAYMENT MODAL STYLES ----------- */
+.payment-modal {
+    max-width: 600px !important;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2.5rem;
+}
+
+.summary-section {
+    background: linear-gradient(145deg, #f8fafc, #ffffff);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+.summary-total {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 2px dashed #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 1.2rem;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.payment-option {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.payment-option:hover {
+    transform: translateY(-2px);
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.payment-option-content {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.payment-option input[type="radio"]:checked + .payment-option-content {
+    border-color: #4f46e5;
+    background: rgba(79, 70, 229, 0.02);
+    box-shadow: 0 4px 12px -1px rgba(79, 70, 229, 0.1);
+}
+
+.payment-logo {
+    width: auto;
+    height: 36px;
+    margin-right: 1.25rem;
+    object-fit: contain;
+}
+
+.payment-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 14px;
+    margin-right: 1.25rem;
+    color: #4f46e5;
+    transition: all 0.3s ease;
+}
+
+.payment-option input[type="radio"]:checked + .payment-option-content .payment-icon {
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.payment-details {
+    flex: 1;
+}
+
+.payment-title {
+    display: block;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+    font-size: 1.1rem;
+}
+
+.payment-description {
+    display: block;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.payment-check {
+    width: 28px;
+    height: 28px;
+    color: #4f46e5;
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.payment-option input[type="radio"]:checked + .payment-option-content .payment-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#stripe-elements {
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#stripe-elements:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 4px 12px -1px rgba(79, 70, 229, 0.1);
+}
+
+.stripe-element {
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 1.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #4f46e5, #4338ca);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #4338ca, #3730a3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -1px rgba(79, 70, 229, 0.25);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+.btn-secondary:hover {
+    background: rgba(79, 70, 229, 0.05);
+    transform: translateY(-2px);
+}
+
+#paypal-button-container {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+}
+
+/* Messages d'erreur améliorés */
+#card-errors {
+    color: #ef4444;
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #fef2f2;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Message de succès amélioré */
+.success-message {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(145deg, #22c55e, #16a34a);
+    color: white;
+    padding: 1rem 1.75rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 50;
+    animation: slideIn 0.3s ease-out;
+    font-weight: 500;
+}
+
+/* Animation du spinner améliorée */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+
+
+
+
+
+:root {
+    --primary-color: #4F46E5;
+    --primary-hover: #4338CA;
+    --secondary-color: #E5E7EB;
+    --background-color: #F9FAFB;
+    --text-color: #374151;
+    --error-color: #DC2626;
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}
+
+/* ----------- DROPDOWN STYLES ----------- */
+.dropdown {
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.dropdown:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.selected-option {
+    padding: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.dropdown:hover .options {
+    display: block; /* Afficher les options au survol */
+}
+
+.option {
+    padding: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.option:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);  /* ///////////////////////////////////////////////////////*/
+}
+.options .option::before {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-speed) ease;
+}
+.options .option:hover::before {
+    transform: translateX(5px); /* Déplacer l'icône au survol */
+    content: "→"; /* Icône ou indicateur */
+}
+
+.optgroup {
+    border-top: 1px solid var(--secondary-color);
+}
+
+.group-label {
+    font-weight: 600;
+    background-color: var(--background-color);
+    padding: 1rem;
+    color: var(--text-color);
+    display: block;
+}
+
+.sub-options {
+    display: none; /* Cacher les sous-options par défaut */
+    padding-left: 1rem; /* Indentation pour les sous-options */
+    background-color: #f9f9f9;
+    border-left: 2px solid var(--primary-color);
+    
+}
+
+.option:hover .sub-options {
+    display: block; /* Afficher les sous-options au survol de l'option parente */
+}
+
+.sub-options .option {
+    padding: 0.75rem 1rem; /* Réduire le padding pour les sous-options */
+    color: var(--text-color);
+    
+}
+
+.sub-options .option:hover {
+   
+    color: var(--primary-color);
+}
+
+.sub-options .option::before {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-speed) ease;
+}
+.sub-options .option:hover::before {
+    transform: translateX(5px); /* Déplacer l'icône au survol */
+    content: "→"; /* Icône ou indicateur */
+}
