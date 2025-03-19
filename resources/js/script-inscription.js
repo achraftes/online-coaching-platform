@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialisation de Stripe avec la clé publique
     const stripePublicKey = 'pk_test_51R2JiDKXCswdU07U96r1QyW90xAPCXHdAT97T0yHjXTexLuPKsIhXsRYSxAyk49vosXvpZnllQCTpvfjjI3KJ56u00PCYWM2cg';
     try {
-        stripeInstance = Stripe(stripePublicKey);
+        let stripeInstance = Stripe(stripePublicKey);
         const elements = stripeInstance.elements();
-        card = elements.create('card', {
+        let card= elements.create('card', {
             style: {
                 base: {
                     fontSize: '16px',
