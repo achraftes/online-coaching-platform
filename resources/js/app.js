@@ -1,5 +1,5 @@
 import './bootstrap';
-import './scrip1t';
+import './script-inscription';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Payment from './Pages/Payment';
