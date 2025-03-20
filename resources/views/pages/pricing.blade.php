@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="flex items-center block p-8 uppercase">
-                            <button type="button" class="select-plan-btn block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-green-600" onclick="showModal()">Select This Plan</button>
+                        <button type="button" class="select-plan-btn block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-indigo-600" onclick="showModal()">Select This Plan</button>
                         </div>
                     </div>
                 </div>
