@@ -127,7 +127,7 @@
         background-color: #4F46E5;
         color: white;
         border: none;
-        border-radius: 50%;
+        border-radius: 10px;
         font-size: 18px;
         cursor: pointer;
         display: none;
