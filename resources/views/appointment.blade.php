@@ -84,7 +84,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background: #4299e1;
+            background: #4338CA;
             color: white;
             border: none;
             border-radius: 5px;
@@ -100,7 +100,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Make an appointment</h2>
+        <h2> Prendre Rendez-vous</h2>
         
         @if(session('success'))
             <div class="alert-success">
@@ -120,7 +120,7 @@
             
             <!-- Sélection de la date -->
             <div class="form-group">
-                <label for="appointment_date">Choose a slot:</label>
+                <label for="appointment_date">Choisissez un créneau :</label>
                 <input 
                     type="datetime-local" 
                     id="appointment_date" 
@@ -132,7 +132,7 @@
             
             <!-- Commentaire optionnel -->
             <div class="form-group">
-                <label for="comment">Comments (optional):</label>
+                <label for="comment">Commentaires (facultatif) :</label>
                 <textarea 
                     id="comment" 
                     name="comment" 
@@ -140,7 +140,7 @@
                 ></textarea>
             </div>
             
-            <button type="submit">Confirm the appointment</button>
+            <button type="submit">Confirmer le RDV</button>
         </form>
     </div>
 </body>
