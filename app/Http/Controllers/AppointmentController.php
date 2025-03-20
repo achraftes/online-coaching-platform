@@ -4,19 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Services\GoogleCalendarService;
+use App\Mail\AppointmentMail;
 
 class AppointmentController extends Controller
 {
-    protected $calendar;
-
-    // Injection du service Google Calendar
-    public function __construct(GoogleCalendarService $calendar)
-    {
-        $this->calendar = $calendar;
-    }
-
-    // Afficher le formulaire de RDV avec pré-remplissage des données utilisateur
+    // Méthode pour afficher le formulaire avec les paramètres de l'URL
     public function showForm(Request $request)
     {
         // Validation des paramètres de l'URL
@@ -25,58 +17,54 @@ class AppointmentController extends Controller
             'lname' => 'required|string|max:50',
             'email' => 'required|email',
             'phone' => 'required|string|max:20',
-            'result' => 'required|in:A,B' 
+            'result' => 'required|in:A,B'
         ]);
 
-        return view('appointment.form', [
-            'user' => $validatedParams // Données sécurisées
+        // Passer les données validées à la vue
+        return view('appointment', [
+            'fname' => $validatedParams['fname'],
+            'lname' => $validatedParams['lname'],
+            'email' => $validatedParams['email'],
+            'phone' => $validatedParams['phone'],
+            'result' => $validatedParams['result']
         ]);
     }
 
-    // Traiter la soumission du formulaire
-    public function schedule(Request $request)
+    // Méthode pour traiter la soumission du formulaire
+    public function scheduleAppointment(Request $request)
     {
-        // Validation des données
+        // Valider les données du formulaire
         $validated = $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:50',
             'email' => 'required|email',
             'phone' => 'required|string|max:20',
             'result' => 'required|in:A,B',
-            'appointment_date' => 'required|date|after:now',
-            'comment' => 'nullable|string|max:500' 
+            'appointment_date' => 'required|date',
+            'comment' => 'nullable|string|max:500',
         ]);
 
-        try {
-            // Création de l'événement Google Calendar
-            $event = $this->calendar->createEvent([
-                'start' => $validated['appointment_date'],
-                'summary' => 'Coaching '.($validated['result'] === 'A' 
-                    ? "Confiance en Soi" 
-                    : "Gestion du Stress"),
-                'description' => $validated['comment'] ?? 'Aucun commentaire',
-                'attendees' => [
-                    ['email' => $validated['email']],
-                    ['email' => config('MAIL_FROM_ADDRESS')]
-                ]
-            ]);
+        // Préparer les détails pour l'email
+        $details = [
+            'fname' => $validated['fname'],
+            'lname' => $validated['lname'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'result' => $validated['result'],
+            'appointment_date' => $validated['appointment_date'],
+            'comment' => $request->input('comment', ''),
+        ];
 
-            // Envoi email à l'admin
-            Mail::send('emails.admin_notification', [
-                'data' => $validated,
-                'event' => $event
-            ], function($message) use ($validated) {
-                $message->to(config('MAIL_FROM_ADDRESS'))
-                        ->subject('Nouveau RDV - '.$validated['fname']);
-            });
+        // Envoyer l'email
+        Mail::to('achrafchikrabane@gmail.com')->send(new AppointmentMail($details));
 
-            return redirect()->back()
-                ->with('success', 'RDV confirmé! Un email de confirmation a été envoyé.');
-
-        } catch (\Exception $e) {
-            return back()
-                ->withInput()
-                ->with('error', 'Erreur: '.$e->getMessage());
-        }
+        // Rediriger avec un message de succès
+        return redirect()->route('appointment.form', [
+            'fname' => $validated['fname'],
+            'lname' => $validated['lname'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'result' => $validated['result']
+        ])->with('success', 'Votre rendez-vous a été confirmé et un email a été envoyé à Achrafchikrabane@gmail.com.');
     }
 }

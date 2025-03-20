@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,8 +22,8 @@ Route::get('/stress-management-blog', function () {
 })->name('stress');
 Route::post('/send-test-email', [TestController::class, 'sendTestEmail']);
 
-Route::get('/rdv', [AppointmentController::class, 'showForm'])->name('appointment.form');
-Route::post('/rdv', [AppointmentController::class, 'schedule'])->name('appointment.schedule');
+// Route::get('/rdv', [AppointmentController::class, 'showForm'])->name('appointment.form');
+// Route::post('/rdv', [AppointmentController::class, 'schedule'])->name('appointment.schedule');
 
 
 
@@ -32,3 +33,7 @@ Route::post('/check-email', [ClientController::class, 'checkEmail']);
 Route::post('/api/process-payment', [PaymentController::class, 'processPayment']);
 Route::post('/api/confirm-payment', [PaymentController::class, 'confirmPayment']);
 Route::post('/confirm-payment', [PaymentController::class, 'confirmPayment']);
+
+
+Route::get('/appointment', [AppointmentController::class, 'showForm'])->name('appointment.form');
+Route::post('/appointment/schedule', [AppointmentController::class, 'scheduleAppointment'])->name('appointment.schedule');
