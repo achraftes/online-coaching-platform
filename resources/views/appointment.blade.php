@@ -136,7 +136,7 @@
                 <textarea 
                     id="comment" 
                     name="comment" 
-                    placeholder="Add additional details..."
+                    placeholder="Ajoutez des détails supplémentaires..."
                 ></textarea>
             </div>
             
