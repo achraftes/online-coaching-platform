@@ -25,14 +25,18 @@
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8rem;
+            text-align: center;
+            width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
         
-        h2:before {
+        h2::before {
             content: "📅";
-            font-size: 1.5rem;
+            display: inline-block;
+            font-size: 1.8rem;
         }
         
         .alert-success {
