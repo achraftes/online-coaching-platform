@@ -11,20 +11,30 @@
             margin: 0;
             padding: 0;
         }
+        
         .container {
             max-width: 600px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 30px;
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
+        
         h2 {
             color: #2c3e50;
-            text-align: center;
             margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        
+        h2:before {
+            content: "📅";
+            font-size: 1.5rem;
+        }
+        
         .alert-success {
             background: #d4edda;
             color: #155724;
@@ -34,15 +44,18 @@
             margin-bottom: 20px;
             text-align: center;
         }
+        
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
+        
         label {
             display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #4a5568;
         }
+        
         input[type="datetime-local"],
         textarea {
             width: 100%;
@@ -50,17 +63,20 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
-            transition: border 0.3s ease-in-out;
+            box-sizing: border-box;
         }
+        
         input[type="datetime-local"]:focus,
         textarea:focus {
             border-color: #4299e1;
             outline: none;
         }
+        
         textarea {
             min-height: 100px;
             resize: vertical;
         }
+        
         button {
             width: 100%;
             padding: 12px;
@@ -72,6 +88,7 @@
             cursor: pointer;
             transition: background 0.3s;
         }
+        
         button:hover {
             background: #3182ce;
         }
@@ -79,18 +96,18 @@
 </head>
 <body>
     <div class="container">
-        <h2>📅 Prendre Rendez-vous</h2>
+        <h2>Make an appointment</h2>
         
         @if(session('success'))
             <div class="alert-success">
                 {{ session('success') }}
             </div>
         @endif
-
+        
         <form action="{{ route('appointment.schedule') }}" method="POST">
             @csrf
             
-            <!-- Champs cachés pour les données déjà validées -->
+            <!-- Champs cachés -->
             <input type="hidden" name="fname" value="{{ $fname }}">
             <input type="hidden" name="lname" value="{{ $lname }}">
             <input type="hidden" name="email" value="{{ $email }}">
@@ -99,7 +116,7 @@
             
             <!-- Sélection de la date -->
             <div class="form-group">
-                <label for="appointment_date">Choisissez un créneau :</label>
+                <label for="appointment_date">Choose a slot:</label>
                 <input 
                     type="datetime-local" 
                     id="appointment_date" 
@@ -111,15 +128,15 @@
             
             <!-- Commentaire optionnel -->
             <div class="form-group">
-                <label for="comment">Commentaires (facultatif) :</label>
+                <label for="comment">Comments (optional):</label>
                 <textarea 
                     id="comment" 
                     name="comment" 
-                    placeholder="Ajoutez des détails supplémentaires..."
+                    placeholder="Add additional details..."
                 ></textarea>
             </div>
             
-            <button type="submit">Confirmer le RDV</button>
+            <button type="submit">Confirm the appointment</button>
         </form>
     </div>
 </body>
