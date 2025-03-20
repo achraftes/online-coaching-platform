@@ -65,6 +65,6 @@ class AppointmentController extends Controller
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'result' => $validated['result']
-        ])->with('success', 'Votre rendez-vous a été confirmé et un email a été envoyé à Achrafchikrabane@gmail.com.');
+        ])->with('success', 'Votre rendez-vous a été confirmé et un email a été envoyé à achrafchikrabane@gmail.com.');
     }
 }
