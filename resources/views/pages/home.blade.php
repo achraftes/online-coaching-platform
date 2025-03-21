@@ -99,12 +99,13 @@
                 </g>
             </svg>
         </div>
-        <div class="relative z-50 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
-            <div class="container relative left-0 w-full max-w-4xl lg:absolute xl:max-w-6xl lg:w-screen">
-                <img src="https://cdn.devdojo.com/images/september2020/macbook-mockup.png"
-                    class="w-full h-auto mt-20 mb-20 ml-0 lg:mt-24 xl:mt-40 lg:mb-0 lg:h-full lg:-ml-12">
-            </div>
-        </div>
+            <div class="relative z-50 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
+                <div class="container relative left-0 w-full max-w-3xl lg:absolute xl:max-w-4xl lg:w-screen">
+                       <img src="{{ asset('images/Coaching(4).jpg') }}" 
+                       class="w-full md:w-4/5 lg:w-[400px] xl:w-[500px] h-auto mt-12 mb-12 mx-auto lg:mt-16 xl:mt-24 lg:mb-0 "
+                       alt="Coaching professionnel">
+             </div>
+        </div> 
     </div>
 </div>
 <!-- Dans resources/views/home.blade.php ou welcome.blade.php -->
