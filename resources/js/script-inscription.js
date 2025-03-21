@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 300);
         }
     }
-
+   
     // Initialisation des gestionnaires d'événements pour la modal de paiement
     const initPaymentModalHandlers = () => {
         // Fermeture en cliquant sur les boutons
