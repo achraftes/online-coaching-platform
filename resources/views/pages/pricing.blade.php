@@ -146,4 +146,26 @@
             </div>
         </div>
     </div>
-</div>
+</div>  
+
+
+<script>
+    function showModal() {
+    const modal = document.getElementById('inscriptionModal');
+    if (modal) {
+        modal.style.display = 'block';
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideModal() {
+    const modal = document.getElementById('inscriptionModal');
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+</script>

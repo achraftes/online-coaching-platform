@@ -186,7 +186,7 @@
 <!-- Modal de paiement -->
 <div id="paymentModal" class="modal">
     <div class="modal-content payment-modal">
-        <button class="close-button" onclick="hidePaymentModal()">&times;</button>
+        <button class="close-button">&times;</button>
         <h2 class="text-3xl font-semibold mb-8 text-center">Finaliser votre réservation</h2>
 
         <div class="summary-section">
@@ -210,11 +210,13 @@
         <div class="payment-methods">
             <h3 class="text-xl font-semibold mb-4">Choisissez votre mode de paiement</h3>
 
-            <!-- PayPal
+            <!-- PayPal -->
             <label class="payment-option">
                 <input type="radio" name="payment_method" value="paypal">
                 <div class="payment-option-content">
-                    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal" class="payment-logo">
+                    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" 
+                         alt="PayPal" 
+                         class="payment-logo">
                     <div class="payment-details">
                         <span class="payment-title">PayPal</span>
                         <span class="payment-description">Paiement sécurisé via PayPal - Cartes acceptées</span>
@@ -226,15 +228,15 @@
                     </div>
                 </div>
             </label>
-
-            <!-- Conteneur pour les boutons PayPal -->
-            <!-- <div id="paypal-button-container" class="hidden mt-4"></div> -->
+            <div id="paypal-button-container" class="hidden mt-4"></div>
 
             <!-- Stripe -->
             <label class="payment-option">
                 <input type="radio" name="payment_method" value="stripe">
                 <div class="payment-option-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" class="payment-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" 
+                         alt="Stripe" 
+                         class="payment-logo">
                     <div class="payment-details">
                         <span class="payment-title">Carte bancaire</span>
                         <span class="payment-description">Paiement sécurisé par carte - Visa, Mastercard, AMEX</span>
@@ -246,8 +248,6 @@
                     </div>
                 </div>
             </label>
-
-            <!-- Stripe Elements Container -->
             <div id="stripe-elements" class="hidden mt-6">
                 <div id="card-element" class="p-4 border rounded-lg"></div>
                 <div id="card-errors" class="text-red-500 text-sm mt-2" role="alert"></div>
@@ -259,7 +259,9 @@
                 <div class="payment-option-content">
                     <div class="payment-icon">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
                         </svg>
                     </div>
                     <div class="payment-details">
@@ -277,30 +279,40 @@
 
         <!-- Bouton de confirmation -->
         <div class="payment-actions mt-6 flex justify-end space-x-4">
-        <button type="button" class="btn-secondary px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300" onclick="hidePaymentModal()">
-    Annuler
-</button>
-
-            <button type="button" id="confirm-payment-btn" class="btn-primary hidden px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 flex items-center justify-center">
+            <button type="button" 
+                    class="btn-secondary px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300" 
+                    onclick="hidePaymentModal()">
+                Annuler
+            </button>
+            <button type="button" 
+                    id="confirm-payment-btn" 
+                    class="btn-primary hidden px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 flex items-center justify-center">
                 <span class="btn-text">Confirmer le paiement</span>
-                <svg id="payment-spinner" class="animate-spin h-5 w-5 ml-3 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <svg id="payment-spinner" 
+                     class="animate-spin h-5 w-5 ml-3 hidden" 
+                     xmlns="http://www.w3.org/2000/svg" 
+                     fill="none" 
+                     viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" 
+                          fill="currentColor" 
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                    </path>
                 </svg>
             </button>
         </div>
     </div>
 </div>
-
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script>
+   
+    
+    <!-- <script>
     // Afficher le modal automatiquement si des erreurs sont présentes
     @if($errors->any() || session('showModal'))
         document.addEventListener('DOMContentLoaded', function() {
             showModal();
         });
     @endif
-
+     
     document.addEventListener('DOMContentLoaded', function() {
         const emailInput = document.getElementById('email');
         const emailExistsError = document.getElementById('email-exists-error');
@@ -340,7 +352,9 @@
             }, 500); // Délai de 500ms avant de vérifier
         });
     });
-</script>
+</script> -->
+
+    <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 
