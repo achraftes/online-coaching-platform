@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prendre Rendez-vous</title>
+        <!-- Favicon personnalisé -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
+
+    <!-- Pour une meilleure compatibilité -->
+    <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
     <style>
         body {
             font-family: Arial, sans-serif;

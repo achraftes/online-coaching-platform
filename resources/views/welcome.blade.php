@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Coaching Professionel</title>
+    <!-- Favicon personnalisé -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
+
+    <!-- Pour une meilleure compatibilité -->
+    <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
