@@ -219,7 +219,7 @@
             <h3 class="text-xl font-semibold mb-4">Choisissez votre mode de paiement</h3>
 
             <!-- PayPal -->
-            <label class="payment-option">
+            <!-- <label class="payment-option">
                 <input type="radio" name="payment_method" value="paypal">
                 <div class="payment-option-content">
                     <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" 
@@ -236,7 +236,7 @@
                     </div>
                 </div>
             </label>
-            <div id="paypal-button-container" class="hidden mt-4"></div>
+            <div id="paypal-button-container" class="hidden mt-4"></div> -->
 
             <!-- Stripe -->
             <label class="payment-option">
