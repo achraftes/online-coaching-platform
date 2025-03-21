@@ -5,7 +5,7 @@
            <img 
                 src="{{ asset('images/only coach (1).png') }}" 
                 alt="Logo Coaching Professionel"
-                class="h-32 w-auto block">
+            class="h-32 w-auto block">
         </a>
 
             <nav class="md:flex items-center">
