@@ -235,8 +235,8 @@
                         </svg>
                     </div>
                 </div>
-            </label>
-            <div id="paypal-button-container" class="hidden mt-4"></div> -->
+            </label> -->
+            <div id="paypal-button-container" class="hidden mt-4"></div>
 
             <!-- Stripe -->
             <label class="payment-option">
