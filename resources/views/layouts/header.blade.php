@@ -2,11 +2,10 @@
  <header class="relative z-50 w-full h-24 bg-white shadow-sm">
         <div class="container flex items-center justify-between h-full max-w-6xl px-8 mx-auto xl:px-0">
         <a href="/" class="relative flex items-center h-full font-black leading-none">
-            <img 
-                     src="{{ asset('images/only coach (1).png') }}" 
-                     alt="Logo Coaching Professionel"
-                     class="h-24 w-auto block"> 
-                     <span class="ml-4 text-2xl text-gray-800">Coaching Professionel</span>
+           <img 
+                src="{{ asset('images/only coach (1).png') }}" 
+                alt="Logo Coaching Professionel"
+                class="h-32 w-auto block">
         </a>
 
             <nav class="md:flex items-center">
