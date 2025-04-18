@@ -136,12 +136,13 @@
             <a href="{{ env('APP_URL') }}#blogs">Blogs<span></span></a>
             <a href="{{ env('APP_URL') }}#pricing">Nos Tarifs<span></span></a>
             <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
+            <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
         </nav>
 
-        <div class="buttons">
-            <!-- <a href="#_" class="login-btn">Login</a>
-            <a href="#_" class="signup-btn">Devenir un Coach</a> -->
-        </div>
+        <!-- <div class="buttons">
+            <a href="#_" class="login-btn">Login</a>
+            <a href="#_" class="signup-btn">Devenir un Coach</a>
+        </div> -->
     </div>
 </header>
 

@@ -111,6 +111,7 @@
     @include('pages.blogs')
     @include('pages.pricing')
     @include('pages.testimonials')
+    @include('pages.contacts')
 
     <!-- END FEATURES SECTION -->
 
