@@ -3,12 +3,14 @@
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Contact Us</h2>
     
     <!-- Formulaire -->
-    <form class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-      <input type="text" placeholder="Your Name" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      <input type="email" placeholder="Your Email" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      <textarea placeholder="Your Message" rows="5" class="md:col-span-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
-      <button type="submit" class="md:col-span-2 bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition">Send Message</button>
-    </form>
+    <form method="POST" action="{{ route('contact.send') }}" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+    @csrf
+    <input type="text" name="name" placeholder="Your Name" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <input type="email" name="email" placeholder="Your Email" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <textarea name="message" rows="5" placeholder="Your Message" class="md:col-span-2 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+    <button type="submit" class="md:col-span-2 bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition">Send Message</button>
+   </form>
+
 
     <!-- Boutons de contact rapide -->
     <div class="flex justify-center gap-6 mb-10">
