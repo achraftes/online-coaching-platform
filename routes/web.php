@@ -6,6 +6,8 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 
+use App\Http\Controllers\ContactController;
+
 
 
 Route::get('/', function () {
@@ -37,3 +39,7 @@ Route::post('/confirm-payment', [PaymentController::class, 'confirmPayment']);
 
 Route::get('/appointment', [AppointmentController::class, 'showForm'])->name('appointment.form');
 Route::post('/appointment/schedule', [AppointmentController::class, 'scheduleAppointment'])->name('appointment.schedule');
+
+
+
+Route::post('/send-message', [ContactController::class, 'send'])->name('contact.send');
