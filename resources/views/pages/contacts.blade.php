@@ -40,11 +40,11 @@
 
     <!-- Boutons de contact rapide -->
     <div class="flex justify-center gap-6 mb-10">
-      <a href="https://wa.me/1234567890" target="_blank"
+      <a href="https://wa.me/0707979725" target="_blank"
         class="flex items-center gap-2 px-5 py-3 text-white bg-green-500 rounded-lg hover:bg-green-600 transition">
         <i class="fab fa-whatsapp text-xl"></i> WhatsApp
       </a>
-      <a href="mailto:example@example.com"
+      <a href="mailto:achrafchikrabane@gmail.com"
         class="flex items-center gap-2 px-5 py-3 text-white bg-red-500 rounded-lg hover:bg-red-600 transition">
         <i class="fas fa-envelope text-xl"></i> Email
       </a>
