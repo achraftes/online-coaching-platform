@@ -64,7 +64,7 @@
         }
 
         .logo img {
-            height: 6rem; /* Taille légèrement réduite pour mobile */
+            height: 6rem;
         }
     }
 
@@ -109,7 +109,15 @@
     .login-btn {
         color: #db2777;
         font-weight: 700;
-        transition: color 0.3s ease;
+        border: 2px solid #db2777;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+        background-color: #db2777;
+        color: white;
     }
 
     .signup-btn {
@@ -119,6 +127,10 @@
         border-radius: 0.375rem;
         font-weight: 700;
         transition: background-color 0.3s ease;
+    }
+
+    .signup-btn:hover {
+        background-color: #3730a3;
     }
 </style>
 
@@ -135,14 +147,15 @@
             <a href="{{ env('APP_URL') }}#features">Test Gratuit<span></span></a>
             <a href="{{ env('APP_URL') }}#blogs">Blogs<span></span></a>
             <a href="{{ env('APP_URL') }}#pricing">Nos Tarifs<span></span></a>
-            <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
+            <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
             <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
         </nav>
 
-        <!-- <div class="buttons">
-            <a href="#_" class="login-btn">Login</a>
-            <a href="#_" class="signup-btn">Devenir un Coach</a>
-        </div> -->
+        <!-- ✅ Boutons -->
+        <div class="buttons">
+            <a href="" class="login-btn">Login</a>
+            <a href="" class="signup-btn">Devenir un Coach</a>
+        </div>
     </div>
 </header>
 
@@ -153,12 +166,9 @@
 
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('show');
-            
-            // Animation supplémentaire pour l'icône hamburger
             this.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
         });
 
-        // Fermer le menu quand on clique à l'extérieur
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.header-container')) {
                 navLinks.classList.remove('show');
