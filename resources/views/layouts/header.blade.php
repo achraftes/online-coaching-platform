@@ -153,20 +153,21 @@
 
         <div class="menu-toggle">☰</div>
 
-        <nav class="nav-links">  
-            <a href="/">Home<span></span></a>
-            <a href="{{ env('APP_URL') }}#features">Test Gratuit<span></span></a>
-            <a href="{{ env('APP_URL') }}#blogs">Blogs<span></span></a>
-            <a href="{{ env('APP_URL') }}#pricing">Nos Tarifs<span></span></a>
-            <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
-            <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
+        <nav class="nav-links">
+    <a href="/">Home<span></span></a>
+    <a href="{{ env('APP_URL') }}#services">Services<span></span></a>
+    <a href="{{ env('APP_URL') }}#features">Test<span></span></a>
+    <a href="{{ env('APP_URL') }}#blogs">Blogs<span></span></a>
+    <a href="{{ env('APP_URL') }}#pricing">Tarifs<span></span></a> <!-- 🔥 Ajouté ici -->
+    <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
+    <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
 
-            <!-- ✅ Boutons ajoutés dans le menu -->
-            <div class="buttons">
-                <a href="" class="login-btn">Login</a>
-                <a href="" class="signup-btn">Devenir un Coach</a>
-            </div>
-        </nav>
+    <div class="buttons">
+        <a href="" class="login-btn">Login</a>
+        <a href="" class="signup-btn">Devenir un Coach</a>
+    </div>
+</nav>
+
     </div>
 </header>
 

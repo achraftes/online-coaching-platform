@@ -107,6 +107,7 @@
 <body class="overflow-x-hidden antialiased">
     @include('layouts.header')
     @include('pages.home')
+    @include('pages.services')
     @include('pages.features')
     @include('pages.blogs')
     @include('pages.pricing')
