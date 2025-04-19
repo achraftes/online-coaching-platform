@@ -11,10 +11,10 @@
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
-   
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Pour les icônes -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
     <style>
          body {
             font-family: Arial, sans-serif;

@@ -2,7 +2,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-wrap justify-between">
       <div class="w-full sm:w-1/2 lg:w-1/3 mb-6">
-        <h2 class="text-2xl font-bold mb-4">Coaching Pro</h2>
+        <h1 class="text-2xl font-bold mb-4">Coaching Pro</h2>
         <p class="text-gray-400">Empowering individuals to reach their full potential through personalized coaching and guidance.</p>
         <div class="flex mt-4 space-x-4">
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
