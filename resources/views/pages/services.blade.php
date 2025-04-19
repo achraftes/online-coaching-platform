@@ -25,9 +25,9 @@
   </div>
 </div>
 
-<!-- Modal Template -->
-<div id="modal1" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+<!-- Modals -->
+<div id="modal1" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeModal('modal1', event)">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative" onclick="event.stopPropagation()">
     <button onclick="closeModal('modal1')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
     <h3 class="text-xl font-bold mb-4 text-indigo-600">Coaching Individuel</h3>
     <ul class="space-y-2 text-gray-700">
@@ -38,8 +38,8 @@
   </div>
 </div>
 
-<div id="modal2" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+<div id="modal2" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeModal('modal2', event)">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative" onclick="event.stopPropagation()">
     <button onclick="closeModal('modal2')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
     <h3 class="text-xl font-bold mb-4 text-indigo-600">Coaching en Équipe</h3>
     <ul class="space-y-2 text-gray-700">
@@ -50,8 +50,8 @@
   </div>
 </div>
 
-<div id="modal3" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+<div id="modal3" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeModal('modal3', event)">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative" onclick="event.stopPropagation()">
     <button onclick="closeModal('modal3')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
     <h3 class="text-xl font-bold mb-4 text-indigo-600">Formation en Ligne</h3>
     <ul class="space-y-2 text-gray-700">
@@ -66,19 +66,18 @@
 <script>
   // Fonction pour ouvrir la modal
   function openModal(id) {
-    // Fermer toutes les modals ouvertes
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => modal.classList.add('hidden'));
-
     // Ouvrir la modal spécifique
     const modal = document.getElementById(id);
     modal.classList.remove('hidden');
   }
 
   // Fonction pour fermer la modal
-  function closeModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.add('hidden');
+  function closeModal(id, event) {
+    // Si l'utilisateur clique en dehors de la modal (background)
+    if (event.target.id === id) {
+      const modal = document.getElementById(id);
+      modal.classList.add('hidden');
+    }
   }
 </script>
 
