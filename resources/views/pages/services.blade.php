@@ -5,52 +5,80 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       <!-- Service 1 -->
-      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition" onclick="toggleDetails('details1')">
+      <div onclick="openModal('modal1')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
         <h3 class="text-xl font-semibold text-indigo-600 mb-4">Coaching Individuel</h3>
         <p class="text-gray-700">Un accompagnement personnalisé pour atteindre vos objectifs...</p>
-        <div id="details1" class="text-gray-700 hidden mt-4">
-          <ul class="space-y-2">
-            <li><i class="fas fa-user mr-2 text-indigo-500"></i>Suivi personnalisé</li>
-            <li><i class="fas fa-bullseye mr-2 text-indigo-500"></i>Objectifs clairs et atteignables</li>
-            <li><i class="fas fa-chart-line mr-2 text-indigo-500"></i>Suivi de progrès</li>
-          </ul>
-        </div>
       </div>
 
       <!-- Service 2 -->
-      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition" onclick="toggleDetails('details2')">
+      <div onclick="openModal('modal2')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
         <h3 class="text-xl font-semibold text-indigo-600 mb-4">Coaching en Équipe</h3>
         <p class="text-gray-700">Améliorez la collaboration et la performance de vos équipes...</p>
-        <div id="details2" class="text-gray-700 hidden mt-4">
-          <ul class="space-y-2">
-            <li><i class="fas fa-users mr-2 text-indigo-500"></i>Travail collaboratif</li>
-            <li><i class="fas fa-handshake mr-2 text-indigo-500"></i>Communication renforcée</li>
-            <li><i class="fas fa-lightbulb mr-2 text-indigo-500"></i>Résolution de problèmes</li>
-          </ul>
-        </div>
       </div>
 
       <!-- Service 3 -->
-      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition" onclick="toggleDetails('details3')">
+      <div onclick="openModal('modal3')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
         <h3 class="text-xl font-semibold text-indigo-600 mb-4">Formation en Ligne</h3>
         <p class="text-gray-700">Accédez à nos modules de formation en ligne pour apprendre...</p>
-        <div id="details3" class="text-gray-700 hidden mt-4">
-          <ul class="space-y-2">
-            <li><i class="fas fa-laptop-code mr-2 text-indigo-500"></i>Modules interactifs</li>
-            <li><i class="fas fa-clock mr-2 text-indigo-500"></i>Accès flexible 24/7</li>
-            <li><i class="fas fa-certificate mr-2 text-indigo-500"></i>Certification à la fin</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- JS pour toggle -->
+<!-- Modal Template -->
+<div id="modal1" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+    <button onclick="closeModal('modal1')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
+    <h3 class="text-xl font-bold mb-4 text-indigo-600">Coaching Individuel</h3>
+    <ul class="space-y-2 text-gray-700">
+      <li><i class="fas fa-user mr-2 text-indigo-500"></i>Suivi personnalisé</li>
+      <li><i class="fas fa-bullseye mr-2 text-indigo-500"></i>Objectifs clairs et atteignables</li>
+      <li><i class="fas fa-chart-line mr-2 text-indigo-500"></i>Suivi de progrès</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modal2" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+    <button onclick="closeModal('modal2')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
+    <h3 class="text-xl font-bold mb-4 text-indigo-600">Coaching en Équipe</h3>
+    <ul class="space-y-2 text-gray-700">
+      <li><i class="fas fa-users mr-2 text-indigo-500"></i>Travail collaboratif</li>
+      <li><i class="fas fa-handshake mr-2 text-indigo-500"></i>Communication renforcée</li>
+      <li><i class="fas fa-lightbulb mr-2 text-indigo-500"></i>Résolution de problèmes</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modal3" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+    <button onclick="closeModal('modal3')" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">&times;</button>
+    <h3 class="text-xl font-bold mb-4 text-indigo-600">Formation en Ligne</h3>
+    <ul class="space-y-2 text-gray-700">
+      <li><i class="fas fa-laptop-code mr-2 text-indigo-500"></i>Modules interactifs</li>
+      <li><i class="fas fa-clock mr-2 text-indigo-500"></i>Accès flexible 24/7</li>
+      <li><i class="fas fa-certificate mr-2 text-indigo-500"></i>Certification à la fin</li>
+    </ul>
+  </div>
+</div>
+
+<!-- JS pour gérer les modals -->
 <script>
-  function toggleDetails(id) {
-    const details = document.getElementById(id);
-    details.classList.toggle('hidden');
+  // Fonction pour ouvrir la modal
+  function openModal(id) {
+    // Fermer toutes les modals ouvertes
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.classList.add('hidden'));
+
+    // Ouvrir la modal spécifique
+    const modal = document.getElementById(id);
+    modal.classList.remove('hidden');
+  }
+
+  // Fonction pour fermer la modal
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.add('hidden');
   }
 </script>
 
