@@ -1,18 +1,22 @@
+{{-- resources/views/appointment.blade.php --}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prendre Rendez-vous</title>
-        <!-- Favicon personnalisé -->
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
+    
+    <!-- Favicon personnalisé -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
-
-    <!-- Pour une meilleure compatibilité -->
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
+   
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Pour les icônes -->
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             background: #f8f9fa;
             margin: 0;
@@ -106,6 +110,10 @@
     </style>
 </head>
 <body>
+
+    {{-- Inclusion du header --}}
+    @include('layouts.header')
+
     <div class="container">
         <h2> Prendre Rendez-vous</h2>
         
@@ -117,15 +125,13 @@
         
         <form action="{{ route('appointment.schedule') }}" method="POST">
             @csrf
-            
-            <!-- Champs cachés -->
+
             <input type="hidden" name="fname" value="{{ $fname }}">
             <input type="hidden" name="lname" value="{{ $lname }}">
             <input type="hidden" name="email" value="{{ $email }}">
             <input type="hidden" name="phone" value="{{ $phone }}">
             <input type="hidden" name="result" value="{{ $result }}">
-            
-            <!-- Sélection de la date -->
+
             <div class="form-group">
                 <label for="appointment_date">Choisissez un créneau :</label>
                 <input 
@@ -137,7 +143,6 @@
                 >
             </div>
             
-            <!-- Commentaire optionnel -->
             <div class="form-group">
                 <label for="comment">Commentaires (facultatif) :</label>
                 <textarea 
@@ -150,5 +155,9 @@
             <button type="submit">Confirmer le RDV</button>
         </form>
     </div>
+
+    {{-- Inclusion du footer --}}
+    @include('layouts.footer')
+
 </body>
 </html>
