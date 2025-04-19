@@ -4,21 +4,30 @@
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Service 1 -->
+      <!-- Service 1: Coaching Individuel -->
       <div onclick="openModal('modal1')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Coaching Individuel</h3>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-user-circle text-indigo-600 text-3xl mr-4"></i>
+          <h3 class="text-xl font-semibold text-indigo-600">Coaching Individuel</h3>
+        </div>
         <p class="text-gray-700">Un accompagnement personnalisé pour atteindre vos objectifs...</p>
       </div>
 
-      <!-- Service 2 -->
+      <!-- Service 2: Coaching en Équipe -->
       <div onclick="openModal('modal2')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Coaching en Équipe</h3>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-users text-indigo-600 text-3xl mr-4"></i>
+          <h3 class="text-xl font-semibold text-indigo-600">Coaching en Équipe</h3>
+        </div>
         <p class="text-gray-700">Améliorez la collaboration et la performance de vos équipes...</p>
       </div>
 
-      <!-- Service 3 -->
+      <!-- Service 3: Formation en Ligne -->
       <div onclick="openModal('modal3')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Formation en Ligne</h3>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-laptop-code text-indigo-600 text-3xl mr-4"></i>
+          <h3 class="text-xl font-semibold text-indigo-600">Formation en Ligne</h3>
+        </div>
         <p class="text-gray-700">Accédez à nos modules de formation en ligne pour apprendre...</p>
       </div>
     </div>
@@ -66,7 +75,6 @@
 <script>
   // Fonction pour ouvrir la modal
   function openModal(id) {
-    // Ouvrir la modal spécifique
     const modal = document.getElementById(id);
     modal.classList.remove('hidden');
   }
