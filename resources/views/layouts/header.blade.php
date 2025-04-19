@@ -111,31 +111,38 @@
     }
 
     .login-btn {
-        color: #db2777;
-        font-weight: 700;
-        border: 2px solid #db2777;
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        transition: all 0.3s ease;
-    }
+    background-color: #db2777; /* rose */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    border: 2px solid #db2777;
+    transition: all 0.3s ease;
+}
 
-    .login-btn:hover {
-        background-color: #db2777;
-        color: white;
-    }
+.login-btn:hover {
+    background-color: white;
+    color: #db2777;
+    border-color: #db2777;
+}
+
 
     .signup-btn {
-        background-color: #4f46e5;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        font-weight: 700;
-        transition: background-color 0.3s ease;
-    }
+    background-color: #4f46e5; /* violet */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    border: 2px solid #4f46e5;
+    transition: all 0.3s ease;
+}
 
-    .signup-btn:hover {
-        background-color: #3730a3;
-    }
+.signup-btn:hover {
+    background-color: white;
+    color: #3730a3; /* texte violet foncé */
+    border-color: #3730a3;
+}
+
 </style>
 
 <header>
