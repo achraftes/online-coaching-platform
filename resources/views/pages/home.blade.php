@@ -102,8 +102,8 @@ class="container flex flex-col items-center justify-between h-full max-w-6xl px-
             <div class="relative z-50 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
                 <div class="container relative left-0 w-full max-w-3xl lg:absolute xl:max-w-4xl lg:w-screen">
                        <img src="{{ asset('images/Coaching(4).jpg') }}" 
-                       class="w-full md:w-4/5 lg:w-[400px] xl:w-[500px] h-auto mt-12 mb-12 mx-auto lg:mt-16 xl:mt-24 lg:mb-0 "
-                       alt="Coaching professionnel">
+     class="w-4/5 md:w-3/4 lg:w-[350px] xl:w-[450px] h-auto mt-12 mb-12 mx-auto lg:mt-16 xl:mt-24 lg:mb-0"
+     alt="Coaching professionnel">
              </div>
         </div> 
     </div>
