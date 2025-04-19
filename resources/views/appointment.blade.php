@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    
     <style>
-         body {
+         .appointment-body {
             font-family: Arial, sans-serif;
             background: #f8f9fa;
             margin: 0;
             padding: 0;
         }
         
-        .container {
+        .appointment-container {
             max-width: 600px;
             margin: 50px auto;
             padding: 30px;
@@ -32,7 +32,7 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
-        h2 {
+        .appointment-header {
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8rem;
@@ -44,7 +44,7 @@
             gap: 10px;
         }
         
-        h2::before {
+        .appointment-header::before {
             content: "📅";
             display: inline-block;
             font-size: 1.8rem;
@@ -64,15 +64,15 @@
             margin-bottom: 20px;
         }
         
-        label {
+        .form-group label {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
             color: #4a5568;
         }
         
-        input[type="datetime-local"],
-        textarea {
+        .form-group input[type="datetime-local"],
+        .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -81,18 +81,18 @@
             box-sizing: border-box;
         }
         
-        input[type="datetime-local"]:focus,
-        textarea:focus {
+        .form-group input[type="datetime-local"]:focus,
+        .form-group textarea:focus {
             border-color: #4299e1;
             outline: none;
         }
         
-        textarea {
+        .form-group textarea {
             min-height: 100px;
             resize: vertical;
         }
         
-        button {
+        .appointment-button {
             width: 100%;
             padding: 12px;
             background: #4338CA;
@@ -104,18 +104,18 @@
             transition: background 0.3s;
         }
         
-        button:hover {
+        .appointment-button:hover {
             background: #4338CA;
         }
     </style>
 </head>
-<body>
+<body class="appointment-body">
 
     {{-- Inclusion du header --}}
     @include('layouts.header')
 
-    <div class="container">
-        <h2> Prendre Rendez-vous</h2>
+    <div class="appointment-container">
+        <h2 class="appointment-header"> Prendre Rendez-vous</h2>
         
         @if(session('success'))
             <div class="alert-success">
@@ -148,11 +148,10 @@
                 <textarea 
                     id="comment" 
                     name="comment" 
-                    placeholder="Ajoutez des détails supplémentaires..."
-                ></textarea>
+                    placeholder="Ajoutez des détails supplémentaires..."></textarea>
             </div>
             
-            <button type="submit">Confirmer le RDV</button>
+            <button type="submit" class="appointment-button">Confirmer le RDV</button>
         </form>
     </div>
 
