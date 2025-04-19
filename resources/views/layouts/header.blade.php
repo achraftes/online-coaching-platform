@@ -1,16 +1,15 @@
 <style>
-    /* Base Styles */
     header {
         background-color: white;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         width: 100%;
-        height: 6rem; /* h-24 */
+        height: 6rem;
     }
 
     .header-container {
-        max-width: 72rem; /* max-w-6xl */
+        max-width: 72rem;
         margin: 0 auto;
-        padding: 0 2rem; /* px-8 */
+        padding: 0 2rem;
         height: 100%;
         display: flex;
         justify-content: space-between;
@@ -19,7 +18,7 @@
     }
 
     .logo img {
-        height: 8rem; /* h-32 */
+        height: 8rem;
         width: auto;
     }
 
@@ -36,7 +35,6 @@
         z-index: 1000;
     }
 
-    /* Mobile Styles */
     @media (max-width: 768px) {
         .menu-toggle {
             display: block;
@@ -59,16 +57,23 @@
             display: flex;
         }
 
-        .buttons {
-            display: none;
-        }
-
         .logo img {
             height: 6rem;
         }
+
+        .buttons {
+            flex-direction: column;
+            width: 100%;
+            padding: 0 1rem;
+            margin-top: 1rem;
+        }
+
+        .buttons a {
+            width: 100%;
+            text-align: center;
+        }
     }
 
-    /* Liens */
     .nav-links a {
         font-weight: 500;
         color: #1f2937;
@@ -99,7 +104,6 @@
         transform: scaleX(1);
     }
 
-    /* Boutons */
     .buttons {
         display: flex;
         gap: 1rem;
@@ -149,13 +153,13 @@
             <a href="{{ env('APP_URL') }}#pricing">Nos Tarifs<span></span></a>
             <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
             <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
-        </nav>
 
-        <!-- ✅ Boutons -->
-        <div class="buttons">
-            <a href="" class="login-btn">Login</a>
-            <a href="" class="signup-btn">Devenir un Coach</a>
-        </div>
+            <!-- ✅ Boutons ajoutés dans le menu -->
+            <div class="buttons">
+                <a href="" class="login-btn">Login</a>
+                <a href="" class="signup-btn">Devenir un Coach</a>
+            </div>
+        </nav>
     </div>
 </header>
 
