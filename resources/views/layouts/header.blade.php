@@ -163,8 +163,8 @@
     <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
 
     <div class="buttons">
-        <a href="" class="login-btn">Login</a>
-        <a href="" class="signup-btn">Devenir un Coach</a>
+    <a href="{{ route('login') }}" class="login-btn">Login</a>
+    <a href="" class="signup-btn">Devenir un Coach</a>
     </div>
 </nav>
 

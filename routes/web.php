@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 
@@ -43,3 +44,6 @@ Route::post('/appointment/schedule', [AppointmentController::class, 'scheduleApp
 
 
 Route::post('/send-message', [ContactController::class, 'send'])->name('contact.send');
+
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
