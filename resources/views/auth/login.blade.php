@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - OnlyCoach</title>
 
-    {{-- Favicon et icônes --}}
+    <!-- Favicon et icônes -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
 
-    {{-- Styles personnalisés --}}
+    <!-- Styles -->
     <style>
-        /* body {
+        body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,8 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-        } */
+        }
 
         .login-container {
             background-color: white;
@@ -32,7 +31,6 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            margin-top: 2rem;
         }
 
         .login-container h2 {
@@ -87,10 +85,6 @@
 </head>
 <body>
 
-    {{-- Header (doit être bien défini dans layouts/header.blade.php) --}}
-    @include('layouts.header')
-
-    {{-- Formulaire de Login --}}
     <div class="login-container">
         <h2>Connexion</h2>
 
