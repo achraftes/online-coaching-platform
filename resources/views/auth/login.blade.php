@@ -34,11 +34,9 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 350px;
+            max-width: 800px; /* Augmenté pour accueillir la disposition horizontale */
             padding: 25px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
         }
         
         .logo {
@@ -58,9 +56,18 @@
             font-size: 22px;
         }
         
+        /* Formulaire horizontal */
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
         .form-group {
+            flex: 1;
+            min-width: 200px;
             margin-bottom: 15px;
-            width: 100%;
         }
         
         .form-group label {
@@ -88,7 +95,7 @@
         .remember-me {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-right: 15px;
         }
         
         .remember-me input {
@@ -100,13 +107,25 @@
             color: #555;
         }
         
+        .form-actions {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .form-links {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
         .forgot-password {
-            display: block;
-            text-align: center;
             color: #4f46e5;
             text-decoration: none;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-left: 15px;
         }
         
         .forgot-password:hover {
@@ -114,8 +133,7 @@
         }
         
         .login-btn {
-            width: 100%;
-            padding: 10px;
+            padding: 10px 20px;
             background-color: #4f46e5;
             color: white;
             border: none;
@@ -123,49 +141,39 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            margin-bottom: 15px;
         }
         
         .login-btn:hover {
             background-color: #4338ca;
         }
         
-        .divider {
+        /* Section horizontale des services sociaux */
+        .social-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            margin: 15px 0;
+        }
+        
+        .social-divider {
+            margin: 0 15px;
             color: #777;
             font-size: 14px;
         }
         
-        .divider:before,
-        .divider:after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #ddd;
-        }
-        
-        .divider:before {
-            margin-right: 10px;
-        }
-        
-        .divider:after {
-            margin-left: 10px;
-        }
-        
         .social-login {
             display: flex;
-            flex-direction: column;
             gap: 10px;
-            margin-bottom: 15px;
+            flex: 1;
         }
         
         .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 10px;
+            padding: 8px 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
             background-color: white;
@@ -184,15 +192,17 @@
         }
         
         .register-link {
-            text-align: center;
+            text-align: right;
             font-size: 14px;
             color: #555;
+            margin-left: auto;
         }
         
         .register-link a {
             color: #4f46e5;
             text-decoration: none;
             font-weight: 500;
+            margin-left: 5px;
         }
         
         .register-link a:hover {
@@ -209,6 +219,41 @@
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 100%;
+            }
+            
+            form {
+                flex-direction: column;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .form-links {
+                margin-bottom: 15px;
+            }
+            
+            .social-section {
+                flex-direction: column;
+            }
+            
+            .social-login {
+                margin-top: 15px;
+                width: 100%;
+            }
+            
+            .register-link {
+                margin-top: 15px;
+                text-align: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -239,31 +284,33 @@
                 </div>
             </div>
             
-            <div class="remember-me">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Se souvenir de moi</label>
+            <div class="form-actions">
+                <div class="form-links">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+                    <a href="#" class="forgot-password" id="forgot-password">Mot de passe oublié?</a>
+                </div>
+                <button type="submit" class="login-btn">Se connecter</button>
             </div>
-            
-            <a href="#" class="forgot-password" id="forgot-password">Mot de passe oublié?</a>
-            
-            <button type="submit" class="login-btn">Se connecter</button>
         </form>
         
-        <div class="divider">ou</div>
-        
-        <div class="social-login">
-            <a href="#" class="social-btn" id="google-login">
-                <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google">
-                Continuer avec Google
-            </a>
-            <a href="#" class="social-btn" id="facebook-login">
-                <img src="https://cdn.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook">
-                Continuer avec Facebook
-            </a>
-        </div>
-        
-        <div class="register-link">
-            Vous n'avez pas de compte? <a href="#" id="register-link">S'inscrire</a>
+        <div class="social-section">
+            <div class="social-login">
+                <a href="#" class="social-btn" id="google-login">
+                    <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google">
+                    Continuer avec Google
+                </a>
+                <a href="#" class="social-btn" id="facebook-login">
+                    <img src="https://cdn.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook">
+                    Continuer avec Facebook
+                </a>
+            </div>
+            
+            <div class="register-link">
+                Vous n'avez pas de compte? <a href="#" id="register-link">S'inscrire</a>
+            </div>
         </div>
     </div>
 
