@@ -12,196 +12,191 @@
     
     <!-- Styles -->
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #4f46e5, #db2777);
+            background-color: #f0f2f5;
             min-height: 100vh;
+            padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         
         .login-container {
             background-color: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
+            padding: 25px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .logo {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
         
         .logo img {
-            height: 60px;
+            height: 50px;
+            width: auto;
         }
         
-        .login-container h2 {
-            text-align: center;
+        h2 {
             color: #4f46e5;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 15px;
+            width: 100%;
         }
         
         .form-group label {
             display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #374151;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
         }
         
         .form-group input {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
         }
         
         .form-group input:focus {
             border-color: #4f46e5;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-        }
-        
-        .form-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
         }
         
         .remember-me {
             display: flex;
             align-items: center;
+            margin-bottom: 15px;
         }
         
         .remember-me input {
-            margin-right: 0.5rem;
+            margin-right: 5px;
+        }
+        
+        .remember-me label {
+            font-size: 14px;
+            color: #555;
         }
         
         .forgot-password {
+            display: block;
+            text-align: center;
             color: #4f46e5;
             text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
         
         .forgot-password:hover {
-            color: #4338ca;
             text-decoration: underline;
         }
         
         .login-btn {
+            width: 100%;
+            padding: 10px;
             background-color: #4f46e5;
             color: white;
-            font-weight: bold;
             border: none;
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
+            margin-bottom: 15px;
         }
         
         .login-btn:hover {
             background-color: #4338ca;
         }
         
-        .register-link {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.875rem;
-            color: #6b7280;
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: #777;
+            font-size: 14px;
         }
         
-        .register-link a {
-            color: #4f46e5;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        .divider:before,
+        .divider:after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #ddd;
         }
         
-        .register-link a:hover {
-            color: #4338ca;
-            text-decoration: underline;
+        .divider:before {
+            margin-right: 10px;
+        }
+        
+        .divider:after {
+            margin-left: 10px;
         }
         
         .social-login {
-            margin-top: 2rem;
-            text-align: center;
-        }
-        
-        .social-login p {
-            color: #6b7280;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-        
-        .social-login p:before, .social-login p:after {
-            content: "";
-            display: inline-block;
-            width: 30%;
-            height: 1px;
-            background-color: #e5e7eb;
-            position: absolute;
-            top: 50%;
-        }
-        
-        .social-login p:before {
-            left: 0;
-        }
-        
-        .social-login p:after {
-            right: 0;
-        }
-        
-        .social-buttons {
             display: flex;
-            justify-content: space-around;
-            margin-top: 1rem;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45%;
-            padding: 0.5rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 0.5rem;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             background-color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
             text-decoration: none;
-            color: #374151;
-        }
-        
-        .social-btn:hover {
-            background-color: #f3f4f6;
+            color: #333;
+            font-size: 14px;
         }
         
         .social-btn img {
-            height: 24px;
-            margin-right: 0.5rem;
+            height: 18px;
+            margin-right: 8px;
         }
         
-        .error-message {
-            color: #ef4444;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
+        .social-btn:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .register-link {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .register-link a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
         }
         
         .input-with-icon {
@@ -214,30 +209,29 @@
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            color: #6b7280;
         }
     </style>
 </head>
 <body>
-
     <div class="login-container">
         <div class="logo">
             <img src="{{ asset('images/only coach (1).png') }}" alt="OnlyCoach Logo">
         </div>
+        
         <h2>Connexion</h2>
         
         <form action="#" method="POST">
             <div class="form-group">
                 <label for="email">Adresse email</label>
-                <input type="email" id="email" name="email" required autofocus>
+                <input type="email" id="email" name="email" placeholder="exemple@email.com" required autofocus>
             </div>
             
             <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <div class="input-with-icon">
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
                     <span class="input-icon" onclick="togglePasswordVisibility()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#777" viewBox="0 0 16 16">
                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                         </svg>
@@ -245,35 +239,31 @@
                 </div>
             </div>
             
-            <div class="form-footer">
-                <div class="remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember" style="display: inline; font-weight: normal;">Se souvenir de moi</label>
-                </div>
-                <a href="#" class="forgot-password" id="forgot-password">Mot de passe oublié?</a>
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Se souvenir de moi</label>
             </div>
             
-            <div class="form-group">
-                <button type="submit" class="login-btn">Se connecter</button>
-            </div>
+            <a href="#" class="forgot-password" id="forgot-password">Mot de passe oublié?</a>
+            
+            <button type="submit" class="login-btn">Se connecter</button>
         </form>
+        
+        <div class="divider">ou</div>
+        
+        <div class="social-login">
+            <a href="#" class="social-btn" id="google-login">
+                <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google">
+                Continuer avec Google
+            </a>
+            <a href="#" class="social-btn" id="facebook-login">
+                <img src="https://cdn.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook">
+                Continuer avec Facebook
+            </a>
+        </div>
         
         <div class="register-link">
             Vous n'avez pas de compte? <a href="#" id="register-link">S'inscrire</a>
-        </div>
-        
-        <div class="social-login">
-            <p>Ou connectez-vous avec</p>
-            <div class="social-buttons">
-                <a href="#" class="social-btn" id="google-login">
-                    <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google" width="24" height="24">
-                    Google
-                </a>
-                <a href="#" class="social-btn" id="facebook-login">
-                    <img src="https://cdn.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook" width="24" height="24">
-                    Facebook
-                </a>
-            </div>
         </div>
     </div>
 
@@ -316,6 +306,5 @@
             alert('Formulaire soumis - À intégrer avec votre backend');
         });
     </script>
-    
 </body>
 </html>
