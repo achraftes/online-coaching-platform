@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         header {
             background-color: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -27,7 +34,7 @@
         }
 
         .logo img {
-            height: 8rem;
+            height: 6rem;
             width: auto;
         }
 
@@ -67,7 +74,7 @@
             }
 
             .logo img {
-                height: 6rem;
+                height: 5rem;
             }
 
             .buttons {
@@ -131,6 +138,8 @@
             font-weight: 700;
             border: 2px solid #db2777;
             transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
         .login-btn:hover {
@@ -147,6 +156,8 @@
             font-weight: 700;
             border: 2px solid #4f46e5;
             transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
         }
 
         .signup-btn:hover {
@@ -172,28 +183,28 @@
 <header>
     <div class="header-container">
         <a href="/" class="logo">
-            <img src="{{ asset('images/only coach (1).png') }}" alt="Logo Coaching Professionel">
+        <img src="{{ asset('images/only coach (1).png') }}" alt="Logo Coaching Professionel">
         </a>
 
         <div class="menu-toggle">☰</div>
 
         <nav class="nav-links">
             <a href="/">Home<span></span></a>
-            <a href="{{ env('APP_URL') }}#services">Services<span></span></a>
-            <a href="{{ env('APP_URL') }}#features">Test<span></span></a>
-            <a href="{{ env('APP_URL') }}#blogs">Blogs<span></span></a>
-            <a href="{{ env('APP_URL') }}#pricing">Tarifs<span></span></a>
-            <a href="{{ env('APP_URL') }}#testimonials">Témoignages<span></span></a>
-            <a href="{{ env('APP_URL') }}#contacts">Contact<span></span></a>
+            <a href="#services">Services<span></span></a>
+            <a href="#features">Test<span></span></a>
+            <a href="#blogs">Blogs<span></span></a>
+            <a href="#pricing">Tarifs<span></span></a>
+            <a href="#testimonials">Témoignages<span></span></a>
+            <a href="#contacts">Contact<span></span></a>
 
             <div class="buttons">
-                <a href="{{ route('login') }}" class="login-btn">Login</a>
-                <a href="{{ route('register') }}" class="signup-btn">Devenir un Coach</a>
+                <a href="/login" class="login-btn">Login</a>
+                <a href="/register" class="signup-btn">Devenir un Coach</a>
             </div>
         </nav>
 
         <!-- Icône de profil à droite -->
-        <a href="{{ route('compte.index') }}" class="profile-icon">
+        <a href="/profile" class="profile-icon">
             <i class="fas fa-user-circle"></i>
         </a>
     </div>
