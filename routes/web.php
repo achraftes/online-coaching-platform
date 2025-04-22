@@ -9,6 +9,9 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 
+Auth::routes();
+
+
 
 
 Route::get('/', function () {
