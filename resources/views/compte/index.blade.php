@@ -10,17 +10,36 @@
                     </a>
                 </div>
                 <div class="card-body p-4">
-                    <h5 class="card-title mb-4">Welcome back, <strong>{{ $user->name }}</strong> 👋</h5>
-                    <p class="card-text mb-2"><i class="fas fa-envelope me-2"></i><strong>Email:</strong> {{ $user->email }}</p>
-                    <p class="card-text"><i class="fas fa-calendar-alt me-2"></i><strong>Joined:</strong> {{ $user->created_at->format('F d, Y') }}</p>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-3">
+                            <img src="{{ asset('storage/' . $user->profile_photo) }}" alt="Profile Photo" class="rounded-circle" width="80" height="80">
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-1">Welcome back, <strong>{{ $user->full_name ?? $user->name }}</strong> 👋</h5>
+                            <p class="card-text mb-2"><i class="fas fa-envelope me-2"></i><strong>Email:</strong> {{ $user->email }}</p>
+                            <p class="card-text"><i class="fas fa-calendar-alt me-2"></i><strong>Joined:</strong> {{ $user->created_at->format('F d, Y') }}</p>
+                        </div>
+                    </div>
 
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-around flex-wrap gap-3">
-                        <a href="#" class="btn btn-outline-primary px-4 py-2">Edit Profile</a>
-                        <a href="#" class="btn btn-outline-secondary px-4 py-2">Change Password</a>
-                        <a href="#" class="btn btn-outline-info px-4 py-2">My Orders</a>
+                        <a href="{{ route('compte.updateProfile') }}" class="btn btn-outline-primary px-4 py-2">Edit Profile</a>
+                        <a href="{{ route('password.request') }}" class="btn btn-outline-secondary px-4 py-2">Change Password</a>
+                        
                     </div>
+
+                    <hr class="my-4">
+
+                    <h6 class="mb-3">Profile Details</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Full Name:</strong> {{ $user->full_name ?? 'Not set' }}</li>
+                        <li class="list-group-item"><strong>Nickname:</strong> {{ $user->nick_name ?? 'Not set' }}</li>
+                        <li class="list-group-item"><strong>Gender:</strong> {{ $user->gender ?? 'Not set' }}</li>
+                        <li class="list-group-item"><strong>Country:</strong> {{ $user->country ?? 'Not set' }}</li>
+                        <li class="list-group-item"><strong>Language:</strong> {{ $user->language ?? 'Not set' }}</li>
+                        <li class="list-group-item"><strong>Time Zone:</strong> {{ $user->time_zone ?? 'Not set' }}</li>
+                    </ul>
                 </div>
             </div>
 
@@ -82,6 +101,14 @@
         text-align: center;
     }
 
+    .list-group-item {
+        font-size: 1rem;
+    }
+
+    .rounded-circle {
+        object-fit: cover;
+    }
+
     @media (max-width: 576px) {
         .card-title {
             font-size: 1.3rem;
@@ -89,6 +116,10 @@
 
         .btn {
             width: 100%;
+        }
+
+        .list-group-item {
+            font-size: 0.9rem;
         }
     }
 </style>

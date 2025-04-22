@@ -36,6 +36,6 @@ class RegisterController extends Controller
         Auth::login($user);
 
         // Redirection vers le dashboard
-        return redirect()->route('compte');
+        return redirect()->route('compte.index');
     }
 }
