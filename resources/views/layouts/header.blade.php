@@ -164,7 +164,7 @@
 
     <div class="buttons">
     <a href="{{ route('login') }}" class="login-btn">Login</a>
-    <a href="" class="signup-btn">Devenir un Coach</a>
+    <a href="{{ route('register') }}" class="signup-btn">Devenir un Coach</a>
     </div>
 </nav>
 
