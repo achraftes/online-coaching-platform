@@ -334,10 +334,3 @@
         }
     </script>
 </body>
-</html>
-   passwordInput.type = 'password';
-            }
-        }
-    </script>
-</body>
-</html>
