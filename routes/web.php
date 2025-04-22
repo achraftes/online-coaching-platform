@@ -9,6 +9,7 @@ use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Auth::routes();
 
@@ -55,6 +56,6 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Auth::routes();
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
