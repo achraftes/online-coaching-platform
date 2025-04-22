@@ -82,6 +82,19 @@
             margin-bottom: 1.5rem;
         }
 
+        .home-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            color: #f0f0f0;
+            transform: translateX(-3px);
+        }
+
         @media (max-width: 768px) {
             .profile-img {
                 width: 80px;
@@ -95,7 +108,9 @@
     <div class="page-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="text-white mb-0">My Account</h3>
+                <div class="d-flex align-items-center">
+                    <h3 class="text-white mb-0">My Account</h3>
+                </div>
                 <a href="{{ route('logout') }}" class="btn logout-btn px-4 py-2"
                    onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')) document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt me-2"></i>Logout
@@ -129,6 +144,9 @@
                 </a>
                 <a href="{{ route('password.request') }}" class="btn btn-secondary px-4 py-2">
                     <i class="fas fa-key me-2"></i>Change Password
+                </a>
+                <a href="/" class="btn btn-outline-primary px-4 py-2">
+                    <i class="fas fa-home me-2"></i>Return to Home
                 </a>
             </div>
         </div>
