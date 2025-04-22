@@ -8,138 +8,172 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         body {
-            background: #f0f2f5;
+            background: #f8f9fa;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .card {
-            background-color: #fff;
-            border: none;
-            border-radius: 20px;
-        }
-
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
-        }
-
-        .card-title {
-            font-size: 1.7rem;
             color: #333;
         }
 
-        .card-text {
-            font-size: 1.1rem;
-            color: #555;
+        .page-header {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            padding: 1.5rem 0;
+        }
+
+        .profile-section {
+            background-color: #fff;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 2rem 0;
+        }
+
+        .section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .action-buttons {
+            background-color: #f8f9fa;
+            padding: 1.5rem 0;
+        }
+
+        .profile-details {
+            background-color: #fff;
+            padding: 2rem 0;
         }
 
         .btn {
-            border-radius: 50px;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .btn-danger {
+        .detail-row {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .logout-btn {
             background-color: #dc3545;
+            color: white;
             border: none;
         }
 
-        .btn-danger:hover {
+        .logout-btn:hover {
             background-color: #c82333;
         }
 
-        .btn-outline-primary,
-        .btn-outline-secondary,
-        .btn-outline-info {
-            min-width: 150px;
-            text-align: center;
+        .section-title {
+            font-weight: 600;
+            color: #4b6cb7;
+            margin-bottom: 1.5rem;
         }
 
-        .list-group-item {
-            font-size: 1rem;
-            border-left: none;
-            border-right: none;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .list-group {
-            border: none;
-        }
-
-        .rounded-circle {
-            object-fit: cover;
-        }
-
-        @media (max-width: 576px) {
-            .card-title {
-                font-size: 1.3rem;
-            }
-
-            .btn {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .list-group-item {
-                font-size: 0.9rem;
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-lg rounded-4 overflow-hidden">
-                    <div class="card-header d-flex justify-content-between align-items-center px-4 py-3 bg-gradient-primary">
-                        <h4 class="mb-0 text-white">My Account</h4>
-                        <a href="{{ route('logout') }}" class="btn btn-danger btn-sm px-4"
-                           onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')) document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="me-3">
-                                <img src="{{ asset('images/21 avr. 2025, 22_36_05.png ') }}" alt="Profile Photo" class="rounded-circle" width="80" height="80">
-                            </div>
-                            <div>
-                                <h5 class="card-title mb-1">Welcome back, <strong>{{ $user->full_name ?? $user->name }}</strong> 👋</h5>
-                                <p class="card-text mb-2"><i class="fas fa-envelope me-2"></i><strong>Email:</strong> {{ $user->email }}</p>
-                                <p class="card-text"><i class="fas fa-calendar-alt me-2"></i><strong>Joined:</strong> {{ $user->created_at->format('F d, Y') }}</p>
-                            </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="d-flex justify-content-around flex-wrap gap-3">
-                            <a href="{{ route('compte.updateProfile') }}" class="btn btn-outline-primary px-4 py-2">Edit Profile</a>
-                            <a href="{{ route('password.request') }}" class="btn btn-outline-secondary px-4 py-2">Change Password</a>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <h6 class="mb-3">Profile Details</h6>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Full Name:</strong> {{ $user->full_name ?? 'Not set' }}</li>
-                            <li class="list-group-item"><strong>Nickname:</strong> {{ $user->nick_name ?? 'Not set' }}</li>
-                            <li class="list-group-item"><strong>Gender:</strong> {{ $user->gender ?? 'Not set' }}</li>
-                            <li class="list-group-item"><strong>Country:</strong> {{ $user->country ?? 'Not set' }}</li>
-                            <li class="list-group-item"><strong>Language:</strong> {{ $user->language ?? 'Not set' }}</li>
-                            <li class="list-group-item"><strong>Time Zone:</strong> {{ $user->time_zone ?? 'Not set' }}</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+    <!-- Header Section -->
+    <div class="page-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="text-white mb-0">My Account</h3>
+                <a href="{{ route('logout') }}" class="btn logout-btn px-4 py-2"
+                   onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')) document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
             </div>
         </div>
     </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <div class="container">
+            <div class="d-flex align-items-center flex-wrap">
+                <div class="me-4 mb-3 mb-md-0">
+                    <img src="{{ asset('images/21 avr. 2025, 22_36_05.png ') }}" alt="Profile Photo" class="rounded-circle profile-img">
+                </div>
+                <div>
+                    <h4 class="mb-2">Welcome back, <strong>{{ $user->full_name ?? $user->name }}</strong> 👋</h4>
+                    <p class="mb-1"><i class="fas fa-envelope me-2 text-secondary"></i>{{ $user->email }}</p>
+                    <p class="mb-0"><i class="fas fa-calendar-alt me-2 text-secondary"></i>Joined: {{ $user->created_at->format('F d, Y') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <div class="container">
+            <div class="d-flex flex-wrap gap-3">
+                <a href="{{ route('compte.updateProfile') }}" class="btn btn-primary px-4 py-2">
+                    <i class="fas fa-user-edit me-2"></i>Edit Profile
+                </a>
+                <a href="{{ route('password.request') }}" class="btn btn-secondary px-4 py-2">
+                    <i class="fas fa-key me-2"></i>Change Password
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="profile-details">
+        <div class="container">
+            <h5 class="section-title">Profile Details</h5>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Full Name</div>
+                <div class="col-md-8 col-lg-9">{{ $user->full_name ?? 'Not set' }}</div>
+            </div>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Nickname</div>
+                <div class="col-md-8 col-lg-9">{{ $user->nick_name ?? 'Not set' }}</div>
+            </div>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Gender</div>
+                <div class="col-md-8 col-lg-9">{{ $user->gender ?? 'Not set' }}</div>
+            </div>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Country</div>
+                <div class="col-md-8 col-lg-9">{{ $user->country ?? 'Not set' }}</div>
+            </div>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Language</div>
+                <div class="col-md-8 col-lg-9">{{ $user->language ?? 'Not set' }}</div>
+            </div>
+            
+            <div class="row detail-row">
+                <div class="col-md-4 col-lg-3 fw-bold">Time Zone</div>
+                <div class="col-md-8 col-lg-9">{{ $user->time_zone ?? 'Not set' }}</div>
+            </div>
+        </div>
+    </div>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
