@@ -204,7 +204,7 @@
         </nav>
 
         <!-- Icône de profil à droite -->
-        <a href="/profile" class="profile-icon">
+        <a href="{{ route('compte.index') }}" class="profile-icon">
             <i class="fas fa-user-circle"></i>
         </a>
     </div>
