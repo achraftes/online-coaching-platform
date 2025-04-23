@@ -67,7 +67,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/compte', [CompteController::class, 'index'])->name('compte.index');
-    Route::get('/compte/edit', [CompteController::class, 'edit'])->name('compte.updateProfile');
-    Route::post('/compte/update', [CompteController::class, 'updateProfile'])->name('compte.updateProfile');
+    Route::get('/compte/edit', [CompteController::class, 'edit'])->name('compte.edit'); // Nom modifié
+    Route::post('/compte/update', [CompteController::class, 'updateProfile'])->name('compte.update'); // Nom modifié
     Route::post('/compte/update-photo', [CompteController::class, 'updatePhoto'])->name('compte.updatePhoto');
 });
