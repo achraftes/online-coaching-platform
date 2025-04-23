@@ -40,37 +40,30 @@
         
         .left-panel {
             flex: 1;
-            background: linear-gradient(135deg, #4a2a8e 0%, #7c5bbc 100%);
-            color: white;
-            padding: 40px;
+            position: relative;
+            overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         
-        .right-panel {
-            flex: 1;
-            background-color: #2c2c34;
+        .left-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .slogan-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             padding: 40px;
             color: white;
-            overflow-y: auto;
-        }
-        
-        .logo {
-            height: 40px;
-            margin-bottom: 140px;
-        }
-        
-        .logo img {
-            height: 100%;
-        }
-        
-        .slogan {
             text-align: center;
-            margin-bottom: 40px;
         }
         
-        .slogan h2 {
+        .slogan-overlay h2 {
             font-size: 28px;
             font-weight: 500;
             margin-bottom: 10px;
@@ -80,6 +73,7 @@
             display: flex;
             justify-content: center;
             gap: 8px;
+            margin-top: 15px;
         }
         
         .dot {
@@ -93,6 +87,14 @@
             background-color: white;
             width: 24px;
             border-radius: 4px;
+        }
+        
+        .right-panel {
+            flex: 1;
+            background-color: #2c2c34;
+            padding: 40px;
+            color: white;
+            overflow-y: auto;
         }
         
         .back-link {
@@ -269,12 +271,7 @@
             }
             
             .left-panel {
-                padding: 30px;
                 min-height: 200px;
-            }
-            
-            .logo {
-                margin-bottom: 30px;
             }
             
             .social-signup {
@@ -286,11 +283,8 @@
 <body>
     <div class="container">
         <div class="left-panel">
-            <div class="logo">
-                <img src="{{ asset('images/Consultation de coaching.jpg') }}" alt="OnlyCoach Logo">
-            </div>
-            
-            <div class="slogan">
+            <img src="{{ asset('images/Consultation de coaching.jpg') }}" alt="OnlyCoach Background">
+            <div class="slogan-overlay">
                 <h2>Capturing Moments,<br>Creating Memories</h2>
                 <div class="dots">
                     <div class="dot"></div>
