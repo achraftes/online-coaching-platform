@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,6 +14,15 @@ class CompteController extends Controller
     {
         $user = Auth::user();
         return view('compte.index', compact('user'));
+    }
+
+    /**
+     * Affiche le formulaire pour éditer le profil
+     */
+    public function edit()
+    {
+        $user = Auth::user();
+        return view('compte.edit', compact('user'));
     }
 
     /**
@@ -41,7 +49,7 @@ class CompteController extends Controller
             'time_zone'  => $request->time_zone,
         ]);
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->route('compte.index')->with('success', 'Profile updated successfully.');
     }
 
     /**
@@ -62,9 +70,10 @@ class CompteController extends Controller
 
         // Sauvegarde de la nouvelle photo
         $path = $request->file('photo')->store('profile_photos', 'public');
+        
         $user->profile_photo = $path;
         $user->save();
 
-        return redirect()->back()->with('success', 'Photo updated successfully.');
+        return redirect()->route('compte.index')->with('success', 'Photo updated successfully.');
     }
 }

@@ -66,12 +66,8 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware(['auth'])->group(function () {
-    // Afficher le tableau de bord de l'utilisateur
     Route::get('/compte', [CompteController::class, 'index'])->name('compte.index');
-
-    // Mettre à jour les informations du profil
-    Route::post('/compte/update-profile', [CompteController::class, 'updateProfile'])->name('compte.updateProfile');
-
-    // Mettre à jour la photo de profil
+    Route::get('/compte/edit', [CompteController::class, 'edit'])->name('compte.updateProfile');
+    Route::post('/compte/update', [CompteController::class, 'updateProfile'])->name('compte.updateProfile');
     Route::post('/compte/update-photo', [CompteController::class, 'updatePhoto'])->name('compte.updatePhoto');
 });
