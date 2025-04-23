@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'full_name',    // Ajouter
+        'nick_name',    // Ajouter
+        'gender',       // Ajouter
+        'country',      // Ajouter
+        'language',     // Ajouter
+        'time_zone',    // Ajouter
+        'profile_photo' // Ajouter
     ];
 
     /**

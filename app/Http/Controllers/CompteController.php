@@ -40,14 +40,7 @@ class CompteController extends Controller
         ]);
 
         $user = Auth::user();
-        $user->update([
-            'full_name'  => $request->full_name,
-            'nick_name'  => $request->nick_name,
-            'gender'     => $request->gender,
-            'country'    => $request->country,
-            'language'   => $request->language,
-            'time_zone'  => $request->time_zone,
-        ]);
+        $user->update($request->all());
 
         return redirect()->route('compte.index')->with('success', 'Profile updated successfully.');
     }
