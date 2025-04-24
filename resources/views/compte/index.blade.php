@@ -349,7 +349,7 @@
         <div class="profile-header">
             <div class="profile-cover"></div>
             <div class="profile-img-container">
-                <img src="{{ asset('images/profile.png ') }}" alt="Profile Photo" class="profile-img">
+                <img src="{{ asset('images/21 avr. 2025, 22_36_05.png ') }}" alt="Profile Photo" class="profile-img">
                 <div class="edit-photo">
                     <i class="fas fa-camera"></i>
                 </div>
