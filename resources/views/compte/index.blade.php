@@ -220,6 +220,58 @@
             color: #666;
         }
         
+        /* Message and Notification styles */
+        .message-item, .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
+
+        .message-item:hover, .notification-item:hover {
+            background-color: #f3f2ef;
+        }
+
+        .message-item:last-child, .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .message-sender {
+            font-weight: 600;
+            color: #191919;
+        }
+
+        .message-time, .notification-time {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .notification-content {
+            margin-top: 5px;
+        }
+
+        .unread {
+            background-color: rgba(10, 102, 194, 0.05);
+            position: relative;
+        }
+
+        .unread::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: #0a66c2;
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .modal-footer {
+            border-top: 1px solid #e0e0e0;
+        }
+        
         @media (max-width: 768px) {
             .profile-img {
                 width: 120px;
@@ -262,10 +314,14 @@
                         <a class="nav-link" href="/"><i class="fas fa-home me-1"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-bell me-1"></i> Notifications</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationsModal">
+                            <i class="fas fa-bell me-1"></i> Notifications
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i> Messages</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#messagesModal">
+                            <i class="fas fa-envelope me-1"></i> Messages
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -385,6 +441,128 @@
                    onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')) document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt me-1"></i> Logout
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages Modal -->
+    <div class="modal fade" id="messagesModal" tabindex="-1" aria-labelledby="messagesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messagesModalLabel">
+                        <i class="fas fa-envelope me-2"></i> Messages
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Message list would typically be loaded dynamically -->
+                    <div class="message-item unread">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="message-sender">John Doe</div>
+                            <div class="message-time">10:30 AM</div>
+                        </div>
+                        <div class="message-content">Hi there! I'd like to discuss a potential collaboration opportunity...</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="message-sender">Sarah Smith</div>
+                            <div class="message-time">Yesterday</div>
+                        </div>
+                        <div class="message-content">Thank you for your quick response. I'll review the proposal...</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="message-sender">Technical Support</div>
+                            <div class="message-time">April 22</div>
+                        </div>
+                        <div class="message-content">Your request (#2345) has been resolved. Please let us know if you need further assistance.</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="message-sender">Emily Johnson</div>
+                            <div class="message-time">April 20</div>
+                        </div>
+                        <div class="message-content">I just saw your portfolio and was really impressed with your work...</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="message-sender">Michael Chen</div>
+                            <div class="message-time">April 18</div>
+                        </div>
+                        <div class="message-content">Following up on our meeting last week. Have you had a chance to review the materials?</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Mark All Read</button>
+                    <button type="button" class="btn btn-primary">New Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Modal -->
+    <div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="notificationsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notificationsModalLabel">
+                        <i class="fas fa-bell me-2"></i> Notifications
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Notification list would typically be loaded dynamically -->
+                    <div class="notification-item unread">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="fw-bold">New Connection Request</div>
+                            <div class="notification-time">Just now</div>
+                        </div>
+                        <div class="notification-content">
+                            You have a new connection request from <strong>Jane Wilson</strong>.
+                        </div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="fw-bold">Profile View</div>
+                            <div class="notification-time">2 hours ago</div>
+                        </div>
+                        <div class="notification-content">
+                            <strong>Alex Thompson</strong> viewed your profile.
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="fw-bold">Event Reminder</div>
+                            <div class="notification-time">Yesterday</div>
+                        </div>
+                        <div class="notification-content">
+                            Reminder: You have an upcoming event "<strong>Industry Networking</strong>" tomorrow at 6:00 PM.
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="fw-bold">Message Reaction</div>
+                            <div class="notification-time">April 22</div>
+                        </div>
+                        <div class="notification-content">
+                            <strong>Robert Lee</strong> reacted to your message.
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="fw-bold">System Update</div>
+                            <div class="notification-time">April 20</div>
+                        </div>
+                        <div class="notification-content">
+                            We've updated our privacy policy. Please review the changes.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Mark All Read</button>
+                    <button type="button" class="btn btn-primary">Settings</button>
+                </div>
             </div>
         </div>
     </div>
