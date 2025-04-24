@@ -251,7 +251,6 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('images/only coach (1).png') }}" alt="Logo" height="30">
                 My Professional Profile
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -294,7 +293,7 @@
         <div class="profile-header">
             <div class="profile-cover"></div>
             <div class="profile-img-container">
-                <img src="{{ asset('images/21 avr. 2025, 22_36_05.png ') }}" alt="Profile Photo" class="profile-img">
+                <img src="{{ asset('images/profile.png ') }}" alt="Profile Photo" class="profile-img">
                 <div class="edit-photo">
                     <i class="fas fa-camera"></i>
                 </div>
