@@ -736,254 +736,588 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         // JavaScript for Message Conversations
-        function showConversation(conversationId, senderName) {
-            // Hide message list view and show conversation view
-            document.getElementById('messages-list-view').style.display = 'none';
-            document.getElementById('conversation-view').style.display = 'block';
+        // JavaScript pour gérer les messages et notifications avec fonctionnalités complètes
+document.addEventListener('DOMContentLoaded', function() {
+    // === Gestion des Messages ===
+    const messagesList = document.getElementById('messages-list-view');
+    const conversationView = document.getElementById('conversation-view');
+    const messageInput = document.querySelector('.conversation-input input');
+    const sendButton = document.querySelector('.conversation-input button');
+    const markAllReadMessagesBtn = document.querySelector('#messages-list-view .modal-footer .btn-outline-primary');
+    const newMessageBtn = document.querySelector('#messages-list-view .modal-footer .btn-primary');
+    
+    // Liste des conversations
+    const conversations = {
+        1: { name: 'John Doe', unread: true, lastMessage: 'Hi there! I\'d like to discuss a potential collaboration opportunity...' },
+        2: { name: 'Sarah Smith', unread: false, lastMessage: 'Thank you for your quick response. I\'ll review the proposal...' },
+        3: { name: 'Technical Support', unread: false, lastMessage: 'Your request (#2345) has been resolved. Please let us know if you need further assistance.' },
+        4: { name: 'Emily Johnson', unread: false, lastMessage: 'I just saw your portfolio and was really impressed with your work...' },
+        5: { name: 'Michael Chen', unread: false, lastMessage: 'Following up on our meeting last week. Have you had a chance to review the materials?' }
+    };
+    
+    // Contenu des conversations
+    const conversationMessages = {
+        1: [
+            { sender: 'John Doe', content: 'Hi there! I\'d like to discuss a potential collaboration opportunity with you.', time: '10:30 AM', isSent: false },
+            { sender: 'You', content: 'Hello John! I\'m interested in hearing more about this collaboration.', time: '10:32 AM', isSent: true },
+            { sender: 'John Doe', content: 'Great! Our company is working on a new project and we need someone with your expertise.', time: '10:35 AM', isSent: false },
+            { sender: 'John Doe', content: 'Are you available for a call sometime this week to discuss details?', time: '10:36 AM', isSent: false },
+            { sender: 'You', content: 'Yes, I could do a call. Would Thursday at 3 PM work for you?', time: '10:40 AM', isSent: true },
+        ],
+        2: [
+            { sender: 'Sarah Smith', content: 'Thank you for your quick response. I\'ll review the proposal you sent.', time: 'Yesterday', isSent: false },
+            { sender: 'You', content: 'You\'re welcome, Sarah! Let me know if you have any questions about it.', time: 'Yesterday', isSent: true },
+            { sender: 'Sarah Smith', content: 'Actually, I was wondering about the timeline for implementation?', time: 'Yesterday', isSent: false },
+            { sender: 'You', content: 'We can start as early as next month if that works for you.', time: 'Yesterday', isSent: true },
+        ],
+        3: [
+            { sender: 'Technical Support', content: 'Your request (#2345) has been resolved. Please let us know if you need further assistance.', time: 'April 22', isSent: false },
+            { sender: 'You', content: 'Thank you for resolving my issue. Everything seems to be working properly now.', time: 'April 22', isSent: true },
+            { sender: 'Technical Support', content: 'Great to hear! Please don\'t hesitate to contact us if you encounter any other problems.', time: 'April 22', isSent: false },
+        ],
+        4: [
+            { sender: 'Emily Johnson', content: 'I just saw your portfolio and was really impressed with your work.', time: 'April 20', isSent: false },
+            { sender: 'You', content: 'Thank you for your kind words, Emily! I appreciate it.', time: 'April 20', isSent: true },
+            { sender: 'Emily Johnson', content: 'I\'m working on a project that might be a good fit for your skills. Would you be interested in hearing more about it?', time: 'April 20', isSent: false },
+            { sender: 'You', content: 'Absolutely! I\'m always open to new projects. Please share more details.', time: 'April 20', isSent: true },
+        ],
+        5: [
+            { sender: 'Michael Chen', content: 'Following up on our meeting last week. Have you had a chance to review the materials?', time: 'April 18', isSent: false },
+            { sender: 'You', content: 'Hi Michael, yes I did review them. I think the approach looks promising.', time: 'April 18', isSent: true },
+            { sender: 'Michael Chen', content: 'Excellent! So are you interested in joining our team for this project?', time: 'April 18', isSent: false },
+            { sender: 'You', content: 'Yes, I\'d be happy to join. When do we start?', time: 'April 18', isSent: true },
+            { sender: 'Michael Chen', content: 'We\'re planning to kick off next Monday. I\'ll send you the calendar invite.', time: 'April 18', isSent: false },
+        ]
+    };
+
+    // Fonction pour afficher la conversation
+    function showConversation(conversationId, senderName) {
+        // Masquer la liste des messages et afficher la vue de conversation
+        messagesList.style.display = 'none';
+        conversationView.style.display = 'block';
+        
+        // Définir le titre de la conversation
+        document.getElementById('conversation-title').textContent = senderName;
+        
+        // Marquer la conversation comme lue
+        const messageItem = document.querySelector(`.message-item[data-conversation-id="${conversationId}"]`);
+        if (messageItem && messageItem.classList.contains('unread')) {
+            messageItem.classList.remove('unread');
+            conversations[conversationId].unread = false;
+        }
+        
+        // Effacer les messages précédents
+        const conversationBody = document.getElementById('conversation-body');
+        conversationBody.innerHTML = '';
+        
+        // Ajouter les messages de la conversation
+        const messages = conversationMessages[conversationId] || [];
+        messages.forEach(msg => {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message-bubble ${msg.isSent ? 'message-sent' : 'message-received'}`;
             
-            // Set conversation title
-            document.getElementById('conversation-title').textContent = senderName;
+            const messageContent = document.createElement('div');
+            messageContent.textContent = msg.content;
             
-            // Clear previous messages
-            const conversationBody = document.getElementById('conversation-body');
-            conversationBody.innerHTML = '';
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-timestamp';
+            messageTime.textContent = msg.time;
             
-            // Add mock conversation messages based on conversationId
-            // In a real app, these would be loaded from the server
-            const mockConversations = {
-                1: [
-                    { sender: 'John Doe', content: 'Hi there! I\'d like to discuss a potential collaboration opportunity with you.', time: '10:30 AM', isSent: false },
-                    { sender: 'You', content: 'Hello John! I\'m interested in hearing more about this collaboration.', time: '10:32 AM', isSent: true },
-                    { sender: 'John Doe', content: 'Great! Our company is working on a new project and we need someone with your expertise.', time: '10:35 AM', isSent: false },
-                    { sender: 'John Doe', content: 'Are you available for a call sometime this week to discuss details?', time: '10:36 AM', isSent: false },
-                    { sender: 'You', content: 'Yes, I could do a call. Would Thursday at 3 PM work for you?', time: '10:40 AM', isSent: true },
-                ],
-                2: [
-                    { sender: 'Sarah Smith', content: 'Thank you for your quick response. I\'ll review the proposal you sent.', time: 'Yesterday', isSent: false },
-                    { sender: 'You', content: 'You\'re welcome, Sarah! Let me know if you have any questions about it.', time: 'Yesterday', isSent: true },
-                    { sender: 'Sarah Smith', content: 'Actually, I was wondering about the timeline for implementation?', time: 'Yesterday', isSent: false },
-                    { sender: 'You', content: 'We can start as early as next month if that works for you.', time: 'Yesterday', isSent: true },
-                ],
-                3: [
-                    { sender: 'Technical Support', content: 'Your request (#2345) has been resolved. Please let us know if you need further assistance.', time: 'April 22', isSent: false },
-                    { sender: 'You', content: 'Thank you for resolving my issue. Everything seems to be working properly now.', time: 'April 22', isSent: true },
-                    { sender: 'Technical Support', content: 'Great to hear! Please don\'t hesitate to contact us if you encounter any other problems.', time: 'April 22', isSent: false },
-                ],
-                4: [
-                    { sender: 'Emily Johnson', content: 'I just saw your portfolio and was really impressed with your work.', time: 'April 20', isSent: false },
-                    { sender: 'You', content: 'Thank you for your kind words, Emily! I appreciate it.', time: 'April 20', isSent: true },
-                    { sender: 'Emily Johnson', content: 'I\'m working on a project that might be a good fit for your skills. Would you be interested in hearing more about it?', time: 'April 20', isSent: false },
-                    { sender: 'You', content: 'Absolutely! I\'m always open to new projects. Please share more details.', time: 'April 20', isSent: true },
-                ],
-                5: [
-                    { sender: 'Michael Chen', content: 'Following up on our meeting last week. Have you had a chance to review the materials?', time: 'April 18', isSent: false },
-                    { sender: 'You', content: 'Hi Michael, yes I did review them. I think the approach looks promising.', time: 'April 18', isSent: true },
-                    { sender: 'Michael Chen', content: 'Excellent! So are you interested in joining our team for this project?', time: 'April 18', isSent: false },
-                    { sender: 'You', content: 'Yes, I\'d be happy to join. When do we start?', time: 'April 18', isSent: true },
-                    { sender: 'Michael Chen', content: 'We\'re planning to kick off next Monday. I\'ll send you the calendar invite.', time: 'April 18', isSent: false },
-                ]
-            };
+            messageElement.appendChild(messageContent);
+            messageElement.appendChild(messageTime);
+            conversationBody.appendChild(messageElement);
+        });
+        
+        // Faire défiler jusqu'au bas de la conversation
+        conversationBody.scrollTop = conversationBody.scrollHeight;
+    }
+    
+    // Fonction pour revenir à la liste des messages
+    function showMessagesList() {
+        conversationView.style.display = 'none';
+        messagesList.style.display = 'block';
+    }
+    
+    // Envoyer un message
+    function sendMessage() {
+        if (messageInput.value.trim() === '') return;
+        
+        const conversationBody = document.getElementById('conversation-body');
+        
+        // Créer un nouvel élément de message
+        const messageElement = document.createElement('div');
+        messageElement.className = 'message-bubble message-sent';
+        
+        const messageContent = document.createElement('div');
+        messageContent.textContent = messageInput.value;
+        
+        const messageTime = document.createElement('div');
+        messageTime.className = 'message-timestamp';
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+        messageTime.textContent = `${hours}:${minutes}`;
+        
+        messageElement.appendChild(messageContent);
+        messageElement.appendChild(messageTime);
+        conversationBody.appendChild(messageElement);
+        
+        // Effacer l'entrée et faire défiler vers le bas
+        messageInput.value = '';
+        conversationBody.scrollTop = conversationBody.scrollHeight;
+        
+        // Simuler une réponse après un court délai (pour démonstration uniquement)
+        setTimeout(() => {
+            const responseElement = document.createElement('div');
+            responseElement.className = 'message-bubble message-received';
             
-            // Display messages
-            const messages = mockConversations[conversationId] || [];
-            messages.forEach(msg => {
-                const messageElement = document.createElement('div');
-                messageElement.className = `message-bubble ${msg.isSent ? 'message-sent' : 'message-received'}`;
-                
-                const messageContent = document.createElement('div');
-                messageContent.textContent = msg.content;
-                
-                const messageTime = document.createElement('div');
-                messageTime.className = 'message-timestamp';
-                messageTime.textContent = msg.time;
-                
-                messageElement.appendChild(messageContent);
-                messageElement.appendChild(messageTime);
-                conversationBody.appendChild(messageElement);
-            });
+            const responseContent = document.createElement('div');
+            responseContent.textContent = 'Merci pour votre message ! Je vous répondrai dès que possible.';
             
-            // Scroll to bottom of conversation
+            const responseTime = document.createElement('div');
+            responseTime.className = 'message-timestamp';
+            const responseNow = new Date();
+            const responseHours = responseNow.getHours();
+            const responseMinutes = responseNow.getMinutes() < 10 ? '0' + responseNow.getMinutes() : responseNow.getMinutes();
+            responseTime.textContent = `${responseHours}:${responseMinutes}`;
+            
+            responseElement.appendChild(responseContent);
+            responseElement.appendChild(responseTime);
+            conversationBody.appendChild(responseElement);
+            
             conversationBody.scrollTop = conversationBody.scrollHeight;
-        }
+        }, 1000);
+    }
+    
+    // Fonction pour créer un nouveau message
+    function createNewMessage() {
+        // Créer la modal pour le nouveau message
+        const modalHTML = `
+            <div class="modal fade" id="newMessageModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <i class="fas fa-pen me-2"></i> New Message
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="recipient" class="form-label">To:</label>
+                                <input type="text" class="form-control" id="recipient" placeholder="Enter recipient name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject:</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="messageContent" class="form-label">Message:</label>
+                                <textarea class="form-control" id="messageContent" rows="5" placeholder="Type your message here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="sendNewMessage">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
         
-        function showMessagesList() {
-            // Hide conversation view and show message list view
-            document.getElementById('conversation-view').style.display = 'none';
-            document.getElementById('messages-list-view').style.display = 'block';
-        }
+        // Ajouter la modal au corps du document
+        const modalContainer = document.createElement('div');
+        modalContainer.innerHTML = modalHTML;
+        document.body.appendChild(modalContainer);
         
-        // JavaScript for Notification Details
-        function showNotificationDetail(notificationId) {
-            // Hide notifications list view and show notification detail view
-            document.getElementById('notifications-list-view').style.display = 'none';
-            document.getElementById('notification-detail-view').style.display = 'block';
-            
-            // Mock notification details based on notificationId
-            // In a real app, these would be loaded from the server
-            const mockNotifications = {
-                1: {
-                    title: 'New Connection Request',
-                    time: 'Today, 10:30 AM',
-                    content: `
-                        <div class="notification-detail-header">Connection Request from Jane Wilson</div>
-                        <div class="notification-detail-time">Just now</div>
-                        <div class="notification-detail-content">
-                            <p><strong>Jane Wilson</strong> would like to connect with you on our platform.</p>
-                            <p>Jane is a Marketing Director at XYZ Corporation with 8+ years of experience in digital marketing and brand strategy.</p>
-                            <div class="notification-actions">
-                                <button class="btn btn-primary">Accept</button>
-                                <button class="btn btn-outline-secondary">Decline</button>
-                            </div>
-                        </div>
-                    `,
-                    actionText: 'Respond Now'
-                },
-                2: {
-                    title: 'Profile View',
-                    time: '2 hours ago',
-                    content: `
-                        <div class="notification-detail-header">Alex Thompson viewed your profile</div>
-                        <div class="notification-detail-time">2 hours ago</div>
-                        <div class="notification-detail-content">
-                            <p><strong>Alex Thompson</strong> viewed your profile.</p>
-                            <p>Alex is a Product Manager at ABC Technologies. They might be interested in your skills and experience.</p>
-                            <p>This is a good opportunity to update your profile and showcase your latest work.</p>
-                            <div class="notification-actions">
-                                <button class="btn btn-primary">View Alex's Profile</button>
-                                <button class="btn btn-outline-primary">Update Your Profile</button>
-                            </div>
-                        </div>
-                    `,
-                    actionText: 'View Profile'
-                },
-                3: {
-                    title: 'Event Reminder',
-                    time: 'Yesterday',
-                    content: `
-                        <div class="notification-detail-header">Industry Networking Event</div>
-                        <div class="notification-detail-time">Yesterday</div>
-                        <div class="notification-detail-content">
-                            <p>Reminder: You have registered for the "<strong>Industry Networking</strong>" event.</p>
-                            <p><strong>Date:</strong> Tomorrow, April 25, 2025</p>
-                            <p><strong>Time:</strong> 6:00 PM - 9:00 PM</p>
-                            <p><strong>Location:</strong> Grand Hotel Conference Center, 123 Main Street</p>
-                            <p>Don't forget to bring your business cards and be ready to meet industry professionals from various companies.</p>
-                            <div class="notification-actions">
-                                <button class="btn btn-primary">Add to Calendar</button>
-                                <button class="btn btn-outline-primary">View Event Details</button>
-                            </div>
-                        </div>
-                    `,
-                    actionText: 'View Event'
-                },
-                4: {
-                    title: 'Message Reaction',
-                    time: 'April 22',
-                    content: `
-                        <div class="notification-detail-header">Robert Lee reacted to your message</div>
-                        <div class="notification-detail-time">April 22</div>
-                        <div class="notification-detail-content">
-                            <p><strong>Robert Lee</strong> reacted with a 👍 to your message:</p>
-                            <blockquote class="p-3 bg-light my-3 border-start border-primary border-4">
-                                "Thank you for the detailed feedback on the project proposal. I'll incorporate your suggestions into the next revision."
-                            </blockquote>
-                            <p>This was in the conversation about the Marketing Strategy Project.</p>
-                            <div class="notification-actions">
-                                <button class="btn btn-primary">View Conversation</button>
-                            </div>
-                        </div>
-                    `,
-                    actionText: 'View Message'
-                },
-                5: {
-                    title: 'System Update',
-                    time: 'April 20',
-                    content: `
-                        <div class="notification-detail-header">Privacy Policy Update</div>
-                        <div class="notification-detail-time">April 20</div>
-                        <div class="notification-detail-content">
-                            <p>We've updated our privacy policy to better protect your data and provide more transparency about how we use information on our platform.</p>
-                            <p>Key changes include:</p>
-                            <ul>
-                                <li>Enhanced data encryption for all communications</li>
-                                <li>Updated information sharing policies with third parties</li>
-                                <li>New options for managing your data and privacy preferences</li>
-                                <li>Clearer explanations of how we use analytics</li>
-                            </ul>
-                            <p>These changes will take effect on May 1, 2025.</p>
-                            <div class="notification-actions">
-                                <button class="btn btn-primary">Review Privacy Policy</button>
-                                <button class="btn btn-outline-primary">Adjust Settings</button>
-                            </div>
-                        </div>
-                    `,
-                    actionText: 'Review Policy'
-                }
-            };
-            
-            // Get notification details
-            const notification = mockNotifications[notificationId] || {
-                title: 'Notification',
-                time: '',
-                content: 'No details available for this notification.',
-                actionText: 'Mark as Read'
-            };
-            
-            // Update notification detail view
-            document.getElementById('notification-detail-title').textContent = notification.title;
-            document.getElementById('notification-detail-container').innerHTML = notification.content;
-            document.getElementById('notification-action-button').textContent = notification.actionText;
-        }
+        // Afficher la modal
+        const newMessageModal = new bootstrap.Modal(document.getElementById('newMessageModal'));
+        newMessageModal.show();
         
-        function showNotificationsList() {
-            // Hide notification detail view and show notifications list view
-            document.getElementById('notification-detail-view').style.display = 'none';
-            document.getElementById('notifications-list-view').style.display = 'block';
-        }
-        
-        // Event listener for message input
-        document.addEventListener('DOMContentLoaded', function() {
-            const messageInput = document.querySelector('.conversation-input input');
-            const sendButton = document.querySelector('.conversation-input button');
+        // Gestionnaire pour le bouton d'envoi
+        document.getElementById('sendNewMessage').addEventListener('click', function() {
+            const recipient = document.getElementById('recipient').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const content = document.getElementById('messageContent').value.trim();
             
-            // Send message on Enter key
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && messageInput.value.trim() !== '') {
-                    sendMessage();
-                }
-            });
-            
-            // Send message on button click
-            sendButton.addEventListener('click', function() {
-                if (messageInput.value.trim() !== '') {
-                    sendMessage();
-                }
-            });
-            
-            function sendMessage() {
-                const conversationBody = document.getElementById('conversation-body');
+            if (recipient && content) {
+                // Simuler l'envoi d'un message
+                alert(`Message sent to ${recipient}!`);
+                newMessageModal.hide();
                 
-                // Create new message element
-                const messageElement = document.createElement('div');
-                messageElement.className = 'message-bubble message-sent';
-                
-                const messageContent = document.createElement('div');
-                messageContent.textContent = messageInput.value;
-                
-                const messageTime = document.createElement('div');
-                messageTime.className = 'message-timestamp';
-                const now = new Date();
-                messageTime.textContent = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-                
-                messageElement.appendChild(messageContent);
-                messageElement.appendChild(messageTime);
-                conversationBody.appendChild(messageElement);
-                
-                // Clear input and scroll to bottom
-                messageInput.value = '';
-                conversationBody.scrollTop = conversationBody.scrollHeight;
+                // Nettoyer après fermeture
+                setTimeout(() => {
+                    document.body.removeChild(modalContainer);
+                }, 500);
+            } else {
+                alert('Please enter recipient and message content');
             }
         });
+        
+        // Nettoyer après fermeture
+        document.getElementById('newMessageModal').addEventListener('hidden.bs.modal', function() {
+            setTimeout(() => {
+                if (document.body.contains(modalContainer)) {
+                    document.body.removeChild(modalContainer);
+                }
+            }, 500);
+        });
+    }
+    
+    // Fonction pour marquer tous les messages comme lus
+    function markAllMessagesAsRead() {
+        const unreadMessages = document.querySelectorAll('.message-item.unread');
+        unreadMessages.forEach(item => {
+            item.classList.remove('unread');
+            const id = item.getAttribute('data-conversation-id');
+            if (conversations[id]) {
+                conversations[id].unread = false;
+            }
+        });
+        
+        alert('All messages marked as read');
+    }
+    
+    // === Gestion des Notifications ===
+    const notificationsList = document.getElementById('notifications-list-view');
+    const notificationDetailView = document.getElementById('notification-detail-view');
+    const markAllReadNotificationsBtn = document.querySelector('#notifications-list-view .modal-footer .btn-outline-primary');
+    const notificationSettingsBtn = document.querySelector('#notifications-list-view .modal-footer .btn-primary');
+    
+    // Liste des notifications
+    const notifications = {
+        1: {
+            title: 'New Connection Request',
+            time: 'Just now',
+            unread: true,
+            summary: 'You have a new connection request from Jane Wilson.',
+            content: `
+                <div class="notification-detail-header">Connection Request from Jane Wilson</div>
+                <div class="notification-detail-time">Just now</div>
+                <div class="notification-detail-content">
+                    <p><strong>Jane Wilson</strong> would like to connect with you on our platform.</p>
+                    <p>Jane is a Marketing Director at XYZ Corporation with 8+ years of experience in digital marketing and brand strategy.</p>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary">Accept</button>
+                        <button class="btn btn-outline-secondary">Decline</button>
+                    </div>
+                </div>
+            `,
+            actionText: 'Respond Now'
+        },
+        2: {
+            title: 'Profile View',
+            time: '2 hours ago',
+            unread: true,
+            summary: 'Alex Thompson viewed your profile.',
+            content: `
+                <div class="notification-detail-header">Alex Thompson viewed your profile</div>
+                <div class="notification-detail-time">2 hours ago</div>
+                <div class="notification-detail-content">
+                    <p><strong>Alex Thompson</strong> viewed your profile.</p>
+                    <p>Alex is a Product Manager at ABC Technologies. They might be interested in your skills and experience.</p>
+                    <p>This is a good opportunity to update your profile and showcase your latest work.</p>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary">View Alex's Profile</button>
+                        <button class="btn btn-outline-primary">Update Your Profile</button>
+                    </div>
+                </div>
+            `,
+            actionText: 'View Profile'
+        },
+        3: {
+            title: 'Event Reminder',
+            time: 'Yesterday',
+            unread: false,
+            summary: 'Reminder: You have an upcoming event "Industry Networking" tomorrow at 6:00 PM.',
+            content: `
+                <div class="notification-detail-header">Industry Networking Event</div>
+                <div class="notification-detail-time">Yesterday</div>
+                <div class="notification-detail-content">
+                    <p>Reminder: You have registered for the "<strong>Industry Networking</strong>" event.</p>
+                    <p><strong>Date:</strong> Tomorrow, April 25, 2025</p>
+                    <p><strong>Time:</strong> 6:00 PM - 9:00 PM</p>
+                    <p><strong>Location:</strong> Grand Hotel Conference Center, 123 Main Street</p>
+                    <p>Don't forget to bring your business cards and be ready to meet industry professionals from various companies.</p>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary">Add to Calendar</button>
+                        <button class="btn btn-outline-primary">View Event Details</button>
+                    </div>
+                </div>
+            `,
+            actionText: 'View Event'
+        },
+        4: {
+            title: 'Message Reaction',
+            time: 'April 22',
+            unread: false,
+            summary: 'Robert Lee reacted to your message.',
+            content: `
+                <div class="notification-detail-header">Robert Lee reacted to your message</div>
+                <div class="notification-detail-time">April 22</div>
+                <div class="notification-detail-content">
+                    <p><strong>Robert Lee</strong> reacted with a 👍 to your message:</p>
+                    <blockquote class="p-3 bg-light my-3 border-start border-primary border-4">
+                        "Thank you for the detailed feedback on the project proposal. I'll incorporate your suggestions into the next revision."
+                    </blockquote>
+                    <p>This was in the conversation about the Marketing Strategy Project.</p>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary">View Conversation</button>
+                    </div>
+                </div>
+            `,
+            actionText: 'View Message'
+        },
+        5: {
+            title: 'System Update',
+            time: 'April 20',
+            unread: false,
+            summary: 'We\'ve updated our privacy policy. Please review the changes.',
+            content: `
+                <div class="notification-detail-header">Privacy Policy Update</div>
+                <div class="notification-detail-time">April 20</div>
+                <div class="notification-detail-content">
+                    <p>We've updated our privacy policy to better protect your data and provide more transparency about how we use information on our platform.</p>
+                    <p>Key changes include:</p>
+                    <ul>
+                        <li>Enhanced data encryption for all communications</li>
+                        <li>Updated information sharing policies with third parties</li>
+                        <li>New options for managing your data and privacy preferences</li>
+                        <li>Clearer explanations of how we use analytics</li>
+                    </ul>
+                    <p>These changes will take effect on May 1, 2025.</p>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary">Review Privacy Policy</button>
+                        <button class="btn btn-outline-primary">Adjust Settings</button>
+                    </div>
+                </div>
+            `,
+            actionText: 'Review Policy'
+        }
+    };
+
+    // Fonction pour afficher les détails d'une notification
+    function showNotificationDetail(notificationId) {
+        // Masquer la liste des notifications et afficher la vue de détails
+        notificationsList.style.display = 'none';
+        notificationDetailView.style.display = 'block';
+        
+        // Marquer la notification comme lue
+        const notificationItem = document.querySelector(`.notification-item[data-notification-id="${notificationId}"]`);
+        if (notificationItem && notificationItem.classList.contains('unread')) {
+            notificationItem.classList.remove('unread');
+            notifications[notificationId].unread = false;
+        }
+        
+        // Obtenir les détails de la notification
+        const notification = notifications[notificationId] || {
+            title: 'Notification',
+            time: '',
+            content: 'No details available for this notification.',
+            actionText: 'Mark as Read'
+        };
+        
+        // Mettre à jour la vue de détails
+        document.getElementById('notification-detail-title').textContent = notification.title;
+        document.getElementById('notification-detail-container').innerHTML = notification.content;
+        document.getElementById('notification-action-button').textContent = notification.actionText;
+        
+        // Ajouter des gestionnaires d'événements pour les boutons d'action dans la notification
+        setTimeout(() => {
+            const actionButtons = document.querySelectorAll('.notification-actions button');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert(`Action '${button.textContent.trim()}' performed!`);
+                });
+            });
+        }, 100);
+    }
+    
+    // Fonction pour revenir à la liste des notifications
+    function showNotificationsList() {
+        notificationDetailView.style.display = 'none';
+        notificationsList.style.display = 'block';
+    }
+    
+    // Fonction pour marquer toutes les notifications comme lues
+    function markAllNotificationsAsRead() {
+        const unreadNotifications = document.querySelectorAll('.notification-item.unread');
+        unreadNotifications.forEach(item => {
+            item.classList.remove('unread');
+            const id = item.getAttribute('data-notification-id');
+            if (notifications[id]) {
+                notifications[id].unread = false;
+            }
+        });
+        
+        alert('All notifications marked as read');
+    }
+    
+    // Fonction pour ouvrir les paramètres de notification
+    function openNotificationSettings() {
+        // Créer la modal pour les paramètres de notification
+        const modalHTML = `
+            <div class="modal fade" id="notificationSettingsModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <i class="fas fa-cog me-2"></i> Notification Settings
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Email Notifications</h6>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailMessages" checked>
+                                    <label class="form-check-label" for="emailMessages">Messages</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailConnections" checked>
+                                    <label class="form-check-label" for="emailConnections">Connection requests</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailProfileViews" checked>
+                                    <label class="form-check-label" for="emailProfileViews">Profile views</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailEvents">
+                                    <label class="form-check-label" for="emailEvents">Event reminders</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Push Notifications</h6>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="pushMessages" checked>
+                                    <label class="form-check-label" for="pushMessages">Messages</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="pushConnections" checked>
+                                    <label class="form-check-label" for="pushConnections">Connection requests</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="pushProfileViews">
+                                    <label class="form-check-label" for="pushProfileViews">Profile views</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="pushEvents" checked>
+                                    <label class="form-check-label" for="pushEvents">Event reminders</label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h6 class="fw-bold mb-3">Notification Frequency</h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="notificationFrequency" id="freqRealTime" checked>
+                                    <label class="form-check-label" for="freqRealTime">Real-time</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="notificationFrequency" id="freqDaily">
+                                    <label class="form-check-label" for="freqDaily">Daily digest</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="notificationFrequency" id="freqWeekly">
+                                    <label class="form-check-label" for="freqWeekly">Weekly digest</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="saveNotificationSettings">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Ajouter la modal au corps du document
+        const modalContainer = document.createElement('div');
+        modalContainer.innerHTML = modalHTML;
+        document.body.appendChild(modalContainer);
+        
+        // Afficher la modal
+        const settingsModal = new bootstrap.Modal(document.getElementById('notificationSettingsModal'));
+        settingsModal.show();
+        
+        // Gestionnaire pour le bouton de sauvegarde
+        document.getElementById('saveNotificationSettings').addEventListener('click', function() {
+            alert('Notification settings saved!');
+            settingsModal.hide();
+            
+            // Nettoyer après fermeture
+            setTimeout(() => {
+                document.body.removeChild(modalContainer);
+            }, 500);
+        });
+        
+        // Nettoyer après fermeture
+        document.getElementById('notificationSettingsModal').addEventListener('hidden.bs.modal', function() {
+            setTimeout(() => {
+                if (document.body.contains(modalContainer)) {
+                    document.body.removeChild(modalContainer);
+                }
+            }, 500);
+        });
+    }
+    
+    // === Initialisation des gestionnaires d'événements ===
+    
+    // Gestionnaires pour l'envoi de messages
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && messageInput.value.trim() !== '') {
+            sendMessage();
+        }
+    });
+    
+    sendButton.addEventListener('click', function() {
+        if (messageInput.value.trim() !== '') {
+            sendMessage();
+        }
+    });
+    
+    // Gestionnaires pour les boutons du modal de messages
+    if (markAllReadMessagesBtn) {
+        markAllReadMessagesBtn.addEventListener('click', markAllMessagesAsRead);
+    }
+    
+    if (newMessageBtn) {
+        newMessageBtn.addEventListener('click', createNewMessage);
+    }
+    
+    // Gestionnaires pour les boutons du modal de notifications
+    if (markAllReadNotificationsBtn) {
+        markAllReadNotificationsBtn.addEventListener('click', markAllNotificationsAsRead);
+    }
+    
+    if (notificationSettingsBtn) {
+        notificationSettingsBtn.addEventListener('click', openNotificationSettings);
+    }
+    
+    // Initialiser les gestionnaires de clic pour les éléments de message
+    document.querySelectorAll('.message-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const conversationId = this.getAttribute('data-conversation-id');
+            const senderName = this.querySelector('.message-sender').textContent;
+            showConversation(conversationId, senderName);
+        });
+    });
+    
+    // Initialiser les gestionnaires de clic pour les éléments de notification
+    document.querySelectorAll('.notification-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const notificationId = this.getAttribute('data-notification-id');
+            showNotificationDetail(notificationId);
+        });
+    });
+    
+    // Lier les fonctions aux fonctions globales pour être accessibles depuis le HTML
+    window.showConversation = showConversation;
+    window.showMessagesList = showMessagesList;
+    window.showNotificationDetail = showNotificationDetail;
+    window.showNotificationsList = showNotificationsList;
+});
     </script>
 </body>
 </html>
