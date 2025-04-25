@@ -38,16 +38,3 @@
         </div>
     </div>
 </div>
-
-
-<style>
-    .card {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-</style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
