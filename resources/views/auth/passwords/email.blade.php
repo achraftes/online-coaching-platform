@@ -231,7 +231,7 @@
                             <i class="fas fa-paper-plane me-2"></i>{{ __('Send Password Reset Link') }}
                         </button>
                         <a href="{{ route('compte.index') }}" class="btn btn-outline-secondary w-100">
-                            <i class="fas fa-arrow-left me-2"></i>{{ __('Back to Login') }}
+                            <i class="fas fa-arrow-left me-2"></i>{{ __('Cancel') }}
                         </a>
                     </div>
                 </form>
