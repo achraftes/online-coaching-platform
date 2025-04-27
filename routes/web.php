@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CompteController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\SupportController;
 
 Auth::routes();
 
@@ -80,3 +81,8 @@ Route::get('password/reset', [App\Http\Controllers\Auth\ForgotPasswordController
 Route::post('password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
+
+
+
+Route::get('/support', [App\Http\Controllers\SupportController::class, 'showForm'])->name('support.contact');
+Route::post('/support/send', [App\Http\Controllers\SupportController::class, 'sendSupportEmail'])->name('support.send');
