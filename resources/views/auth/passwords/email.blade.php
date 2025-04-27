@@ -238,7 +238,7 @@
             </div>
             
             <div class="card-footer">
-                <p class="mb-0">Need assistance? <a href="#" class="text-decoration-none">Contact Support</a></p>
+                <p class="mb-0">Need assistance? <a href="{{ route('support.contact') }}" class="text-decoration-none">Contact Support</a></p>
             </div>
         </div>
     </div>
