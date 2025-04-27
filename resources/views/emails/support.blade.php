@@ -10,7 +10,8 @@
         <p><strong>From:</strong> {{ $email }}</p>
         <p><strong>Subject:</strong> {{ $subject }}</p>
         <p><strong>Message:</strong></p>
-        <p>{{ $message }}</p>
+        <p><p>{{ $userMessage }}</p>
+        </p>
     </div>
 </body>
 </html>

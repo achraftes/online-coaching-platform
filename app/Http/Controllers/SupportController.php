@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Mail;
 
 class SupportController extends Controller
 {
-    // Affiche le formulaire de support
     public function showForm()
     {
         return view('support');
     }
 
-    // Envoie l'email au support
     public function sendSupportEmail(Request $request)
     {
         $request->validate([
@@ -22,9 +20,13 @@ class SupportController extends Controller
             'message' => 'required',
         ]);
 
-        // Ici on enverrait l'email
-        Mail::raw($request->message, function ($mail) use ($request) {
-            $mail->to('achrafchikrabane@gmail.com') 
+        // Remplacer 'message' par 'userMessage' pour éviter le conflit
+        Mail::send('emails.support', [
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'userMessage' => $request->message, // <-- changement ici
+        ], function ($mail) use ($request) {
+            $mail->to('achrafchikrabane@gmail.com')
                  ->subject($request->subject)
                  ->from($request->email);
         });
