@@ -139,7 +139,7 @@
         @endif
 
         <div class="form-section">
-            <h4 class="text-center mb-4">Edit Your Profile</h4>
+            <h4 class="text-center mb-4">Edit Your Compte</h4>
 
             <!-- Photo Upload Form -->
             <form action="{{ route('compte.updatePhoto') }}" method="POST" enctype="multipart/form-data" id="photoForm">
