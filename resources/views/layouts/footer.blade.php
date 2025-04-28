@@ -8,7 +8,7 @@
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/achraf_chkr/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
 
