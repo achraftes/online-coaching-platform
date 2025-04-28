@@ -9,399 +9,230 @@
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #f3f2ef;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-        }
-        
-        .navbar {
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 0.5rem 0;
-        }
-        
-        .navbar-brand {
-            font-weight: 600;
-            color: #0a66c2;
-        }
-        
-        .navbar-toggler {
-            border: none;
-        }
-        
-        .profile-header {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-            margin-top: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .profile-cover {
-            height: 200px;
-            background: linear-gradient(135deg, #0a66c2 0%, #0077b5 100%);
-            position: relative;
-        }
-        
-        .profile-img-container {
-            position: relative;
-            margin-top: -75px;
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-        
+    /* Couleurs révisées */
+    :root {
+        --primary-color: #0a66c2;
+        --secondary-color: #eef3f8;
+        --accent-color: #5a9bff;
+        --text-primary: #2d2d2d;
+        --text-secondary: #666;
+    }
+
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-primary);
+    }
+
+    .navbar {
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+    }
+
+    .profile-cover {
+        height: 240px;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #084a8e 100%);
+        position: relative;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .profile-img-container {
+        margin-top: -90px;
+        margin-left: 40px;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+        border: 5px solid white;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.03);
+    }
+
+    .edit-photo {
+        background: var(--primary-color);
+        color: white;
+        width: 42px;
+        height: 42px;
+    }
+
+    .profile-info {
+        padding: 0 40px 30px;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: -0.5px;
+    }
+
+    .profile-headline {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .profile-section {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        margin-top: 24px;
+        padding: 32px;
+        transition: transform 0.2s ease;
+    }
+
+    .profile-section:hover {
+        transform: translateY(-2px);
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--secondary-color);
+    }
+
+    .btn-edit {
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: 500;
+        border: 2px solid var(--primary-color);
+    }
+
+    .detail-row {
+        padding: 1.2rem 0;
+        border-bottom: 1px solid var(--secondary-color);
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        align-items: center;
+    }
+
+    .detail-label {
+        font-weight: 500;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .detail-label i {
+        width: 24px;
+        color: var(--primary-color);
+    }
+
+    .detail-value {
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    /* Boutons améliorés */
+    .btn-primary {
+        background: var(--primary-color);
+        padding: 12px 28px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: #084a8e;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(10, 102, 194, 0.2);
+    }
+
+    .btn-outline-primary {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    /* Modales améliorées */
+    .modal-content {
+        border-radius: 16px;
+        border: none;
+    }
+
+    .message-item, .notification-item {
+        padding: 1.25rem;
+        border-radius: 8px;
+        margin: 8px 0;
+        background: white;
+        transition: all 0.2s ease;
+    }
+
+    .message-bubble {
+        max-width: 80%;
+        padding: 12px 20px;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .message-received {
+        background: var(--secondary-color);
+    }
+
+    .message-sent {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
         .profile-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 5px solid white;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 120px;
+            height: 120px;
         }
-        
-        .edit-photo {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: white;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.2s ease;
+
+        .profile-img-container {
+            margin-top: -60px;
+            margin-left: 20px;
         }
-        
-        .edit-photo:hover {
-            background-color: #f3f2ef;
-        }
-        
+
         .profile-info {
-            padding: 0 30px 30px;
+            padding: 0 20px 20px;
         }
-        
-        .profile-name {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #191919;
-        }
-        
-        .profile-headline {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        
-        .profile-location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .profile-section {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-            margin-top: 20px;
-            padding: 25px 30px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #191919;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .btn-edit {
-            background-color: transparent;
-            border: 1px solid #0a66c2;
-            color: #0a66c2;
-            border-radius: 30px;
-            padding: 6px 16px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-edit:hover {
-            background-color: rgba(10, 102, 194, 0.1);
-        }
-        
-        .btn-primary {
-            background-color: #0a66c2;
-            border: none;
-            border-radius: 30px;
-            padding: 8px 24px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: #004182;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .btn-outline-primary {
-            border: 1px solid #0a66c2;
-            color: #0a66c2;
-            border-radius: 30px;
-            padding: 8px 24px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: rgba(10, 102, 194, 0.1);
-            border: 1px solid #0a66c2;
-            color: #0a66c2;
-        }
-        
-        .btn-danger {
-            background-color: white;
-            border: 1px solid #ca0c0c;
-            color: #ca0c0c;
-            border-radius: 30px;
-            padding: 8px 24px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-danger:hover {
-            background-color: rgba(202, 12, 12, 0.1);
-            color: #ca0c0c;
-        }
-        
+
         .detail-row {
-            padding: 12px 0;
-            border-bottom: 1px solid #f3f2ef;
-            display: flex;
-            flex-wrap: wrap;
+            grid-template-columns: 1fr;
+            gap: 8px;
         }
-        
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-        
+
         .detail-label {
-            font-weight: 600;
-            color: #666;
-            width: 180px;
-            margin-right: 20px;
+            font-size: 0.9rem;
         }
-        
-        .detail-value {
-            flex: 1;
-            color: #191919;
-        }
-        
-        .activity-section {
-            margin-top: 10px;
-        }
-        
-        .footer {
-            background-color: white;
-            padding: 20px 0;
-            margin-top: 40px;
-            border-top: 1px solid #e0e0e0;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        /* Message and Notification styles */
-        .message-item, .notification-item {
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+    }
 
-        .message-item:hover, .notification-item:hover {
-            background-color: #f3f2ef;
-        }
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-        .message-item:last-child, .notification-item:last-child {
-            border-bottom: none;
-        }
+    .profile-section {
+        animation: fadeIn 0.6s ease forwards;
+    }
 
-        .message-sender {
-            font-weight: 600;
-            color: #191919;
-        }
-
-        .message-time, .notification-time {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .notification-content {
-            margin-top: 5px;
-        }
-
-        .unread {
-            background-color: rgba(10, 102, 194, 0.05);
-            position: relative;
-        }
-
-        .unread::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background-color: #0a66c2;
-        }
-        
-        .modal-header {
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .modal-footer {
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        /* Conversation view styles */
-        .conversation-header {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .conversation-back {
-            margin-right: 15px;
-            cursor: pointer;
-            color: #0a66c2;
-        }
-        
-        .conversation-title {
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .conversation-body {
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 15px;
-        }
-        
-        .message-bubble {
-            max-width: 80%;
-            padding: 10px 15px;
-            margin-bottom: 10px;
-            border-radius: 18px;
-            position: relative;
-        }
-        
-        .message-received {
-            background-color: #f2f2f2;
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
-        
-        .message-sent {
-            background-color: #dcf8c6;
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-            margin-left: auto;
-        }
-        
-        .message-timestamp {
-            font-size: 11px;
-            color: #999;
-            margin-top: 2px;
-            text-align: right;
-        }
-
-        .conversation-input {
-            display: flex;
-            padding: 10px 15px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .conversation-input input {
-            flex: 1;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            padding: 8px 15px;
-            margin-right: 10px;
-        }
-        
-        .conversation-input button {
-            border-radius: 50%;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-        
-        /* Notification detail styles */
-        .notification-detail {
-            padding: 20px;
-        }
-        
-        .notification-detail-header {
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        
-        .notification-detail-time {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        
-        .notification-detail-content {
-            line-height: 1.5;
-        }
-        
-        .notification-actions {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .profile-img-container {
-                margin-top: -60px;
-                margin-left: 20px;
-            }
-            
-            .profile-info {
-                padding: 0 20px 20px;
-            }
-            
-            .detail-label {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            
-            .detail-value {
-                width: 100%;
-            }
-        }
-    </style>
+    /* Effet de survol amélioré */
+    .message-item:hover, .notification-item:hover {
+        transform: translateX(4px);
+        box-shadow: 2px 4px 12px rgba(0,0,0,0.08);
+    }
+</style>
 </head>
 <body>
     <!-- Navigation -->
