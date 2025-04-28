@@ -7,7 +7,7 @@
         <div class="flex mt-4 space-x-4">
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/achraf-chikrabane-850554291/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/achraf_chkr/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
