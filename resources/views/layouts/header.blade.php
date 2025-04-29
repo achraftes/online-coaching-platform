@@ -36,12 +36,12 @@
         .logo img {
             height: 6rem;
             width: auto;
-            margin-right: 2rem; /* Ajoute de l'espace entre le logo et les liens */
+            margin-right: 2rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 0.75rem; /* Réduction de l’espace entre les liens */
             align-items: center;
         }
 
@@ -68,6 +68,7 @@
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 padding: 1rem 0;
                 z-index: 999;
+                gap: 1rem; /* Ajouté pour espacer les éléments en version mobile */
             }
 
             .nav-links.show {
@@ -101,7 +102,7 @@
             text-decoration: none;
             transition: color 0.3s ease;
             position: relative;
-            font-size: 0.9rem; /* Réduit la taille des liens */
+            font-size: 0.9rem;
             padding: 0.5rem 0.75rem;
         }
 
@@ -127,7 +128,7 @@
 
         .buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             align-items: center;
         }
 
