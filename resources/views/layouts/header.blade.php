@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Header Professionnel</title>
+    <title>Header Élégant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -16,7 +16,7 @@
         header {
             background: white;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            height: 5.5rem;
+            height: 5rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -29,11 +29,11 @@
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 4rem; /* Espacement augmenté logo/nav */
         }
 
         .logo img {
-            height: 3.5rem;
+            height: 3rem;
             transition: transform 0.3s ease;
         }
 
@@ -44,7 +44,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem; /* Espacement entre liens réduit */
             flex-grow: 1;
         }
 
@@ -53,7 +53,8 @@
             text-decoration: none;
             font-weight: 500;
             position: relative;
-            padding: 0.75rem 0;
+            padding: 0.5rem 0.75rem; /* Padding ajusté */
+            font-size: 0.9rem; /* Taille de police réduite */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -83,21 +84,14 @@
             margin-left: auto;
         }
 
-        .login-btn,
-        .signup-btn {
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
         .login-btn {
             background: transparent;
             color: #4f46e5;
             border: 2px solid #e0e7ff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .login-btn:hover {
@@ -108,8 +102,12 @@
         .signup-btn {
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
             border: none;
             box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
         }
 
         .signup-btn:hover {
@@ -139,12 +137,8 @@
 
         @media (max-width: 1024px) {
             .header-container {
-                gap: 1.5rem;
+                gap: 2rem;
                 padding: 0 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
             }
         }
 
@@ -154,17 +148,21 @@
                 margin-left: auto;
             }
 
+            .header-container {
+                gap: 1.5rem;
+            }
+
             .nav-links {
                 position: fixed;
-                top: 5.5rem;
+                top: 5rem;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 background: white;
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 2rem;
-                gap: 1.5rem;
+                padding: 1.5rem;
+                gap: 1rem;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
             }
@@ -173,19 +171,19 @@
                 transform: translateX(0);
             }
 
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0;
+            }
+
             .buttons {
                 flex-direction: column;
                 width: 100%;
                 margin: 1rem 0;
             }
 
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 0.5rem 0;
-            }
-
             .logo img {
-                height: 3rem;
+                height: 2.8rem;
             }
         }
     </style>
@@ -210,14 +208,8 @@
             <a href="#contacts">Contact</a>
 
             <div class="buttons">
-                <a href="/login" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Connexion
-                </a>
-                <a href="/register" class="signup-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    Devenir Coach
-                </a>
+                <a href="/login" class="login-btn">Connexion</a>
+                <a href="/register" class="signup-btn">Devenir Coach</a>
             </div>
         </nav>
 
@@ -237,7 +229,6 @@
             menuToggle.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
         });
 
-        // Fermer le menu au clic à l'extérieur
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.header-container')) {
                 navLinks.classList.remove('show');
@@ -245,7 +236,6 @@
             }
         });
 
-        // Animation au scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             header.style.boxShadow = window.scrollY > 10 ? 
