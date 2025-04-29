@@ -78,3 +78,54 @@
         50% { transform: translateY(-20px) rotate(3deg); }
     }
 </style>
+<!-- Bouton retour en haut spécifique à la page d'accueil -->
+<button id="scrollTopBtn" class="scroll-top-btn" title="Retour en haut">↑</button>
+
+<style>
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #4F46E5;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: #4F46E5;
+        transform: translateY(-3px);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        // Afficher le bouton quand l'utilisateur défile vers le bas
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        // Fonction pour remonter en haut lors du clic
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
