@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Header Élégant</title>
+    <title>Header avec Profil</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -10,181 +12,170 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         header {
-            background: white;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            height: 5rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 6rem;
         }
 
         .header-container {
-            max-width: 1440px;
+            max-width: 72rem;
             margin: 0 auto;
             padding: 0 2rem;
             height: 100%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 4rem; /* Espacement augmenté logo/nav */
+            position: relative;
         }
 
         .logo img {
-            height: 3rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
+            height: 6rem;
+            width: auto;
+            margin-right: 2rem; /* Ajoute de l'espace entre le logo et les liens */
         }
 
         .nav-links {
             display: flex;
+            gap: 1.5rem;
             align-items: center;
-            gap: 1.5rem; /* Espacement entre liens réduit */
-            flex-grow: 1;
-        }
-
-        .nav-links a {
-            color: #1f2937;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0.75rem; /* Padding ajusté */
-            font-size: 0.9rem; /* Taille de police réduite */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #4f46e5;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #4f46e5;
-            font-weight: 600;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 1rem;
-            margin-left: auto;
-        }
-
-        .login-btn {
-            background: transparent;
-            color: #4f46e5;
-            border: 2px solid #e0e7ff;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .login-btn:hover {
-            background: #eef2ff;
-            border-color: #c7d2fe;
-        }
-
-        .signup-btn {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            border: none;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .signup-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
-        }
-
-        .profile-icon {
-            font-size: 1.8rem;
-            color: #4f46e5;
-            transition: transform 0.3s ease;
-            margin-left: 1.5rem;
-        }
-
-        .profile-icon:hover {
-            transform: scale(1.1);
         }
 
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
-            color: #4f46e5;
-            background: none;
-            border: none;
             cursor: pointer;
-        }
-
-        @media (max-width: 1024px) {
-            .header-container {
-                gap: 2rem;
-                padding: 0 1.5rem;
-            }
+            z-index: 1000;
         }
 
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                margin-left: auto;
-            }
-
-            .header-container {
-                gap: 1.5rem;
             }
 
             .nav-links {
-                position: fixed;
-                top: 5rem;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: white;
+                display: none;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 1.5rem;
-                gap: 1rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+                z-index: 999;
             }
 
             .nav-links.show {
-                transform: translateX(0);
+                display: flex;
             }
 
-            .nav-links a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0;
+            .logo img {
+                height: 5rem;
             }
 
             .buttons {
                 flex-direction: column;
                 width: 100%;
-                margin: 1rem 0;
+                padding: 0 1rem;
+                margin-top: 1rem;
             }
 
-            .logo img {
-                height: 2.8rem;
+            .buttons a {
+                width: 100%;
+                text-align: center;
             }
+
+            .profile-icon {
+                display: none;
+            }
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: #1f2937;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 0.9rem; /* Réduit la taille des liens */
+            padding: 0.5rem 0.75rem;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .nav-links a span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4f46e5;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover span {
+            transform: scaleX(1);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .login-btn {
+            background-color: #db2777;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            border: 2px solid #db2777;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .login-btn:hover {
+            background-color: white;
+            color: #db2777;
+            border-color: #db2777;
+        }
+
+        .signup-btn {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            border: 2px solid #4f46e5;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .signup-btn:hover {
+            background-color: white;
+            color: #3730a3;
+            border-color: #3730a3;
+        }
+
+        .profile-icon {
+            font-size: 2rem;
+            color: #4f46e5;
+            transition: color 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .profile-icon:hover {
+            color: #3730a3;
         }
     </style>
 </head>
@@ -193,26 +184,27 @@
 <header>
     <div class="header-container">
         <a href="/" class="logo">
-            <img src="{{ asset('images/only coach (1).png') }}" alt="Coaching Pro">
+            <img src="{{ asset('images/only coach (1).png') }}" alt="Logo Coaching Professionel">
         </a>
 
-        <button class="menu-toggle">☰</button>
+        <div class="menu-toggle">☰</div>
 
         <nav class="nav-links">
-            <a href="/" class="active">Accueil</a>
-            <a href="#services">Services</a>
-            <a href="#features">Test</a>
-            <a href="#blogs">Blog</a>
-            <a href="#pricing">Tarifs</a>
-            <a href="#testimonials">Avis</a>
-            <a href="#contacts">Contact</a>
+            <a href="/">Home<span></span></a>
+            <a href="#services">Services<span></span></a>
+            <a href="#features">Test<span></span></a>
+            <a href="#blogs">Blogs<span></span></a>
+            <a href="#pricing">Tarifs<span></span></a>
+            <a href="#testimonials">Témoignages<span></span></a>
+            <a href="#contacts">Contact<span></span></a>
 
             <div class="buttons">
-                <a href="/login" class="login-btn">Connexion</a>
-                <a href="/register" class="signup-btn">Devenir Coach</a>
+                <a href="/login" class="login-btn">Login</a>
+                <a href="/register" class="signup-btn">Devenir un Coach</a>
             </div>
         </nav>
 
+        <!-- Icône de profil à droite -->
         <a href="{{ route('compte.index') }}" class="profile-icon">
             <i class="fas fa-user-circle"></i>
         </a>
@@ -220,27 +212,20 @@
 </header>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', function () {
             navLinks.classList.toggle('show');
-            menuToggle.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
+            this.textContent = navLinks.classList.contains('show') ? '✕' : '☰';
         });
 
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.header-container')) {
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.header-container')) {
                 navLinks.classList.remove('show');
                 menuToggle.textContent = '☰';
             }
-        });
-
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.style.boxShadow = window.scrollY > 10 ? 
-                '0 4px 30px rgba(0, 0, 0, 0.1)' : 
-                '0 4px 30px rgba(0, 0, 0, 0.05)';
         });
     });
 </script>
