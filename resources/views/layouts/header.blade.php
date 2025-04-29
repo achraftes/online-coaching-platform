@@ -34,14 +34,14 @@
         }
 
         .logo img {
-            height: 6rem;
+            height: 7rem; /* Augmenté */
             width: auto;
             margin-right: 2rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 0.75rem; /* Réduction de l’espace entre les liens */
+            gap: 0.75rem;
             align-items: center;
         }
 
@@ -68,7 +68,7 @@
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 padding: 1rem 0;
                 z-index: 999;
-                gap: 1rem; /* Ajouté pour espacer les éléments en version mobile */
+                gap: 1rem;
             }
 
             .nav-links.show {
@@ -76,7 +76,7 @@
             }
 
             .logo img {
-                height: 5rem;
+                height: 6rem; /* Augmenté ici aussi */
             }
 
             .buttons {
