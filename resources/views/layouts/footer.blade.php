@@ -15,8 +15,8 @@
       <div class="w-full sm:w-1/2 lg:w-1/6 mb-6">
         <h3 class="text-lg font-semibold mb-4">Navigation</h3>
         <ul>
-          <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white">Blogs</a></li>
+          <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+          <li><a href="#blogs" class="text-gray-400 hover:text-white">Blogs</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Test</a></li>
