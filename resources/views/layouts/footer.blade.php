@@ -17,7 +17,7 @@
         <ul>
           <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
           <li><a href="#blogs" class="text-gray-400 hover:text-white">Blogs</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
+          <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Test</a></li>
         </ul>
