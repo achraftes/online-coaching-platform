@@ -37,7 +37,7 @@
         <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
         <p class="text-gray-400 mb-4">Subscribe to get the latest updates and offers.</p>
         <form class="flex">
-          <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-l-md focus:outline-none">
+        <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-l-md focus:outline-none bg-white text-black">
           <button class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700">Subscribe</button>
         </form>
       </div>
