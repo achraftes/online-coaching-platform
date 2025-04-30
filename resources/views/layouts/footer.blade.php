@@ -26,7 +26,7 @@
       <div class="w-full sm:w-1/2 lg:w-1/6 mb-6">
         <h3 class="text-lg font-semibold mb-4">Support</h3>
         <ul>
-          <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+          <li><a href="{{ route('support.contact') }}" class="text-gray-400 hover:text-white">Help Center</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
