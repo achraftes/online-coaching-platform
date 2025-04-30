@@ -5,7 +5,9 @@
       <!-- Bloc 1 : Coaching Pro -->
       <div class="w-full sm:w-1/2 lg:w-1/3 mb-6">
         <h1 class="text-2xl font-bold mb-4">Coaching Pro</h1>
-        <p class="text-gray-400">Empowering individuals to reach their full potential through personalized coaching and guidance.</p>
+        <p class="text-gray-400">Empowering individuals to reach <br>
+           their full potential through personalized  <br>
+           coaching and guidance.</p>
         <div class="flex mt-4 space-x-4 justify-center sm:justify-start">
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
           <a href="https://x.com/chkr_achraf" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
