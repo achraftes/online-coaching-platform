@@ -16,7 +16,7 @@
         <h3 class="text-lg font-semibold mb-4">Navigation</h3>
         <ul>
           <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white">Blogs</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
           <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
         </ul>
