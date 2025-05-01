@@ -16,7 +16,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#" 
+                    <a href="#" onclick="showModal()"  
                        class="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg transform hover:translate-y-px">
                        Commencer maintenant
                     </a>
