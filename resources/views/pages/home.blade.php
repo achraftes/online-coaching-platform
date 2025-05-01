@@ -52,36 +52,31 @@
     <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-100 to-transparent"></div>
 </div>
 
-<!-- Bouton retour en haut -->
-<button id="scrollTopBtn" class="scroll-top-btn" title="Retour en haut">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-    </svg>
-</button>
+<!-- Bouton retour en haut spécifique à la page d'accueil -->
+<button id="scrollTopBtn" class="scroll-top-btn" title="Retour en haut">↑</button>
 
 <style>
     .scroll-top-btn {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
         background-color: #4F46E5;
         color: white;
         border: none;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
+        border-radius: 10px;
+        font-size: 18px;
         cursor: pointer;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
     }
 
     .scroll-top-btn:hover {
-        background-color: #4338CA;
+        background-color: #4F46E5;
         transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 </style>
 
@@ -92,7 +87,7 @@
         // Afficher le bouton quand l'utilisateur défile vers le bas
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
-                scrollTopBtn.style.display = 'flex';
+                scrollTopBtn.style.display = 'block';
             } else {
                 scrollTopBtn.style.display = 'none';
             }
@@ -107,3 +102,4 @@
         });
     });
 </script>
+
