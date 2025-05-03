@@ -91,7 +91,7 @@
                 text-align: center;
             }
 
-            .profile-wrapper {
+            #profile-btn {
                 display: none;
             }
         }
@@ -168,19 +168,21 @@
             border-color: #3730a3;
         }
 
-        .profile-wrapper {
+        #profile-btn {
+            background: none;
+            border: none;
             cursor: pointer;
             margin-left: 1rem;
+            padding: 0;
         }
 
-        .profile-icon {
+        #profile-btn i {
             font-size: 2rem;
             color: #4f46e5;
             transition: color 0.3s ease;
-            display: block;
         }
 
-        .profile-icon:hover {
+        #profile-btn:hover i {
             color: #3730a3;
         }
     </style>
@@ -190,7 +192,7 @@
 <header>
     <div class="header-container">
         <a href="/" class="logo">
-            <img src="{{ asset('images/only coach (1).png') }}" alt="Logo Coaching Professionel">
+            <img src="/images/only coach (1).png" alt="Logo Coaching Professionel">
         </a>
 
         <div class="menu-toggle">☰</div>
@@ -210,10 +212,10 @@
             </div>
         </nav>
 
-        <!-- Icône de profil à droite - corrigé -->
-        <div class="profile-wrapper" onclick="window.location.href='{{ route('compte.index') }}'">
-            <i class="fas fa-user-circle profile-icon"></i>
-        </div>
+        <!-- Icône de profil à droite - solution avec button -->
+        <button id="profile-btn" onclick="window.location.href='/compte'">
+            <i class="fas fa-user-circle"></i>
+        </button>
     </div>
 </header>
 
@@ -221,7 +223,6 @@
     document.addEventListener('DOMContentLoaded', function () {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const profileWrapper = document.querySelector('.profile-wrapper');
 
         menuToggle.addEventListener('click', function () {
             navLinks.classList.toggle('show');
@@ -234,14 +235,6 @@
                 menuToggle.textContent = '☰';
             }
         });
-
-        // S'assurer que l'icône de profil est cliquable
-        if(profileWrapper) {
-            profileWrapper.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = "{{ route('compte.index') }}";
-            });
-        }
     });
 </script>
 
