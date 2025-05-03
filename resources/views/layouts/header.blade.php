@@ -34,7 +34,7 @@
         }
 
         .logo img {
-            height: 7rem; /* Augmenté */
+            height: 7rem;
             width: auto;
             margin-right: 2rem;
         }
@@ -76,7 +76,7 @@
             }
 
             .logo img {
-                height: 6rem; /* Augmenté ici aussi */
+                height: 6rem;
             }
 
             .buttons {
@@ -91,7 +91,7 @@
                 text-align: center;
             }
 
-            .profile-icon {
+            .profile-wrapper {
                 display: none;
             }
         }
@@ -168,11 +168,16 @@
             border-color: #3730a3;
         }
 
+        .profile-wrapper {
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
         .profile-icon {
             font-size: 2rem;
             color: #4f46e5;
             transition: color 0.3s ease;
-            margin-left: 1rem;
+            display: block;
         }
 
         .profile-icon:hover {
@@ -205,10 +210,10 @@
             </div>
         </nav>
 
-        <!-- Icône de profil à droite -->
-        <a href="{{ route('compte.index') }}" class="profile-icon">
-            <i class="fas fa-user-circle"></i>
-        </a>
+        <!-- Icône de profil à droite - corrigé -->
+        <div class="profile-wrapper" onclick="window.location.href='{{ route('compte.index') }}'">
+            <i class="fas fa-user-circle profile-icon"></i>
+        </div>
     </div>
 </header>
 
@@ -216,6 +221,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const profileWrapper = document.querySelector('.profile-wrapper');
 
         menuToggle.addEventListener('click', function () {
             navLinks.classList.toggle('show');
@@ -228,6 +234,14 @@
                 menuToggle.textContent = '☰';
             }
         });
+
+        // S'assurer que l'icône de profil est cliquable
+        if(profileWrapper) {
+            profileWrapper.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = "{{ route('compte.index') }}";
+            });
+        }
     });
 </script>
 
