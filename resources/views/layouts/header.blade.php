@@ -206,17 +206,18 @@
             <a href="#testimonials">Témoignages<span></span></a>
             <a href="#contacts">Contact<span></span></a>
 
-            <div class="buttons">
-                <a href="/login" class="login-btn">Login</a>
-                <a href="/register" class="signup-btn">Devenir un Coach</a>
-                <!-- Icône de profil à droite - solution avec button -->
+            <!-- Icône de profil à droite - solution avec button -->
         <button id="profile-btn" onclick="window.location.href='/compte'">
             <i class="fas fa-user-circle"></i>
         </button>
+
+            <div class="buttons">
+                <a href="/login" class="login-btn">Login</a>
+                <a href="/register" class="signup-btn">Devenir un Coach</a>
             </div>
         </nav>
 
-
+        
     </div>
 </header>
 
