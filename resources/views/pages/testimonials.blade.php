@@ -32,7 +32,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="flex-col items-center">
         <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mx-auto text-center mb-12">
-          <p class="my-4 text-base font-semibold tracking-wide text-purple-600 uppercase">Ce que nos clients disent</p>
+        <p class="my-4 text-base font-semibold tracking-wide text-custom-indigo uppercase">Ce que nos clients disent</p>
           <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
             Témoignages
           </h2>
