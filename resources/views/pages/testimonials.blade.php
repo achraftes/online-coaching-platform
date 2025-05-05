@@ -6,6 +6,14 @@
   <title>Section Témoignages</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-custom-indigo {
+      background-color: #4f46e5;
+    }
+    .hover\:bg-custom-indigo:hover {
+      background-color: #4f46e5;
+    }
+  </style>
 </head>
 <body>
   <div id="testimonials" class="flex items-center justify-center w-full px-8 py-12 bg-gradient-to-b from-gray-50 to-white md:py-16 lg:py-24 xl:py-40 xl:px-0" x-data="testimonialData()">
@@ -16,7 +24,7 @@
           <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
             Témoignages
           </h2>
-          <div class="w-24 h-1 mx-auto my-6 bg-purple-600 rounded-full"></div>
+          <div class="w-24 h-1 mx-auto my-6 bg-custom-indigo rounded-full"></div>
           <p class="my-6 text-xl font-normal text-gray-600">Découvrez comment notre produit transforme l'expérience de nos clients et pourquoi ils nous adorent.</p>
         </div>
         
@@ -50,13 +58,13 @@
         </div>
         
         <div class="flex justify-center mt-12" x-show="!allTestimonialsShown">
-          <button @click="showMoreTestimonials" class="px-8 py-3 font-semibold text-white transition-all duration-300 bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 hover:shadow-lg">
+          <button @click="showMoreTestimonials" class="px-8 py-3 font-semibold text-white transition-all duration-300 bg-custom-indigo rounded-lg shadow-md hover:bg-custom-indigo hover:shadow-lg">
             Voir plus de témoignages
           </button>
         </div>
         
         <div class="flex justify-center mt-12" x-show="allTestimonialsShown">
-          <button @click="showLessTestimonials" class="px-8 py-3 font-semibold text-white transition-all duration-300 bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 hover:shadow-lg">
+          <button @click="showLessTestimonials" class="px-8 py-3 font-semibold text-white transition-all duration-300 bg-custom-indigo rounded-lg shadow-md hover:bg-custom-indigo hover:shadow-lg">
             Voir moins de témoignages
           </button>
         </div>
@@ -95,7 +103,6 @@
             quote: "Enfin un système rapide et facile que je peux utiliser pour tout type de projet.",
             image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80"
           },
-          // Témoignages supplémentaires qui apparaîtront après avoir cliqué sur le bouton
           {
             name: "Thomas Laurent",
             title: "Directeur Marketing, TechCorp",
