@@ -365,10 +365,10 @@
                 <div class="or-divider">OU</div>
                 
                 <div class="social-signup">
-                    <a href="{{ route('login.google') }}" class="social-btn">
+                    <a href="#" class="social-btn">
                         <img src="https://img.icons8.com/ios/50/000000/google-logo.png" alt="Google Logo"> Connexion avec Google
                     </a>
-                    <a href="{{ route('login.facebook') }}" class="social-btn">
+                    <a href="#" class="social-btn">
                         <img src="https://img.icons8.com/ios/50/000000/facebook-new.png" alt="Facebook Logo"> Connexion avec Facebook
                     </a>
                 </div>
