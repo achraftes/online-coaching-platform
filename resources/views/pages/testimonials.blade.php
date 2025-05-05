@@ -13,6 +13,18 @@
     .hover\:bg-custom-indigo:hover {
       background-color: #4f46e5;
     }
+    .text-custom-indigo {
+      color: #4f46e5;
+    }
+    .bg-custom-indigo {
+      background-color: #4f46e5;
+    }
+    .hover\:bg-custom-indigo:hover {
+      background-color: #4f46e5;
+    }
+    .ring-custom-indigo {
+      --tw-ring-color: #4f46e5;
+    }
   </style>
 </head>
 <body>
