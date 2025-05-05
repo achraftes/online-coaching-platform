@@ -198,9 +198,6 @@
         <div class="menu-toggle">☰</div>
 
         <nav class="nav-links">
-             <button id="profile-btn" onclick="window.location.href='/compte'">
-            <i class="fas fa-user-circle"></i>
-        </button>
             <a href="/">Home<span></span></a>
             <a href="#services">Services<span></span></a>
             <a href="#features">Test<span></span></a>
@@ -212,13 +209,14 @@
             <div class="buttons">
                 <a href="/login" class="login-btn">Login</a>
                 <a href="/register" class="signup-btn">Devenir un Coach</a>
-            </div>
-        </nav>
-
-        <!-- Icône de profil à droite - solution avec button -->
+                <!-- Icône de profil à droite - solution avec button -->
         <button id="profile-btn" onclick="window.location.href='/compte'">
             <i class="fas fa-user-circle"></i>
         </button>
+            </div>
+        </nav>
+
+
     </div>
 </header>
 
