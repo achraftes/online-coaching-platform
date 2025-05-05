@@ -198,6 +198,9 @@
         <div class="menu-toggle">☰</div>
 
         <nav class="nav-links">
+             <button id="profile-btn" onclick="window.location.href='/compte'">
+            <i class="fas fa-user-circle"></i>
+        </button>
             <a href="/">Home<span></span></a>
             <a href="#services">Services<span></span></a>
             <a href="#features">Test<span></span></a>
