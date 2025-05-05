@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login  OnlyCoach</title>
+    <title>Login OnlyCoach</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
@@ -345,47 +345,50 @@
                 
                 <div class="form-group password-field">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" required>
-                    <span class="eye-icon" onclick="togglePasswordVisibility()">👁️</span>
+                    <input type="password" id="password" name="password" placeholder="********" required>
+                    <span class="eye-icon" onclick="togglePasswordVisibility()">
+                        👁️
+                    </span>
                     @error('password')
                         <small style="color: #ff6b6b;">{{ $message }}</small>
                     @enderror
                 </div>
                 
-                <div class="remember-forgot">
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Se souvenir de moi</label>
-                    </div>
+                <div class="remember-me">
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label for="remember">Se souvenir de moi</label>
                     <a href="{{ route('password.request') }}" class="forgot-password">Mot de passe oublié?</a>
                 </div>
                 
                 <button type="submit" class="login-btn">Se connecter</button>
-                
-                <div class="or-divider">OU</div>
-                
-                <div class="social-signup">
-                    <a href="#" class="social-btn">
-                        <img src="https://img.icons8.com/ios/50/000000/google-logo.png" alt="Google Logo"> Connexion avec Google
-                    </a>
-                    <a href="#" class="social-btn">
-                        <img src="https://img.icons8.com/ios/50/000000/facebook-new.png" alt="Facebook Logo"> Connexion avec Facebook
-                    </a>
-                </div>
             </form>
+            
+            <div class="or-divider">OU</div>
+            
+            <div class="social-signup">
+                <a href="#" class="social-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google">
+                    Se connecter avec Google
+                </a>
+                <a href="#" class="social-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Facebook_Logo_2023.svg/1200px-Facebook_Logo_2023.svg.png" alt="Facebook">
+                    Se connecter avec Facebook
+                </a>
+            </div>
         </div>
     </div>
 
     <script>
         function togglePasswordVisibility() {
-            const passwordInput = document.getElementById('password');
-            const icon = document.querySelector('.eye-icon');
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                icon.textContent = "🙈";
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.querySelector('.eye-icon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.textContent = '🙈'; // Change icon to indicate password is visible
             } else {
-                passwordInput.type = "password";
-                icon.textContent = "👁️";
+                passwordField.type = 'password';
+                eyeIcon.textContent = '👁️'; // Change icon back to hidden
             }
         }
     </script>
