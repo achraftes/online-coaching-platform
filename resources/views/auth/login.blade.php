@@ -365,7 +365,7 @@
                     <a href="{{ route('password.request') }}" class="forgot-password">Mot de passe oublié?</a>
                 </div>
                 
-                <button type="submit" class="login-btn">Se   hhhhconnecter</button>
+                <button type="submit" class="login-btn">Se connecter</button>
             </form>
             
             <div class="or-divider">Ou</div>
