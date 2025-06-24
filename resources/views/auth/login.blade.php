@@ -33,7 +33,7 @@
         .container {
             display: flex;
             width: 100%;
-            max-width: 90088px;
+            max-width: 900px;
             height: 600px;
             border-radius: 12px;
             overflow: hidden;
