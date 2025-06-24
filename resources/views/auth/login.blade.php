@@ -16,7 +16,7 @@
     <style>
         * {
             box-sizing: border-box;
-            margin: ;
+            margin: 0;
             padding: 0;
         }
         
