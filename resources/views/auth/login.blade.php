@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token(77) }}">
     
     <style>
         * {
