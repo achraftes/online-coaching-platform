@@ -407,9 +407,9 @@
                 `;
             } else {
                 passwordInput.type = 'password';
-                // this.innerHTML = `
-                //     <path d="M12 5C7.453 5 3.57 7.909 2 12C3.57 16.091 7.453 19 12 19C16.547 19 20.43 16.091 22 12C20.43 7.909 16.547 5 12 5Z" stroke="#9a9aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                //     <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#9a9aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                this.innerHTML = `
+                    <path d="M12 5C7.453 5 3.57 7.909 2 12C3.57 16.091 7.453 19 12 19C16.547 19 20.43 16.091 22 12C20.43 7.909 16.547 5 12 5Z" stroke="#9a9aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#9a9aa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 `;
             }
         });
