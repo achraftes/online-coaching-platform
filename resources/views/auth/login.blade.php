@@ -8,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
-    <!-- <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}"> -->
+    <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
