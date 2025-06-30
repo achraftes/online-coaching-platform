@@ -59,7 +59,7 @@
             left: 0;
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 40px;
+            padding: 41px;
             color: white;
             text-align: center;
         }
