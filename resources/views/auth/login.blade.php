@@ -21,7 +21,7 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
             background-color: #1a1a1a;
             min-height: 100vh;
             display: flex;
