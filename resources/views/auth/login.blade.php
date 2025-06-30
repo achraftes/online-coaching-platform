@@ -67,7 +67,7 @@
         .slogan-overlay h2 {
             font-size: 29px;
             font-weight: 500;
-            margin-bottom: 10px;
+            margin-bottom: 11px;
             color: white;
         }
         
