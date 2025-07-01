@@ -202,7 +202,7 @@
                     <i class="fas fa-lock fa-lg"></i>
                 </div>
                 <h3>{{ __('Reset Your Password') }}</h3>
-                <p class="mb-0 mt-2 text-white-50">Enter your email to receive a reset link</p>
+                <p class="mb-0 mt-2 text-white-50">Enter your email to receive a reset</p>
             </div>
 
             <div class="card-body">
