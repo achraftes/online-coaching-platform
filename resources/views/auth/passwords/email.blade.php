@@ -39,7 +39,7 @@
         }
 
         .logo-area img {
-            max-height: 51px;
+            max-height: 50px;
         }
 
         /* Card styling */
