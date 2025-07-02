@@ -163,7 +163,7 @@
             padding: 1rem;
             margin-bottom: 1.5rem;
             display: flex;
-            align-items: ;
+            align-items: center;
         }
 
         .alert-success i {
