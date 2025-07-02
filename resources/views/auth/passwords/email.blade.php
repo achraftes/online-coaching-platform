@@ -159,7 +159,7 @@
             background-color: #c6f6d5;
             color: #276749;
             border: none;
-            border-radius: 9px;
+            border-radius: 8px;
             padding: 1rem;
             margin-bottom: 1.5rem;
             display: flex;
