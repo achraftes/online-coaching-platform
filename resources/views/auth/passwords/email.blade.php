@@ -20,7 +20,7 @@
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             font-family: 'Poppins', sans-serif;
-            color: #2d3748;
+            color: #2d374;
             min-height: 100vh;
         }
 
