@@ -34,7 +34,7 @@
 
         /* Logo area */
         .logo-area {
-            text-align: center;
+            text-align: centr;
             margin-bottom: 1.5rem;
         }
 
