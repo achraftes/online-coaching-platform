@@ -57,7 +57,7 @@
             background: linear-gradient(to right, #4776E6, #8E54E9);
             color: #fff;
             text-align: center;
-            padding: 1.8rem 1.5rem;
+            padding: 1.7rem 1.5rem;
             border-bottom: none;
         }
 
