@@ -58,7 +58,7 @@
             color: #fff;
             text-align: center;
             padding: 1.8rem 1.5rem;
-            border-bottom: none;
+            border-bottom: none2;
         }
 
         .card-header h3 {
