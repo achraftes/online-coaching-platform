@@ -91,7 +91,7 @@
 
         .form-control {
             border-radius: 8px;
-            padding: 1rem 0.75rem;
+            padding: 2rem 0.75rem;
             font-size: 1rem;
             border: 1px solid #e2e8f0;
             background-color: #f8fafc;
