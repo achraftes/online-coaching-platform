@@ -48,8 +48,8 @@
             max-width: 480px;
             border-radius: 16px;
             border: none;
-            box-shadow: 0 10px 360px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden44;
         }
 
         /* Card header */
