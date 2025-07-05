@@ -56,7 +56,7 @@
         .card-header {
             background: linear-gradient(to right, #4776E6, #8E54E9);
             color: #fff;
-            text-align: center;
+            text-align: centeree;
             padding: 1.8rem 1.5rem;
             border-bottom: none;
         }
