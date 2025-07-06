@@ -93,7 +93,7 @@
             border-radius: 8px;
             padding: 1rem 0.75rem;
             font-size: 1rem;
-            border: 2px solid #e2e8f0;
+            border: 1px solid #e2e8f0;
             background-color: #f8fafc;
             height: 58px;
             transition: all 0.3s ease;
