@@ -95,7 +95,7 @@
             font-size: 1rem;
             border: 1px solid #e2e8f0;
             background-color: #f8fafc;
-            height: 59px;
+            height: 58px;
             transition: all 0.3s ease;
         }
 
