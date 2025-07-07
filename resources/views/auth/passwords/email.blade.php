@@ -46,7 +46,7 @@
         .card {
             width: 100%;
             max-width: 480px;
-            border-radius: 16px;
+            border-radius: 15px;
             border: none;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             overflow: hidden;
