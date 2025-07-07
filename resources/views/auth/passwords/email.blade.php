@@ -55,7 +55,7 @@
         /* Card header */
         .card-header {
             background: linear-gradient(to right, #4776E6, #8E54E9);
-            color: #ffff;
+            color: #fff;
             text-align: center;
             padding: 1.8rem 1.5rem;
             border-bottom: none;
