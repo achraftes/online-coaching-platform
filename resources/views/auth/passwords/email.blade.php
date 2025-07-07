@@ -26,7 +26,7 @@
 
         /* Main container */
         .container {
-            min-height: 104vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
