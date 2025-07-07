@@ -29,7 +29,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: cente3r;
+            align-items: center;
         }
 
         /* Logo area */
