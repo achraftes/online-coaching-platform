@@ -132,7 +132,7 @@
         <h2 class="text-3xl font-semibold mb-8 text-center">Inscription</h2>
         <form id="inscriptionForm" class="space-y-6">
             <div class="form-group">
-                <label class="form-label" for="fname">Prénommlabel>
+                <label class="form-label" for="fname">Prénom</label>
                 <input type="text" id="fname" name="fname" class="form-input" required placeholder="Entrez votre prénom">
                 <div class="error-text" data-error="fname"></div>
             </div>
