@@ -125,8 +125,7 @@
 
     @include('layouts.footer')
 
-    <!-- Modal d'inscription -->
-     <!-- Modal d'inscription -->
+   <!-- Modal d'inscription -->
 <div id="inscriptionModal" class="modal">
     <div class="modal-content">
         <button class="close-button">&times;</button>
