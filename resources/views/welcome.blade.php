@@ -142,7 +142,7 @@
                 <div class="error-text" data-error="lname"></div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="phone">Téléphone</label>
+                <label class="form-label" for="phone">Téléphonett</label>
                 <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Entrez votre numéro de téléphone">
                 <div class="error-text" data-error="phone"></div>
             </div>
