@@ -147,7 +147,7 @@
                 <div class="error-text" data-error="phone"></div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="email">Emailll</label>
+                <label class="form-label" for="email">Email</label>
                 <input type="email" id="email" name="email" class="form-input" required placeholder="Entrez votre email">
                 <div class="error-text" data-error="email"></div>
                 <div id="email-exists-error" class="text-red-500 text-sm mt-1 hidden">
