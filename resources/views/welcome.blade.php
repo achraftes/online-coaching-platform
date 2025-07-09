@@ -166,7 +166,7 @@
                         <div class="optgroup" id="coachingProfessional">
                             <div class="group-label">Coaching Professionnel</div>
                             <div class="sub-options">
-                                <div class="option" data-value="professionalDevelopment">Développement Professionnel (250€)</div>
+                                <div class="option" data-value="professionalDevelopment">Développement Professionnel (350€)</div>
                                 <div class="option" data-value="professionalReconversion">Reconversion Professionnelle (400€)</div>
                             </div>
                         </div>
