@@ -129,7 +129,7 @@
 <div id="inscriptionModal" class="modal">
     <div class="modal-content">
         <button class="close-button">&times;</button>
-        <h2 class="text-3xl font-semibold mb-8 text-center">Inscriptionyyy</h2>
+        <h2 class="text-3xl font-semibold mb-8 text-center">Inscription</h2>
         <form id="inscriptionForm" class="space-y-6">
             <div class="form-group">
                 <label class="form-label" for="fname">Prénom</label>
