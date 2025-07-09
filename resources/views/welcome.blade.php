@@ -167,7 +167,7 @@
                             <div class="group-label">Coaching Professionnel</div>
                             <div class="sub-options">
                                 <div class="option" data-value="professionalDevelopment">Développement Professionnel (350€)</div>
-                                <div class="option" data-value="professionalReconversion">Reconversion Professionnelle (400€)</div>
+                                <div class="option" data-value="professionalReconversion">Reconversion Professionnelle (500€)</div>
                             </div>
                         </div>
                         <div class="optgroup" id="entrepreneurship">
