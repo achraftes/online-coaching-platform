@@ -151,7 +151,7 @@
                 <input type="email" id="email" name="email" class="form-input" required placeholder="Entrez votre email">
                 <div class="error-text" data-error="email"></div>
                 <div id="email-exists-error" class="text-red-500 text-sm mt-1 hidden">
-                    Cet email existe déjà. Veuillez en utiliser un autre.
+                    Cet email existe déjà. Veuillez en utiliser un autre email.
                 </div>
             </div>
 
