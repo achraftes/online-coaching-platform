@@ -8,6 +8,7 @@
     <title>Coaching Professionel</title>
     <!-- Favicon personnalisé -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
     
 
     <!-- Pour une meilleure compatibilité -->
