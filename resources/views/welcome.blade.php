@@ -29,7 +29,7 @@
                 if (window.paypal) {
                     console.log('PayPal est déjà chargé');
                     resolve();
-                    return;
+                    // return;
                 }
 
                 const script = document.createElement('script');
