@@ -208,7 +208,7 @@
                     <span id="summary-service" class="font-medium"></span>
                 </div>
                 <div class="summary-row">
-                    <span>Prix</span>
+                    <span>Prix:</span>
                     <span id="summary-price" class="font-medium"></span>
                 </div>
                 <div class="summary-total">
