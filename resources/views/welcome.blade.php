@@ -44,7 +44,6 @@
 
                 script.onload = () => {
                     console.log('Script PayPal chargé avec succès');
-                    // Attendre un court instant pour s'assurer que PayPal est bien initialisé
                     setTimeout(() => {
                         if (window.paypal) {
                             resolve();
