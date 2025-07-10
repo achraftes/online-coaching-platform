@@ -212,7 +212,7 @@
                     <span id="summary-price" class="font-medium"></span>
                 </div>
                 <div class="summary-total">
-                    <span>Total à payer:</span>
+                    <span>Total à payerspan>
                     <span id="summary-total" class="text-xl font-bold text-indigo-600"></span>
                 </div>
             </div>
