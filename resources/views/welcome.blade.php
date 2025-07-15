@@ -34,9 +34,9 @@
 
                 const script = document.createElement('script');
                 const params = new URLSearchParams({
-                    'client-id': 'AaJQBfi_ceDEEHLITezh5JAcR64vDVDLbRBAJFaMYLp2J2mwtVvajCX_pWvgcj-oj9LzcOSOvhG1vJb4',
-                    'currency': 'CAD',
-                    'intent': 'capture'
+                    // 'client-id': 'AaJQBfi_ceDEEHLITezh5JAcR64vDVDLbRBAJFaMYLp2J2mwtVvajCX_pWvgcj-oj9LzcOSOvhG1vJb4',
+                    // 'currency': 'CAD',
+                    // 'intent': 'capture'
                 });
 
                 script.src = `https://www.paypal.com/sdk/js?${params.toString()}`;
