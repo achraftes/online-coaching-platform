@@ -97,7 +97,6 @@
             align-items: center;
             gap: 0.5rem;
             z-index: 9999;
-            opacity: 0;
             transition: opacity 0.3s ease-in-out;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
