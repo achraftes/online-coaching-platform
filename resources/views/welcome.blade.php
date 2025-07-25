@@ -76,7 +76,7 @@
         }
 
         function hideModal() {
-            const modal = document.getElementByI('inscriptionModal');
+            const modal = document.getElementById('inscriptionModal');
             if (modal) {
                 modal.classList.remove('show');
                 modal.style.display = 'none';
