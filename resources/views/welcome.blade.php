@@ -94,7 +94,7 @@
             padding: 1rem;
             border-radius: 0.5rem;
             display: none;
-            align-items:
+            align-items: center;
             gap: 0.5rem;
             z-index: 9999;
             opacity: 0;
