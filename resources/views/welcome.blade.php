@@ -89,7 +89,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: #10B981;
+            background-color: #1B981;
             color: white;
             padding: 1rem;
             border-radius: 0.5rem;
