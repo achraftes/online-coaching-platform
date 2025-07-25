@@ -90,7 +90,7 @@
             top: 20px;
             right: 20px;
             background-color: #10B981;
-            color: whit;
+            color: white;
             padding: 1rem;
             border-radius: 0.5rem;
             display: none;
