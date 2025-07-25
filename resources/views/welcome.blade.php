@@ -91,7 +91,7 @@
             right: 20px;
             background-color: #10B981;
             color: white;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 0.5rem;
             display: none;
             align-items: center;
