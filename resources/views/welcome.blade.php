@@ -27,8 +27,7 @@
             return new Promise((resolve, reject) => {
                 // Vérifier si PayPal est déjà chargé
                 if (window.paypal) {
-                    console.log('PayPal est déjà chargé     <!-- Pour une meilleure compatibilité -->
-');
+                    console.log('PayPal est déjà chargé ');
                     resolve();
                     return;
                 }
