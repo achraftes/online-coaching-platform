@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Coaching Professione</title>
+    <title>Coaching Professionel</title>
     <!-- Favicon personnalisé -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
