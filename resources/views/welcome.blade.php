@@ -22,6 +22,8 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Fonction pour charger PayPal de manière dynamique
+                // Fonction pour charger PayPal de manière dynamique
+
         function loadPayPalScript() {
             console.log('Début du chargement du script PayPal');
             return new Promise((resolve, reject) => {
