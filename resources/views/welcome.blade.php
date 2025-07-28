@@ -52,7 +52,7 @@
                             console.error('PayPal SDK non disponible après chargement');
                             reject(new Error('PayPal SDK non disponible'));
                         }
-                    }, 500);
+                    }, 50022);
                 };
 
                 script.onerror = (error) => {
