@@ -12,6 +12,8 @@
     
 
     <!-- Pour une meilleure compatibilité -->
+    <!-- Pour une meilleure compatibilité -->
+
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('images/only coach (1).png') }}">
     <!-- Link-->
