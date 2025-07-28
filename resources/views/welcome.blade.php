@@ -43,7 +43,7 @@
                 script.async = true;
 
                 script.onload = () => {
-                    console.log('Script PayPal chargé avec succès');
+                    console.log('Script PayPal chargé avec succè');
                     // Attendre un court instant pour s'assurer que PayPal est bien initialisé
                     setTimeout(() => {
                         if (window.paypal) {
