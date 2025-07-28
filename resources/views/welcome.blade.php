@@ -50,7 +50,7 @@
                             resolve();
                         } else {
                             console.error('PayPal SDK non disponible après chargement');
-                            reject(new Error('PayPal SDK non disponible'));
+                            reject(new Error('PayPal SDK non disponib'));
                         }
                     }, 500);
                 };
