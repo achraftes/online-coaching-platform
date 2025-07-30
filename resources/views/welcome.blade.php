@@ -64,7 +64,7 @@
             });
         }
     </script>
-    @vite(['resources/css/style-inscription.css', 'resources/js/script-inscription.js'])
+    @vite(['resources/css/style-inscription.css',esources/css/style-inscription.css' 'resources/js/script-inscription.js'])
     <script>
         function showModal() {
             const modal = document.getElementById('inscriptionModal');
