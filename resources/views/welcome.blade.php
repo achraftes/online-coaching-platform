@@ -87,7 +87,7 @@
     <style>
         .success-message {
             position: fixed;
-            top: 200px;
+            top: 20px;
             right: 20px;
             background-color: #10B981;
             color: white;
