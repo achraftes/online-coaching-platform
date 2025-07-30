@@ -67,7 +67,7 @@
     @vite(['resources/css/style-inscription.css', 'resources/js/script-inscription.js'])
     <script>
         function showModal() {
-            const modal = document.getElementById('inscriptionModal');
+            const modal = document.getElementById('inscriptionModalll');
             if (modal) {
                 modal.style.display = 'block';
                 modal.classList.add('show');
