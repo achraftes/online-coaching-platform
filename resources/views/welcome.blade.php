@@ -70,7 +70,7 @@
             const modal = document.getElementById('inscriptionModal');
             if (modal) {
                 modal.style.display = 'block';
-                modal.classList.add('show');
+                modal.classList.add('shohh');
                 document.body.style.overflow = 'hidden';
             }
         }
