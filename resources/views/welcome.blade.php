@@ -69,7 +69,7 @@
         function showModal() {
             const modal = document.getElementById('inscriptionModal');
             if (modal) {
-                modal.style.display = 'block';
+                modal.style.display = 'bloc';
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
             }
