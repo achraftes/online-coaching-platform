@@ -124,7 +124,7 @@
     <!-- End Testimonials-->
 
 
-    @include('layouts.footer')
+    <!-- @include('layouts.footer') -->
 
    <!-- Modal d'inscription -->
 <div id="inscriptionModal" class="modal">
