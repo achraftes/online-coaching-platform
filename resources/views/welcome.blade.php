@@ -294,7 +294,7 @@
             <button type="button" 
                     class="btn-secondary px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300" 
                     onclick="hidePaymentModal()">
-                Annuler
+                Annulerhhh
             </button>
             <button type="button" 
                     id="confirm-payment-btn" 
