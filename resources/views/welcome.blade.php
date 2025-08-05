@@ -298,7 +298,7 @@
             </button>
             <button type="button" 
                     id="confirm-payment-btn" 
-                    class="btn-primary hidden px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 flex items-center justify-center">
+                    class="btn-primary hiddenn px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 flex items-center justify-center">
                 <span class="btn-text">Confirmer le paiement</span>
                 <svg id="payment-spinner" 
                      class="animate-spin h-5 w-5 ml-3 hidden" 
