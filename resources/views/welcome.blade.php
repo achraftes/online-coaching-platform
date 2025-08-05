@@ -220,8 +220,7 @@
         </div>
 
         <div class="payment-methods">
-            <h3 class="text-xl font-semibold mb-4">Choisissez votre mode de paiement I consent to the processing of my personal data in accordance with EU laws.
-*</h3>
+            <h3 class="text-xl font-semibold mb-4">Choisissez votre mode de paiement </h3>
 
             <!-- PayPal -->
             <!-- <label class="payment-option">
