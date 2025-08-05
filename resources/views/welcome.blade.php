@@ -317,7 +317,7 @@
 </div>
    
     
-    <!-- <script>
+    <script>
     // Afficher le modal automatiquement si des erreurs sont présentes
     @if($errors->any() || session('showModal'))
         document.addEventListener('DOMContentLoaded', function() {
@@ -364,7 +364,7 @@
             }, 500); // Délai de 500ms avant de vérifier
         });
     });
-</script> -->
+</script>
 
     <script src="{{ asset('js/script.js') }}"></script>
 
