@@ -265,7 +265,7 @@
                 <div id="card-errors" class="text-red-500 text-sm mt-2" role="alert"></div>
             </div>
 
-            <!-- Paiement sur place -->
+            <!-- Paiement sur place --><!-- Paiement sur place -->
             <label class="payment-option">
                 <input type="radio" name="payment_method" value="onsite">
                 <div class="payment-option-content">
