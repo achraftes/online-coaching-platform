@@ -29,6 +29,7 @@
             console.log('Début du chargement du script PayPal');
             return new Promise((resolve, reject) => {
                 // Vérifier si PayPal est déjà chargé
+                 // Vérifier si PayPal est déjà chargé
                 if (window.paypal) {
                     console.log('PayPal est déjà chargé ');
                     resolve();
