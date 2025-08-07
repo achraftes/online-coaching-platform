@@ -365,10 +365,10 @@
                         console.error('Erreur lors de la vérification de l\'email:', error);
                     }
                 }
-            <!-- }, 500); // Délai de 500ms avant de vérifier
+            }, 500); // Délai de 500ms avant de vérifier
         });
     });
-</script> --> -->
+</script> -->
 
     <script src="{{ asset('js/script.js') }}"></script>
 
