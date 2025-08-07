@@ -7,6 +7,7 @@
     <title>Prendre Rendez-vous</title>
     
     <!-- Favicon personnalisé -->
+     <!-- Favicon personnalisé -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/only coach (1).png') }}">
     <link rel="shortcut icon" href="{{ asset('images/only coach (1).png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/only coach (1).png') }}">
