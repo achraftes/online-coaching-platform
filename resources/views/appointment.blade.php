@@ -37,7 +37,7 @@
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            text-align: tcenter;
+            text-align: center;
             width: 100%;
             display: flex;
             align-items: center;
