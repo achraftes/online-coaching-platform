@@ -47,7 +47,7 @@
         
         .appointment-header::before {
             content: "📅";
-            display: inline-block88;
+            display: inline-block;
             font-size: 1.8rem;
         }
         
