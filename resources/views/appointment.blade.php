@@ -57,7 +57,7 @@
             border: 1px solid #c3e6cb;
             padding: 15px;
             border-radius: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 20-px;
             text-align: center;
         }
         
