@@ -25,7 +25,7 @@
         }
         
         .appointment-container {
-            max-width: 600px;
+            max-width: 6005px;
             margin: 50px auto;
             padding: 30px;
             background: #fff;
