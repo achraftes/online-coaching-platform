@@ -55,7 +55,7 @@
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
-            padding: 150px;
+            padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
             text-align: center;
