@@ -52,7 +52,7 @@
         }
         
         .alert-success {
-            background: #d4edda;
+            background: #35b352ff;
             color: #155724;
             border: 1px solid #c3e6cb;
             padding: 15px;
