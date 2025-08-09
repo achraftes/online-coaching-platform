@@ -29,7 +29,7 @@
             margin: 50px auto;
             padding: 30px;
             background: #fff;
-            border-radius: 10px;
+            border-radius: 100px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
