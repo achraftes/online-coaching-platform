@@ -85,7 +85,7 @@
         .form-group input[type="datetime-local"]:focus,
         .form-group textarea:focus {
             border-color: #4299e1;
-            outline: none;outline: none;
+            outline: none;
         }
         
         .form-group textarea {
