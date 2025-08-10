@@ -132,7 +132,6 @@
             <input type="hidden" name="email" value="{{ $email }}">
             <input type="hidden" name="phone" value="{{ $phone }}">
             <input type="hidden" name="result" value="{{ $result }}"> 
-            <input type="hidden" name="result" value="{{ $result }}">
 
             <div class="form-group">
                 <label for="appointment_date">Choisissez un créneau :</label>
