@@ -116,7 +116,7 @@
     @include('layouts.header')
 
     <div class="appointment-container">
-        <h2 class="appointment-header"> Prendre Rendez-voushhhh</h2>
+        <h2 class="appointment-header"> Prendre Rendez-vous</h2>
         
         @if(session('success'))
             <div class="alert-success">
@@ -131,6 +131,7 @@
             <input type="hidden" name="lname" value="{{ $lname }}">
             <input type="hidden" name="email" value="{{ $email }}">
             <input type="hidden" name="phone" value="{{ $phone }}">
+            <input type="hidden" name="result" value="{{ $result }}"> 
             <input type="hidden" name="result" value="{{ $result }}">
 
             <div class="form-group">
