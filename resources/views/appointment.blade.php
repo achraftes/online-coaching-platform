@@ -99,7 +99,7 @@
             background: #4338CA;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 59px;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s;
