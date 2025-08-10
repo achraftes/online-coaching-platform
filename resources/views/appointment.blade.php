@@ -69,7 +69,7 @@
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #4a5568;
+            color: #4a5568;color: #4a5568;
         }
         
         .form-group input[type="datetime-local"],
