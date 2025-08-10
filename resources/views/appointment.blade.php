@@ -116,7 +116,7 @@
     @include('layouts.header')
 
     <div class="appointment-container">
-        <h2 class="appointment-header"> Prendre Rendez-vous</h2>
+        <h2 class="appointment-header"> Prendre Rendez-voushhhh</h2>
         
         @if(session('success'))
             <div class="alert-success">
