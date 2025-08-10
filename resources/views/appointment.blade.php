@@ -62,7 +62,7 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 200px;
         }
         
         .form-group label {
