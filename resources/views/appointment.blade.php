@@ -59,6 +59,7 @@
             border-radius: 5px;
             margin-bottom: 20px;
             text-align: center;
+            text-align: center;
         }
         
         .form-group {
