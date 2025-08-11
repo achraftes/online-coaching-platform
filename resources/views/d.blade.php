@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Cacher les SVG sur petits écrans *//* Cacher les SVG sur petits écrans */
+        /* Cacher les SVG sur petits écrans */
         @media(max-width:1520px) {
             .left-svg {
                 display: none;
