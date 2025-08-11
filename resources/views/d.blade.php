@@ -15,7 +15,7 @@
                 display: none;
             }
         }
-/* Cacher les SVG sur petits écrans */
+
         /* Style pour le bouton de fermeture du menu mobile */
        
         #nav-mobile-btn.close span:first-child {
