@@ -39,6 +39,7 @@
             left: 50%;
             top: 50%;
             width: 100%;
+             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
