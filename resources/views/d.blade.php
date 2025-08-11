@@ -20,7 +20,7 @@
         /* Style pour le bouton de fermeture du menu mobile */
         #nav-mobile-btn.close span:first-child {
             transform: rotate(45deg);
-            top: 4px;
+            top: 47px;
             position: relative;
             background: #a0aec0;
         }
