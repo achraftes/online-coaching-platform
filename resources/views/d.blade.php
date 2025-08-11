@@ -20,7 +20,7 @@
        
         #nav-mobile-btn.close span:first-child {
             transform: rotate(45deg);
-            top: 5px;
+            top: 4px;
             position: relative;
             background: #a0aec0;
         }
