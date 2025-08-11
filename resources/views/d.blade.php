@@ -17,6 +17,7 @@
         }
 
         /* Style pour le bouton de fermeture du menu mobile */
+        /* Style pour le bouton de fermeture du menu mobile */
         #nav-mobile-btn.close span:first-child {
             transform: rotate(45deg);
             top: 4px;
