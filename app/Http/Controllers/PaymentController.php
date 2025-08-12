@@ -46,7 +46,6 @@ class PaymentController extends Controller
                 'metadata' => [
                     'service' => $service,
                     'client_name' => $request->input('client_name'),
-                    'client_email' => $request->input('client_email'),
                     'client_email' => $request->input('client_email')
                 ],
             ]);
