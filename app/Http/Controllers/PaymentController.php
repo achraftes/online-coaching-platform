@@ -53,7 +53,6 @@ class PaymentController extends Controller
             // 6) Vérifier le statut du paiement
             if ($paymentIntent->status === 'succeeded') {
                 // Paiement réussi directement
-                 // Paiement réussi directement
                 return response()->json([
                     'success' => true,
                     'message' => 'Paiement réussi',
