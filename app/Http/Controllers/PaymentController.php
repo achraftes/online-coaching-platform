@@ -15,7 +15,7 @@ class PaymentController extends Controller
             // 1) Vérifier si la clé API est définie
             $stripeSecret = env('STRIPE_SECRET_KEY');
             if (!$stripeSecret) {
-                throw new Exception('La clé API Stripe n\'est pas configurée');
+                throw new Exception('La clé API Stripe n’a pas encore été configurée');
             }
 
             // 2) Définir la clé API
