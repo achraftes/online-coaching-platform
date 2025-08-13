@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
@@ -8,93 +10,92 @@ use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
+    /**
+     * Traiter un paiement via Stripe.
+     */
     public function processPayment(Request $request)
     {
         try {
-            // 1) Vérifier si la clé API est définie
+            // 1) Vérifier la présence de la clé API Stripe
             $stripeSecret = env('STRIPE_SECRET_KEY');
             if (!$stripeSecret) {
-                throw new Exception('La clé API Stripe n\'est pas configurée');
+                throw new Exception("La clé API Stripe n'est pas configurée");
             }
 
-            // 2) Définir la clé API
+            // 2) Configurer Stripe
             Stripe::setApiKey($stripeSecret);
 
             // 3) Validation et nettoyage des données
-            $amount = (float) str_replace(['€', ','], '', $request->input('amount'));
-            $paymentMethodId = $request->input('payment_method_id');
-            $service = $request->input('service');
+            $amount           = (float) str_replace(['€', ','], '', $request->input('amount'));
+            $paymentMethodId  = $request->input('payment_method_id');
+            $service          = $request->input('service');
+            $clientName       = $request->input('client_name');
+            $clientEmail      = $request->input('client_email');
 
             if (empty($paymentMethodId)) {
-                throw new Exception('ID de méthode de paiement manquant');
+                throw new Exception("ID de méthode de paiement manquant");
             }
 
-            // 4) Convertir le montant en centimes et arrondir
+            // 4) Conversion du montant en centimes
             $amountInCents = round($amount * 100);
 
-            // 5) Créer l'intention de paiement
+            // 5) Création de l'intention de paiement
             $paymentIntent = PaymentIntent::create([
-                'amount' => $amountInCents,
-                'currency' => 'eur',
-                'payment_method' => $paymentMethodId,
-                'confirmation_method' => 'manual',
-                'confirm' => true,
-
-                // *** IMPORTANT : fournir le return_url ***
-                'return_url' => url('/payment/return'),
-
-                'metadata' => [
-                    'service' => $service,
-                    'client_name' => $request->input('client_name'),
-                    'client_email' => $request->input('client_email')
+                'amount'             => $amountInCents,
+                'currency'           => 'eur',
+                'payment_method'     => $paymentMethodId,
+                'confirmation_method'=> 'manual',
+                'confirm'            => true,
+                'return_url'         => url('/payment/return'),
+                'metadata'           => [
+                    'service'       => $service,
+                    'client_name'   => $clientName,
+                    'client_email'  => $clientEmail,
                 ],
             ]);
 
-            // 6) Vérifier le statut du paiement
+            // 6) Gestion des statuts de paiement
             if ($paymentIntent->status === 'succeeded') {
-                // Paiement réussi directement
                 return response()->json([
                     'success' => true,
                     'message' => 'Paiement réussi',
                 ]);
-            } else if ($paymentIntent->status === 'requires_action') {
-                // Stripe indique qu'une action (3D Secure ou redirection) est requise
-                return response()->json([
-                    'requires_action' => true,
-                    'payment_intent_client_secret' => $paymentIntent->client_secret
-                ]);
-            } else {
-                // Autres cas : échec ou statut inattendu
-                throw new Exception('Le paiement a échoué ou nécessite une action supplémentaire.');
             }
+
+            if ($paymentIntent->status === 'requires_action') {
+                return response()->json([
+                    'requires_action'              => true,
+                    'payment_intent_client_secret' => $paymentIntent->client_secret,
+                ]);
+            }
+
+            throw new Exception("Le paiement a échoué ou nécessite une action supplémentaire.");
+
         } catch (Exception $e) {
-            // Journaliser l'erreur et renvoyer une réponse 500
-            Log::error('Erreur de paiement: ' . $e->getMessage());
+            // Journaliser l'erreur
+            Log::error('Erreur de paiement : ' . $e->getMessage());
 
             return response()->json([
                 'success' => false,
-                'message' => $e->getMessage()
+                'message' => $e->getMessage(),
             ], 500);
         }
     }
 
     /**
-     * Méthode d'exemple pour le "return_url"
-     * Vous pouvez renvoyer sur une vue de confirmation ou vérifier l'état du PaymentIntent.
+     * Page de retour après paiement (return_url).
      */
     public function paymentReturn(Request $request)
     {
-        // Stripe renverra ici le client après la redirection
-        // Exemple : Récupérer l'ID du PaymentIntent
         $paymentIntentId = $request->query('payment_intent');
-        $redirStatus     = $request->query('redirect_status'); // may be 'succeeded', 'failed', etc.
+        $redirectStatus  = $request->query('redirect_status'); // "succeeded", "failed", etc.
 
-        // Vous pouvez faire ici une vérification supplémentaire
+        // Exemple : récupération du PaymentIntent si nécessaire
         // $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
         return view('payment.return', [
             'payment_intent_id' => $paymentIntentId,
-            'redirect_status'   => $redirStatus,
-            ]);
-        }
+            'redirect_status'   => $redirectStatus,
+        ]);
+    }
 }
