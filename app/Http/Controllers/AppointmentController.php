@@ -34,6 +34,7 @@ class AppointmentController extends Controller
     public function scheduleAppointment(Request $request)
     {
         // Valider les données du formulaire
+        // Valider les données du formulaire
         $validated = $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:50',
