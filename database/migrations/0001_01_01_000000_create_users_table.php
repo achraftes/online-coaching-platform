@@ -7,43 +7,52 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Exécute les migrations.
      */
     public function up(): void
     {
+        /**
+         * Table des utilisateurs
+         */
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id(); // Clé primaire auto-incrémentée
+            $table->string('name'); // Nom de l'utilisateur
+            $table->string('email')->unique(); // Email unique
+            $table->timestamp('email_verified_at')->nullable(); // Date de vérification de l'email
+            $table->string('password'); // Mot de passe
+            $table->rememberToken(); // Token pour "remember me"
+            $table->timestamps(); // created_at et updated_at
         });
 
+        /**
+         * Table pour la réinitialisation de mot de passe
+         */
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->string('email')->primary(); // Email comme clé primaire
+            $table->string('token'); // Token de réinitialisation
+            $table->timestamp('created_at')->nullable(); // Date de création
         });
 
+        /**
+         * Table des sessions
+         */
         Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->string('id')->primary(); // ID de session
+            $table->foreignId('user_id')->nullable()->index(); // Clé étrangère vers users
+            $table->string('ip_address', 45)->nullable(); // Adresse IP
+            $table->text('user_agent')->nullable(); // Informations navigateur/appareil
+            $table->longText('payload'); // Données de session
+            $table->integer('last_activity')->index(); // Dernière activité
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Annule les migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };
