@@ -22,7 +22,7 @@ class PaymentController extends Controller
 
             // 3) Validation et nettoyage des données
             $amount = (float) str_replace(['€', ','], '', $request->input('amount'));
-            $paymentMethodId = $request->input('payment_method_id1');
+            $paymentMethodId = $request->input('payment_method_id');
             $service = $request->input('service');
 
             if (empty($paymentMethodId)) {
