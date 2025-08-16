@@ -163,6 +163,7 @@
 
     {{-- Footer --}}
     @include('layouts.footer')
+    @include('layouts.footer')
 
 </body>
 </html>
