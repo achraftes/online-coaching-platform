@@ -44,10 +44,10 @@
             gap: 10px;
         }
 
-        .appointment-header::before {
+        /* .appointment-header::before {
             content: "📅";
             display: inline-block;
-            font-size: 1.8rem;
+            font-size: 1.8rem; */
         }
 
         .alert-success {
