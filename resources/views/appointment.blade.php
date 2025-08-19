@@ -62,14 +62,14 @@
 
         .form-group {
             margin-bottom: 20px;
-        }
+        /* }
 
         .form-group label {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
             color: #4a5568;
-        }
+        } */
 
         .form-group input[type="datetime-local"],
         .form-group textarea {
