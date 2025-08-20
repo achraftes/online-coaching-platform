@@ -50,11 +50,11 @@
                 </div>
             </div>
 
-            <!-- <div class="text-center mt-3">
+            <div class="text-center mt-3">
                 <a href="{{ route('compte.index') }}" class="btn btn-outline-secondary">
                     Back to Account
                 </a>
-            </div> -->
+            </div>
 
         </div>
     </div>
