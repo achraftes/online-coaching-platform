@@ -19,15 +19,7 @@
         </div>
 
         <!-- Détails du RDV -->
-        <div style="margin-bottom: 20px;">
-            <h3 style="color: #3498db;">📅 Rendez-vous</h3>
-            <p><strong>Type :</strong> {{ $data['result'] === 'A' ? 'Confiance en soi' : 'Gestion du stress' }}</p>
-            <p><strong>Date :</strong> {{ \Carbon\Carbon::parse($data['appointment_date'])->format('d/m/Y à H\hi') }}</p>
-            
-            @if(!empty($data['comment']))
-                <p><strong>Commentaire :</strong><br>{{ $data['comment'] }}</p>
-            @endif
-        </div>
+     
 
         <!-- Lien Google Calendar -->
         @if(isset($event->htmlLink))
