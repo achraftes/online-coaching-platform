@@ -28,45 +28,45 @@ class CompteController extends Controller
     /**
      * Met à jour les informations du profil utilisateur.
      */
-    public function updateProfile(Request $request)
-    {
-        $request->validate([
-            'full_name'  => 'required|string|max:255',
-            'nick_name'  => 'nullable|string|max:255',
-            'gender'     => 'nullable|string|max:50',
-            'country'    => 'nullable|string|max:100',
-            'language'   => 'nullable|string|max:50',
-            'time_zone'  => 'nullable|string|max:100',
-        ]);
+//     public function updateProfile(Request $request)
+//     {
+//         $request->validate([
+//             'full_name'  => 'required|string|max:255',
+//             'nick_name'  => 'nullable|string|max:255',
+//             'gender'     => 'nullable|string|max:50',
+//             'country'    => 'nullable|string|max:100',
+//             'language'   => 'nullable|string|max:50',
+//             'time_zone'  => 'nullable|string|max:100',
+//         ]);
 
-        $user = Auth::user();
-        $user->update($request->all());
+//         $user = Auth::user();
+//         $user->update($request->all());
 
-        return redirect()->route('compte.index')->with('success', 'Profile updated successfully.');
-    }
+//         return redirect()->route('compte.index')->with('success', 'Profile updated successfully.');
+//     }
 
-    /**
-     * Met à jour la photo de profil.
-     */
-    public function updatePhoto(Request $request)
-    {
-        $request->validate([
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+//     /**
+//      * Met à jour la photo de profil.
+//      */
+//     public function updatePhoto(Request $request)
+//     {
+//         $request->validate([
+//             'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+//         ]);
 
-        $user = Auth::user();
+//         $user = Auth::user();
 
-        // Supprimer l'ancienne photo si elle existe
-        if ($user->profile_photo && Storage::disk('public')->exists($user->profile_photo)) {
-            Storage::disk('public')->delete($user->profile_photo);
-        }
+//         // Supprimer l'ancienne photo si elle existe
+//         if ($user->profile_photo && Storage::disk('public')->exists($user->profile_photo)) {
+//             Storage::disk('public')->delete($user->profile_photo);
+//         }
 
-        // Sauvegarde de la nouvelle photo
-        $path = $request->file('photo')->store('profile_photos', 'public');
+//         // Sauvegarde de la nouvelle photo
+//         $path = $request->file('photo')->store('profile_photos', 'public');
         
-        $user->profile_photo = $path;
-        $user->save();
+//         $user->profile_photo = $path;
+//         $user->save();
 
-        return redirect()->route('compte.index')->with('success', 'Photo updated successfully.');
-    }
-}
+//         return redirect()->route('compte.index')->with('success', 'Photo updated successfully.');
+//     }
+// }
