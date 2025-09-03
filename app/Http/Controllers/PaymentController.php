@@ -93,9 +93,9 @@ class PaymentController extends Controller
         // Exemple : récupération du PaymentIntent si nécessaire
         // $paymentIntent = PaymentIntent::retrieve($paymentIntentId);
 
-    //     return view('payment.return', [
-    //         'payment_intent_id' => $paymentIntentId,
-    //         'redirect_status'   => $redirectStatus,
-    //     ]);
-    // }
+        return view('payment.return', [
+            'payment_intent_id' => $paymentIntentId,
+            'redirect_status'   => $redirectStatus,
+        ]);
+    }
 }
