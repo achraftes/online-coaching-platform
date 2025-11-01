@@ -230,7 +230,7 @@
         }
         
         .or-divider::after {
-            right: 0; right: 0;
+            right: 0;
         }
         
         .social-signup {
