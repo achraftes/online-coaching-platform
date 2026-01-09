@@ -310,7 +310,8 @@
                         <small style="color: #ff6b6b;">{{ $message }}</small>
                     @enderror
                 </div>
-                
+               
+
                 <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Adresse email" required value="{{ old('email') }}">
                     @error('email')
@@ -337,10 +338,10 @@
                     </div>
                 </div>
                 
-                <div class="terms">
+                <!-- <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms">J'accepte les <a href="#">Termes & Conditions</a></label>
-                </div>
+                </div> -->
                 
                 <button type="submit" class="create-account-btn">S'inscrire</button>
             </form>
