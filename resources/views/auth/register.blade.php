@@ -311,12 +311,12 @@
                     @enderror
                 </div>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Adresse email" required value="{{ old('email') }}">
                     @error('email')
                         <small style="color: #ff6b6b;">{{ $message }}</small>
                     @enderror
-                </div>
+                </div> -->
                 
                 <div class="form-group">
                     <div class="password-field">
