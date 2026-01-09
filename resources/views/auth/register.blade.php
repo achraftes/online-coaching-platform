@@ -310,7 +310,7 @@
                         <small style="color: #ff6b6b;">{{ $message }}</small>
                     @enderror
                 </div>
-               
+                Add modern user registration page with responsive design
 
                 <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Adresse email" required value="{{ old('email') }}">
