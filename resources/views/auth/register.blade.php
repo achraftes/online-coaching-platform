@@ -310,8 +310,7 @@
                         <small style="color: #ff6b6b;">{{ $message }}</small>
                     @enderror
                 </div>
-                Add modern user registration page with responsive design
-
+                
                 <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Adresse email" required value="{{ old('email') }}">
                     @error('email')
@@ -332,11 +331,11 @@
                     @enderror
                 </div>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <div class="password-field">
                         <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required>
