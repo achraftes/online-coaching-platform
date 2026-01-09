@@ -331,11 +331,11 @@
                     @enderror
                 </div>
                 
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <div class="password-field">
                         <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
                     </div>
-                </div> -->
+                </div>
                 
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required>
